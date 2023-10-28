@@ -168,7 +168,7 @@ def calc_fi (x,y,z,e_cuadrado,a):
     gran_normal_5 = (a/math.sqrt((1-(e_cuadrado*((sen_fi_5)**2)))))    
     h_5 = ((math.sqrt(x**2+y**2))/cos_fi_5) - gran_normal_5
     
-    print(f"La latitud final aproximada del punto es: {gra_fi_5}° {min_fi_5}' {seg_fi_5:.4f}\" E ")
+    print(f"La latitud final (φ) aproximada del punto es: {gra_fi_5}° {min_fi_5}' {seg_fi_5:.4f}\" E ")
     print(f"La altura final aproximada es de: {h_5} mts")
         
 a,e_cuadrado,x,y,z = valores_iniciales()
