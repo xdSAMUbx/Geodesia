@@ -57,6 +57,10 @@ def calc_MGNSRGS (a,e_cuadrado,b,e_prim_cuad,alfa,beta,gamma,delta,epsilon):
     min_lon = float(input("Minutos: "))
     seg_lon = float(input("Segundos: "))
     lon_pto = gra_lon + (min_lon/60) + (seg_lon/3600)
+    
+    eta = e_prim_cuad*((math.cos(math.radians(lat_pto))**2))
+    sen_pto = math.sin(math.radians(lat_pto))
+    gran_normal = (a/math.sqrt((1-(e_cuadrado*((sen_pto)**2)))))
 
     if lon_pto >= 72.57750791667 and lon_pto <= 75.57750791667:
         #para Bogota (B)
@@ -64,7 +68,8 @@ def calc_MGNSRGS (a,e_cuadrado,b,e_prim_cuad,alfa,beta,gamma,delta,epsilon):
         lon_or = 74.07750791666666
         l = lon_pto - lon_or
         t = math.tan(math.radians(lat_pto))
-        eta = e_prim_cuad*((math.cos(math.radians(lat_pto))**2))
+        
+        
         
     elif lon_pto <= 72.57750791667 and lon_pto >= 69.57750791667:
         #Para Este Central (EC)
@@ -87,5 +92,5 @@ def calc_MGNSRGS (a,e_cuadrado,b,e_prim_cuad,alfa,beta,gamma,delta,epsilon):
         lon_or = 80.07750791666666
         
 #CALCULO PARA DATUM - BOGOTA
-def calc_DATBOG (lat_geo,lon_geo):
+def calc_DATBOG (a,e_cuadrado,b,e_prim_cuad,alfa,beta,gamma,delta,epsilon):
     pass

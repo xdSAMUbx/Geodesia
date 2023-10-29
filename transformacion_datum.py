@@ -37,7 +37,7 @@ def calculo_coords_viejas ():
     y = (gran_normal+h)*coseno_angulo_geodesic*seno_angulo_long
     z = (gran_normal*(1-e_cuadrado)+h)*seno_angulo_geodesic 
     
-    print(f"La coordenada es: {x},{y},{z}")
+    print(f"La coordenada antigua es: {x},{y},{z}")
     
     return x,y,z,lat_geo,lon_geo
     
