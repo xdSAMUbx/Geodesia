@@ -27,15 +27,14 @@ def calculo_coords_viejas ():
     seg_lon = float(input("Segundos: "))
     lon_geo = gra_lon + (min_lon/60) + (seg_lon/3600)
     
-    h = float(input("Ingrese la altura: "))
-    coseno_angulo_geodesic = math.cos(math.radians(lat_geo))
-    coseno_angulo_long = math.cos(math.radians(lon_geo))
-    seno_angulo_geodesic = math.sin(math.radians(lat_geo))
-    seno_angulo_long = math.sin(math.radians(lon_geo))
-    gran_normal = a/(1-(e_cuadrado*((seno_angulo_geodesic)**2)))
-    x = (gran_normal+h)*coseno_angulo_geodesic*coseno_angulo_long
-    y = (gran_normal+h)*coseno_angulo_geodesic*seno_angulo_long
-    z = (gran_normal*(1-e_cuadrado)+h)*seno_angulo_geodesic 
+    cos_lat = math.cos(math.radians(lat_geo))
+    cos_lon = math.cos(math.radians(lon_geo))
+    sen_lat = math.sin(math.radians(lat_geo))
+    sen_lon = math.sin(math.radians(lon_geo))
+    gran_normal = a/(1-(e_cuadrado*((sen_lat)**2)))
+    x = (gran_normal)*cos_lat*cos_lon
+    y = (gran_normal)*cos_lat*sen_lon
+    z = (gran_normal*(1-e_cuadrado))*sen_lat 
     
     print(f"La coordenada antigua es: {x},{y},{z}")
     
