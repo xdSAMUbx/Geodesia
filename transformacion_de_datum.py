@@ -15,34 +15,34 @@ def calculo_coords_viejas ():
     else:
         print("Error")
     
-    print("Ingrese la latitud Geodesica del punto (si es negativa, no importa): ")
-    grad_lat = float(input("Grados: "))
-    min_lat = float(input("Minutos: "))
-    seg_lat = float(input("Segundos: "))
-    lat_geo = grad_lat + (min_lat/60) + (seg_lat/3600)
+    print("Ingrese la latitud geodésica en el siguiente orden: ")
+    grados = float(input("Ingrese los grados: "))
+    minutos = float(input("Ingrese los minutos: "))
+    segundos = float(input("Ingrese los segundos: "))
     
-    print("Ingrese la longitud Geodésica del punto 1, en el siguiente orden:")
-    gra_lon = float(input("Grados: "))
-    min_lon = float(input("Minutos: "))
-    seg_lon = float(input("Segundos: "))
-    lon_geo = gra_lon + (min_lon/60) + (seg_lon/3600)
+    print("Ingrese la longitud en el siguiente orden: ")
+    grados_long = float(input("Ingrese los grados: "))
+    minutos_long = float(input("Ingrese los minutos: "))
+    segundos_long = float(input("Ingrese los segundos: "))
     
-    cos_lat = math.cos(math.radians(lat_geo))
-    cos_lon = math.cos(math.radians(lon_geo))
-    sen_lat = math.sin(math.radians(lat_geo))
-    sen_lon = math.sin(math.radians(lon_geo))
-    gran_normal = a/(1-(e_cuadrado*((sen_lat)**2)))
-    x = (gran_normal)*cos_lat*cos_lon
-    y = (gran_normal)*cos_lat*sen_lon
-    z = (gran_normal*(1-e_cuadrado))*sen_lat 
+    lat_geo = grados+(minutos/60)+(segundos/3600)
+    lon_geo = -(grados_long+(minutos_long/60)+(segundos_long/3600))
+    h = float(input("Ingrese la altura: "))
+    coseno_angulo_geodesic = math.cos(math.radians(lat_geo))
+    coseno_angulo_long = math.cos(math.radians(lon_geo))
+    seno_angulo_geodesic = math.sin(math.radians(lat_geo))
+    seno_angulo_long = math.sin(math.radians(lon_geo))
     
-    print(f"La coordenada antigua es: {x},{y},{z}")
+    gran_normal = a/math.sqrt(1-(e_cuadrado*((seno_angulo_geodesic)**2)))
+    x = (gran_normal+h)*coseno_angulo_geodesic*coseno_angulo_long
+    y = (gran_normal+h)*coseno_angulo_geodesic*seno_angulo_long
+    z = ((gran_normal*(1-e_cuadrado))+h)*seno_angulo_geodesic 
     
     return x,y,z,lat_geo,lon_geo
     
 def transformacion (x,y,z,lat_geo,lon_geo):  
     #los deltas estan en metros y las rotaciones en radianes  
-    if lat_geo >= 10.0 and lat_geo <= 13.0 and lon_geo >= 73.0 and lon_geo <= 71.0:
+    if lat_geo >= 10.0 and lat_geo <= 13.0 and lon_geo >= -73.0 and lon_geo <= -71.0:
     # region1  
     
         deltax = -806.413
@@ -60,7 +60,7 @@ def transformacion (x,y,z,lat_geo,lon_geo):
         print(f"Las coordenadas en el antigu sistema eran: {x}, {y}, {z}")
         print(f"Las coordenadas del nuevo sistema son: {x_trans}, {y_trans}, {z_trans}")
         
-    elif lat_geo >= 9.4 and lat_geo <= 11.6 and lon_geo <= 76.0 and lon_geo >= 73.0:
+    elif lat_geo >= 9.4 and lat_geo <= 11.6 and lon_geo >= -76.0 and lon_geo <= -73.0:
     # region2
     
         deltax = 100.783
@@ -71,6 +71,7 @@ def transformacion (x,y,z,lat_geo,lon_geo):
         rot_y = 1.175093e-5
         rot_z = -4.027967e-5
     
+    
         x_trans = deltax + x + rot_z*y - rot_y*z + x*deltaL
         y_trans = deltay + y - rot_z*x + rot_x*z + y*deltaL
         z_trans = deltaz + z +rot_y*x - rot_x*y + z*deltaL
@@ -78,7 +79,7 @@ def transformacion (x,y,z,lat_geo,lon_geo):
         print(f"Las coordenadas en el antigu sistema eran: {x}, {y}, {z}")
         print(f"Las coordenadas del nuevo sistema son: {x_trans}, {y_trans}, {z_trans}")
         
-    elif lat_geo >= 8.0 and lat_geo <= 9.4 and lon_geo <= 77.6 and lon_geo >= 74.4:
+    elif lat_geo >= 8.0 and lat_geo <= 9.4 and lon_geo >= -77.6 and lon_geo <= -74.4:
     # region3
     
         deltax = 336.026
@@ -96,7 +97,7 @@ def transformacion (x,y,z,lat_geo,lon_geo):
         print(f"Las coordenadas en el antigu sistema eran: {x}, {y}, {z}")
         print(f"Las coordenadas del nuevo sistema son: {x_trans}, {y_trans}, {z_trans}")
         
-    elif lat_geo >= 5.0 and lat_geo <= 9.4 and lon_geo <= 74.4 and lon_geo >= 72.0:
+    elif lat_geo >= 5.0 and lat_geo <= 9.4 and lon_geo >= -74.4 and lon_geo <= -72.0:
     # region4
     
         deltax = 963.273
@@ -114,7 +115,7 @@ def transformacion (x,y,z,lat_geo,lon_geo):
         print(f"Las coordenadas en el antigu sistema eran: {x}, {y}, {z}")
         print(f"Las coordenadas del nuevo sistema son: {x_trans}, {y_trans}, {z_trans}")
         
-    elif lat_geo >= 5.0 and lat_geo <= 8.0 and lon_geo <= 78.0 and lon_geo >= 74.4:
+    elif lat_geo >= 5.0 and lat_geo <= 8.0 and lon_geo >= -78.0 and lon_geo <= -74.4:
     # region5
     
         deltax = -90.290
@@ -132,7 +133,7 @@ def transformacion (x,y,z,lat_geo,lon_geo):
         print(f"Las coordenadas en el antigu sistema eran: {x}, {y}, {z}")
         print(f"Las coordenadas del nuevo sistema son: {x_trans}, {y_trans}, {z_trans}")
         
-    elif lat_geo >= 3.0 and lat_geo <= 5.0 and lon_geo <= 78.0 and lon_geo >= 74.4:
+    elif lat_geo >= 3.0 and lat_geo <= 5.0 and lon_geo >= -78.0 and lon_geo <= -74.4:
     # region6
         
         deltax = -0.562
@@ -150,7 +151,7 @@ def transformacion (x,y,z,lat_geo,lon_geo):
         print(f"Las coordenadas en el antigu sistema eran: {x}, {y}, {z}")
         print(f"Las coordenadas del nuevo sistema son: {x_trans}, {y_trans}, {z_trans}")
         
-    elif lat_geo >= -1.0 and lat_geo <= 3.0 and lon_geo <= 79.0 and lon_geo >= 74.0:
+    elif lat_geo >= -1.0 and lat_geo <= 3.0 and lon_geo >= -79.0 and lon_geo <= -74.0:
     # region7
     
         deltax = -305.356
@@ -168,7 +169,7 @@ def transformacion (x,y,z,lat_geo,lon_geo):
         print(f"Las coordenadas en el antigu sistema eran: {x}, {y}, {z}")
         print(f"Las coordenadas del nuevo sistema son: {x_trans}, {y_trans}, {z_trans}")
         
-    elif ( lat_geo >= -4.5 and lat_geo <= 3.0 and lon_geo <= 74.0 and lon_geo >= 66.5) or (lat_geo >= 3.0 and lat_geo <= 5.0 and lon_geo <= 74.0 and lon_geo >= 66.5) or (lat_geo >= 5.0 and lat_geo <= 7.3 and lon_geo <= 72.0 and lon_geo >= 66.5):
+    elif ( lat_geo >= -4.5 and lat_geo <= 3.0 and lon_geo >= -74.0 and lon_geo <= 66.5) or (lat_geo >= 3.0 and lat_geo <= 5.0 and lon_geo >= -74.0 and lon_geo <= -66.5) or (lat_geo >= 5.0 and lat_geo <= 7.3 and lon_geo >= -72.0 and lon_geo <= -66.5):
     # region8
     
         deltax = 221.899
