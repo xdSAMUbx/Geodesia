@@ -2,18 +2,8 @@ import math
 
 def calculo_coords_viejas ():
     
-    print("¿Que elipsoide va a trabajar como inicial?")
-    print("1) Internacional")
-    print("2) GRS - 80")
-    elip = int(input("El elipsoide que desea trabajar es:"))
-    if elip == 1:
-        a = 6378388
-        e_cuadrado = 0.00672267
-    elif elip == 2:
-        a = 6378137
-        e_cuadrado = 0.00669438
-    else:
-        print("Error")
+    a = 6378388
+    e_cuadrado = 0.00672267
     
     print("Ingrese la latitud geodésica en el siguiente orden: ")
     grados = float(input("Ingrese los grados: "))
