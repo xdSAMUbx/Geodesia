@@ -47,7 +47,7 @@ def transformacion (x,y,z,lat_geo,lon_geo):
         y_trans = deltay + y - rot_z*x + rot_x*z + y*deltaL
         z_trans = deltaz + z +rot_y*x - rot_x*y + z*deltaL
         
-        print(f"Las coordenadas en el antigu sistema eran: {x}, {y}, {z}")
+        print(f"Las coordenadas en el antiguo sistema eran: {x}, {y}, {z}")
         print(f"Las coordenadas del nuevo sistema son: {x_trans}, {y_trans}, {z_trans}")
         
     elif lat_geo >= 9.4 and lat_geo <= 11.6 and lon_geo >= -76.0 and lon_geo <= -73.0:
@@ -66,7 +66,7 @@ def transformacion (x,y,z,lat_geo,lon_geo):
         y_trans = deltay + y - rot_z*x + rot_x*z + y*deltaL
         z_trans = deltaz + z +rot_y*x - rot_x*y + z*deltaL
         
-        print(f"Las coordenadas en el antigu sistema eran: {x}, {y}, {z}")
+        print(f"Las coordenadas en el antiguo sistema eran: {x}, {y}, {z}")
         print(f"Las coordenadas del nuevo sistema son: {x_trans}, {y_trans}, {z_trans}")
         
     elif lat_geo >= 8.0 and lat_geo <= 9.4 and lon_geo >= -77.6 and lon_geo <= -74.4:
@@ -84,7 +84,7 @@ def transformacion (x,y,z,lat_geo,lon_geo):
         y_trans = deltay + y - rot_z*x + rot_x*z + y*deltaL
         z_trans = deltaz + z +rot_y*x - rot_x*y + z*deltaL
         
-        print(f"Las coordenadas en el antigu sistema eran: {x}, {y}, {z}")
+        print(f"Las coordenadas en el antiguo sistema eran: {x}, {y}, {z}")
         print(f"Las coordenadas del nuevo sistema son: {x_trans}, {y_trans}, {z_trans}")
         
     elif lat_geo >= 5.0 and lat_geo <= 9.4 and lon_geo >= -74.4 and lon_geo <= -72.0:
@@ -102,7 +102,7 @@ def transformacion (x,y,z,lat_geo,lon_geo):
         y_trans = deltay + y - rot_z*x + rot_x*z + y*deltaL
         z_trans = deltaz + z +rot_y*x - rot_x*y + z*deltaL
         
-        print(f"Las coordenadas en el antigu sistema eran: {x}, {y}, {z}")
+        print(f"Las coordenadas en el antiguo sistema eran: {x}, {y}, {z}")
         print(f"Las coordenadas del nuevo sistema son: {x_trans}, {y_trans}, {z_trans}")
         
     elif lat_geo >= 5.0 and lat_geo <= 8.0 and lon_geo >= -78.0 and lon_geo <= -74.4:
@@ -120,7 +120,7 @@ def transformacion (x,y,z,lat_geo,lon_geo):
         y_trans = deltay + y - rot_z*x + rot_x*z + y*deltaL
         z_trans = deltaz + z +rot_y*x - rot_x*y + z*deltaL
         
-        print(f"Las coordenadas en el antigu sistema eran: {x}, {y}, {z}")
+        print(f"Las coordenadas en el antiguo sistema eran: {x}, {y}, {z}")
         print(f"Las coordenadas del nuevo sistema son: {x_trans}, {y_trans}, {z_trans}")
         
     elif lat_geo >= 3.0 and lat_geo <= 5.0 and lon_geo >= -78.0 and lon_geo <= -74.4:
@@ -138,7 +138,7 @@ def transformacion (x,y,z,lat_geo,lon_geo):
         y_trans = deltay + y - rot_z*x + rot_x*z + y*deltaL
         z_trans = deltaz + z +rot_y*x - rot_x*y + z*deltaL
         
-        print(f"Las coordenadas en el antigu sistema eran: {x}, {y}, {z}")
+        print(f"Las coordenadas en el antiguo sistema eran: {x}, {y}, {z}")
         print(f"Las coordenadas del nuevo sistema son: {x_trans}, {y_trans}, {z_trans}")
         
     elif lat_geo >= -1.0 and lat_geo <= 3.0 and lon_geo >= -79.0 and lon_geo <= -74.0:
@@ -156,7 +156,7 @@ def transformacion (x,y,z,lat_geo,lon_geo):
         y_trans = deltay + y - rot_z*x + rot_x*z + y*deltaL
         z_trans = deltaz + z +rot_y*x - rot_x*y + z*deltaL
         
-        print(f"Las coordenadas en el antigu sistema eran: {x}, {y}, {z}")
+        print(f"Las coordenadas en el antiguo sistema eran: {x}, {y}, {z}")
         print(f"Las coordenadas del nuevo sistema son: {x_trans}, {y_trans}, {z_trans}")
         
     elif ( lat_geo >= -4.5 and lat_geo <= 3.0 and lon_geo >= -74.0 and lon_geo <= 66.5) or (lat_geo >= 3.0 and lat_geo <= 5.0 and lon_geo >= -74.0 and lon_geo <= -66.5) or (lat_geo >= 5.0 and lat_geo <= 7.3 and lon_geo >= -72.0 and lon_geo <= -66.5):
@@ -174,7 +174,7 @@ def transformacion (x,y,z,lat_geo,lon_geo):
         y_trans = deltay + y - rot_z*x + rot_x*z + y*deltaL
         z_trans = deltaz + z +rot_y*x - rot_x*y + z*deltaL
         
-        print(f"Las coordenadas en el antigu sistema eran: {x}, {y}, {z}")
+        print(f"Las coordenadas en el antiguo sistema eran: {x}, {y}, {z}")
         print(f"Las coordenadas del nuevo sistema son: {x_trans}, {y_trans}, {z_trans}")
         
     else:
