@@ -72,8 +72,8 @@ def calc_coord(a,e_cuadrado,latOr,lonOr,norte1,este1,hpp):
     tanPto = math.tan(math.radians(lat))
     N = (a/math.sqrt((1-(e_cuadrado*((senPto)**2)))))
     ro = (a*(1-e_cuadrado))/(1-(e_cuadrado*((senPto)**2)))**(3/2)
-    K_n = 1+(hpp/ro)
-    K_e = 1+(hpp/N)
+    K_n = (1+(hpp/ro))
+    K_e = (1+(hpp/N))
     
     #Constantes
     A = 1/(N*senSeg)
