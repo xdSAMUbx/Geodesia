@@ -21,7 +21,7 @@ def val_ini ():
         graLonOr = float(input("Grados: "))
         minLonOr = float(input("Minutos: "))
         segLonOr = float(input("Segundos: "))
-        lonOr = graLonOr+(minLonOr/60)+(segLonOr/3600)
+        lonOr = -(graLonOr+(minLonOr/60)+(segLonOr/3600))
         
         norte1 = float(input("Ingrese la Norte asignada al Origen: "))
         este1 = float(input("Ingrese la Este asignada al Origen: "))
@@ -29,7 +29,7 @@ def val_ini ():
     
         calc_coord(a,e_cuadrado,latOr,lonOr,norte1,este1,hpp)
         
-    else:
+    elif elip == 2:
         
         a = 6378137
         e_cuadrado = 0.00669438
@@ -50,6 +50,10 @@ def val_ini ():
         hpp = float(input("Ingrese la altura del plano de proyección: "))
         
         calc_coord(a,e_cuadrado,latOr,lonOr,norte1,este1,hpp)
+        
+    else:
+        
+        print("Error")
         
 def calc_coord(a,e_cuadrado,latOr,lonOr,norte1,este1,hpp):
 
@@ -81,8 +85,8 @@ def calc_coord(a,e_cuadrado,latOr,lonOr,norte1,este1,hpp):
     C = (tanPto/(2*ro*N*senSeg))
     
     #Diferencias
-    dif_lat = (math.radians(lat - latOr))*3600
-    dif_lon = (math.radians(lon - lonOr))*3600
+    dif_lat = (lat - latOr)*3600
+    dif_lon = (lon - lonOr)*3600
     dif_E = (dif_lon*cosPto*K_e)/A
     dif_N = ((dif_lat+(C*(dif_E**2)))*K_n)/B
     

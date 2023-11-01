@@ -41,7 +41,7 @@ def problema (a,e_cuadrado):
         coordenadaxyzh(a,e_cuadrado)
     else:
         print("El programa a terminado")
-       
+
 def coordenadayz(a,e_cuadrado):
     
     print("Ingrese la latitud geodésica en el siguiente orden: ")
@@ -92,7 +92,7 @@ def coordenadaxyz(a,e_cuadrado):
     y = gran_normal*coseno_angulo_geodesic*seno_angulo_long
     z = gran_normal*(1-e_cuadrado)*seno_angulo_geodesic 
     print(f"La coordenada es: {x},{y},{z}")
-     
+
 def coordenadaxyzh(a,e_cuadrado):
     
     print("Ingrese la latitud geodésica en el siguiente orden: ")
@@ -115,5 +115,5 @@ def coordenadaxyzh(a,e_cuadrado):
     y = (gran_normal+h)*coseno_angulo_geodesic*seno_angulo_long
     z = (gran_normal*(1-e_cuadrado)+h)*seno_angulo_geodesic 
     print(f"La coordenada es: {x},{y},{z}")
-        
+
 a,e_cuadrado = valores() 
