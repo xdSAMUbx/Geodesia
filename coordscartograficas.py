@@ -46,10 +46,10 @@ def calc_MGNSRGS (a,e_cuadrado,e_prim_cuad,alfa,beta,gamma,delta,epsilon):
         lat_or = 4.596200416666666
         lon_or = -71.07750791666666
         
-        l = lon_pto - lon_or
+        l = math.radians(lon_pto - lon_or)
         t = math.tan(math.radians(lat_pto))
-        arc_merid_pto = alfa*(lat_pto+beta*(math.sin(2*math.radians(lat_pto)))+gamma*(math.sin(4*math.radians(lat_pto)))+delta*(math.sin(6*math.radians(lat_pto)))+epsilon*(math.sin(8*math.radians(lat_pto))))
-        arc_merid_or = alfa*(lat_or+beta*(math.sin(2*math.radians(lat_or)))+gamma*(math.sin(4*math.radians(lat_or)))+delta*(math.sin(6*math.radians(lat_or)))+epsilon*(math.sin(8*math.radians(lat_or))))
+        arc_merid_pto = alfa*(math.radians(lat_pto)+beta*(math.sin(2*math.radians(lat_pto)))+gamma*(math.sin(4*math.radians(lat_pto)))+delta*(math.sin(6*math.radians(lat_pto)))+epsilon*(math.sin(8*math.radians(lat_pto))))
+        arc_merid_or = alfa*(math.radians(lat_or)+beta*(math.sin(2*math.radians(lat_or)))+gamma*(math.sin(4*math.radians(lat_or)))+delta*(math.sin(6*math.radians(lat_or)))+epsilon*(math.sin(8*math.radians(lat_or))))
         
         #Coordenadas Norte y Este
         norte = (arc_merid_pto-arc_merid_or)+((t/2)*gran_normal*(l**2)*(cos_pto**2))+((t/24)*gran_normal*(cos_pto**4)*(5-(t**2)+(9*(eta_cuad))+(4*(eta_cuad**2)))*(l**4))+((t/720)*gran_normal*(cos_pto**6)*(61-(58*(t**2))+(t**4)+(270*(eta_cuad))-(330*(t**2)*(eta_cuad)))*(l**6))+((t/40320)*gran_normal*(cos_pto**8)*(1385-(3111*(t**2))+(543*(t**4))-(t**6))*(l**8))+1000000.0
@@ -64,10 +64,10 @@ def calc_MGNSRGS (a,e_cuadrado,e_prim_cuad,alfa,beta,gamma,delta,epsilon):
         lat_or = 4.596200416666666
         lon_or = -68.07750791666666
         
-        l = lon_pto - lon_or
+        l = math.radians(lon_pto - lon_or)
         t = math.tan(math.radians(lat_pto))
-        arc_merid_pto = alfa*(lat_pto+beta*(math.sin(2*math.radians(lat_pto)))+gamma*(math.sin(4*math.radians(lat_pto)))+delta*(math.sin(6*math.radians(lat_pto)))+epsilon*(math.sin(8*math.radians(lat_pto))))
-        arc_merid_or = alfa*(lat_or+beta*(math.sin(2*math.radians(lat_or)))+gamma*(math.sin(4*math.radians(lat_or)))+delta*(math.sin(6*math.radians(lat_or)))+epsilon*(math.sin(8*math.radians(lat_or))))
+        arc_merid_pto = alfa*(math.radians(lat_pto)+beta*(math.sin(2*math.radians(lat_pto)))+gamma*(math.sin(4*math.radians(lat_pto)))+delta*(math.sin(6*math.radians(lat_pto)))+epsilon*(math.sin(8*math.radians(lat_pto))))
+        arc_merid_or = alfa*(math.radians(lat_or)+beta*(math.sin(2*math.radians(lat_or)))+gamma*(math.sin(4*math.radians(lat_or)))+delta*(math.sin(6*math.radians(lat_or)))+epsilon*(math.sin(8*math.radians(lat_or))))
         
         #Coordenadas Norte y Este
         norte = (arc_merid_pto-arc_merid_or)+((t/2)*gran_normal*(l**2)*(cos_pto**2))+((t/24)*gran_normal*(cos_pto**4)*(5-(t**2)+(9*(eta_cuad))+(4*(eta_cuad**2)))*(l**4))+((t/720)*gran_normal*(cos_pto**6)*(61-(58*(t**2))+(t**4)+(270*(eta_cuad))-(330*(t**2)*(eta_cuad)))*(l**6))+((t/40320)*gran_normal*(cos_pto**8)*(1385-(3111*(t**2))+(543*(t**4))-(t**6))*(l**8))+1000000.0
@@ -82,10 +82,10 @@ def calc_MGNSRGS (a,e_cuadrado,e_prim_cuad,alfa,beta,gamma,delta,epsilon):
         lat_or = 4.596200416666666
         lon_or = -77.07750791666666
     
-        l = lon_pto - lon_or
+        l = math.radians(lon_pto - lon_or)
         t = math.tan(math.radians(lat_pto))
-        arc_merid_pto = alfa*(lat_pto+beta*(math.sin(2*math.radians(lat_pto)))+gamma*(math.sin(4*math.radians(lat_pto)))+delta*(math.sin(6*math.radians(lat_pto)))+epsilon*(math.sin(8*math.radians(lat_pto))))
-        arc_merid_or = alfa*(lat_or+beta*(math.sin(2*math.radians(lat_or)))+gamma*(math.sin(4*math.radians(lat_or)))+delta*(math.sin(6*math.radians(lat_or)))+epsilon*(math.sin(8*math.radians(lat_or))))
+        arc_merid_pto = alfa*(math.radians(lat_pto)+beta*(math.sin(2*math.radians(lat_pto)))+gamma*(math.sin(4*math.radians(lat_pto)))+delta*(math.sin(6*math.radians(lat_pto)))+epsilon*(math.sin(8*math.radians(lat_pto))))
+        arc_merid_or = alfa*(math.radians(lat_or)+beta*(math.sin(2*math.radians(lat_or)))+gamma*(math.sin(4*math.radians(lat_or)))+delta*(math.sin(6*math.radians(lat_or)))+epsilon*(math.sin(8*math.radians(lat_or))))
         
         #Coordenadas Norte y Este
         norte = (arc_merid_pto-arc_merid_or)+((t/2)*gran_normal*(l**2)*(cos_pto**2))+((t/24)*gran_normal*(cos_pto**4)*(5-(t**2)+(9*(eta_cuad))+(4*(eta_cuad**2)))*(l**4))+((t/720)*gran_normal*(cos_pto**6)*(61-(58*(t**2))+(t**4)+(270*(eta_cuad))-(330*(t**2)*(eta_cuad)))*(l**6))+((t/40320)*gran_normal*(cos_pto**8)*(1385-(3111*(t**2))+(543*(t**4))-(t**6))*(l**8))+1000000.0
@@ -100,10 +100,10 @@ def calc_MGNSRGS (a,e_cuadrado,e_prim_cuad,alfa,beta,gamma,delta,epsilon):
         lat_or = 4.596200416666666
         lon_or = -80.07750791666666
         
-        l = lon_pto - lon_or
+        l = math.radians(lon_pto - lon_or)
         t = math.tan(math.radians(lat_pto))
-        arc_merid_pto = alfa*(lat_pto+beta*(math.sin(2*math.radians(lat_pto)))+gamma*(math.sin(4*math.radians(lat_pto)))+delta*(math.sin(6*math.radians(lat_pto)))+epsilon*(math.sin(8*math.radians(lat_pto))))
-        arc_merid_or = alfa*(lat_or+beta*(math.sin(2*math.radians(lat_or)))+gamma*(math.sin(4*math.radians(lat_or)))+delta*(math.sin(6*math.radians(lat_or)))+epsilon*(math.sin(8*math.radians(lat_or))))
+        arc_merid_pto = alfa*(math.radians(lat_pto)+beta*(math.sin(2*math.radians(lat_pto)))+gamma*(math.sin(4*math.radians(lat_pto)))+delta*(math.sin(6*math.radians(lat_pto)))+epsilon*(math.sin(8*math.radians(lat_pto))))
+        arc_merid_or = alfa*(math.radians(lat_or)+beta*(math.sin(2*math.radians(lat_or)))+gamma*(math.sin(4*math.radians(lat_or)))+delta*(math.sin(6*math.radians(lat_or)))+epsilon*(math.sin(8*math.radians(lat_or))))
         
         #Coordenadas Norte y Este
         norte = (arc_merid_pto-arc_merid_or)+((t/2)*gran_normal*(l**2)*(cos_pto**2))+((t/24)*gran_normal*(cos_pto**4)*(5-(t**2)+(9*(eta_cuad))+(4*(eta_cuad**2)))*(l**4))+((t/720)*gran_normal*(cos_pto**6)*(61-(58*(t**2))+(t**4)+(270*(eta_cuad))-(330*(t**2)*(eta_cuad)))*(l**6))+((t/40320)*gran_normal*(cos_pto**8)*(1385-(3111*(t**2))+(543*(t**4))-(t**6))*(l**8))+1000000.0
@@ -162,10 +162,10 @@ def calc_DATBOG (a,e_cuadrado,e_prim_cuad,alfa,beta,gamma,delta,epsilon):
         lat_or = 4.599047222222222
         lon_or = -71.08091666666667
         
-        l = lon_pto - lon_or
+        l = math.radians(lon_pto - lon_or)
         t = math.tan(math.radians(lat_pto))
-        arc_merid_pto = alfa*(lat_pto+beta*(math.sin(2*math.radians(lat_pto)))+gamma*(math.sin(4*math.radians(lat_pto)))+delta*(math.sin(6*math.radians(lat_pto)))+epsilon*(math.sin(8*math.radians(lat_pto))))
-        arc_merid_or = alfa*(lat_or+beta*(math.sin(2*math.radians(lat_or)))+gamma*(math.sin(4*math.radians(lat_or)))+delta*(math.sin(6*math.radians(lat_or)))+epsilon*(math.sin(8*math.radians(lat_or))))
+        arc_merid_pto = alfa*(math.radians(lat_pto)+beta*(math.sin(2*math.radians(lat_pto)))+gamma*(math.sin(4*math.radians(lat_pto)))+delta*(math.sin(6*math.radians(lat_pto)))+epsilon*(math.sin(8*math.radians(lat_pto))))
+        arc_merid_or = alfa*(math.radians(lat_or)+beta*(math.sin(2*math.radians(lat_or)))+gamma*(math.sin(4*math.radians(lat_or)))+delta*(math.sin(6*math.radians(lat_or)))+epsilon*(math.sin(8*math.radians(lat_or))))
         
         #Coordenadas Norte y Este
         norte = (arc_merid_pto-arc_merid_or)+((t/2)*gran_normal*(l**2)*(cos_pto**2))+((t/24)*gran_normal*(cos_pto**4)*(5-(t**2)+(9*(eta_cuad))+(4*(eta_cuad**2)))*(l**4))+((t/720)*gran_normal*(cos_pto**6)*(61-(58*(t**2))+(t**4)+(270*(eta_cuad))-(330*(t**2)*(eta_cuad)))*(l**6))+((t/40320)*gran_normal*(cos_pto**8)*(1385-(3111*(t**2))+(543*(t**4))-(t**6))*(l**8))+1000000.0
@@ -180,10 +180,10 @@ def calc_DATBOG (a,e_cuadrado,e_prim_cuad,alfa,beta,gamma,delta,epsilon):
         lat_or = 4.599047222222222
         lon_or = -68.08091666666667
         
-        l = lon_pto - lon_or
+        l = math.radians(lon_pto - lon_or)
         t = math.tan(math.radians(lat_pto))
-        arc_merid_pto = alfa*(lat_pto+beta*(math.sin(2*math.radians(lat_pto)))+gamma*(math.sin(4*math.radians(lat_pto)))+delta*(math.sin(6*math.radians(lat_pto)))+epsilon*(math.sin(8*math.radians(lat_pto))))
-        arc_merid_or = alfa*(lat_or+beta*(math.sin(2*math.radians(lat_or)))+gamma*(math.sin(4*math.radians(lat_or)))+delta*(math.sin(6*math.radians(lat_or)))+epsilon*(math.sin(8*math.radians(lat_or))))
+        arc_merid_pto = alfa*(math.radians(lat_pto)+beta*(math.sin(2*math.radians(lat_pto)))+gamma*(math.sin(4*math.radians(lat_pto)))+delta*(math.sin(6*math.radians(lat_pto)))+epsilon*(math.sin(8*math.radians(lat_pto))))
+        arc_merid_or = alfa*(math.radians(lat_or)+beta*(math.sin(2*math.radians(lat_or)))+gamma*(math.sin(4*math.radians(lat_or)))+delta*(math.sin(6*math.radians(lat_or)))+epsilon*(math.sin(8*math.radians(lat_or))))
         
         #Coordenadas Norte y Este
         norte = (arc_merid_pto-arc_merid_or)+((t/2)*gran_normal*(l**2)*(cos_pto**2))+((t/24)*gran_normal*(cos_pto**4)*(5-(t**2)+(9*(eta_cuad))+(4*(eta_cuad**2)))*(l**4))+((t/720)*gran_normal*(cos_pto**6)*(61-(58*(t**2))+(t**4)+(270*(eta_cuad))-(330*(t**2)*(eta_cuad)))*(l**6))+((t/40320)*gran_normal*(cos_pto**8)*(1385-(3111*(t**2))+(543*(t**4))-(t**6))*(l**8))+1000000.0
@@ -198,10 +198,10 @@ def calc_DATBOG (a,e_cuadrado,e_prim_cuad,alfa,beta,gamma,delta,epsilon):
         lat_or = 4.599047222222222
         lon_or = -77.08091666666667
         
-        l = lon_pto - lon_or
+        l = math.radians(lon_pto - lon_or)
         t = math.tan(math.radians(lat_pto))
-        arc_merid_pto = alfa*(lat_pto+beta*(math.sin(2*math.radians(lat_pto)))+gamma*(math.sin(4*math.radians(lat_pto)))+delta*(math.sin(6*math.radians(lat_pto)))+epsilon*(math.sin(8*math.radians(lat_pto))))
-        arc_merid_or = alfa*(lat_or+beta*(math.sin(2*math.radians(lat_or)))+gamma*(math.sin(4*math.radians(lat_or)))+delta*(math.sin(6*math.radians(lat_or)))+epsilon*(math.sin(8*math.radians(lat_or))))
+        arc_merid_pto = alfa*(math.radians(lat_pto)+beta*(math.sin(2*math.radians(lat_pto)))+gamma*(math.sin(4*math.radians(lat_pto)))+delta*(math.sin(6*math.radians(lat_pto)))+epsilon*(math.sin(8*math.radians(lat_pto))))
+        arc_merid_or = alfa*(math.radians(lat_or)+beta*(math.sin(2*math.radians(lat_or)))+gamma*(math.sin(4*math.radians(lat_or)))+delta*(math.sin(6*math.radians(lat_or)))+epsilon*(math.sin(8*math.radians(lat_or))))
         
         #Coordenadas Norte y Este
         norte = (arc_merid_pto-arc_merid_or)+((t/2)*gran_normal*(l**2)*(cos_pto**2))+((t/24)*gran_normal*(cos_pto**4)*(5-(t**2)+(9*(eta_cuad))+(4*(eta_cuad**2)))*(l**4))+((t/720)*gran_normal*(cos_pto**6)*(61-(58*(t**2))+(t**4)+(270*(eta_cuad))-(330*(t**2)*(eta_cuad)))*(l**6))+((t/40320)*gran_normal*(cos_pto**8)*(1385-(3111*(t**2))+(543*(t**4))-(t**6))*(l**8))+1000000.0
@@ -216,10 +216,10 @@ def calc_DATBOG (a,e_cuadrado,e_prim_cuad,alfa,beta,gamma,delta,epsilon):
         lat_or = 4.599047222222222
         lon_or = -80.08091666666667
         
-        l = lon_pto - lon_or
+        l = math.radians(lon_pto - lon_or)
         t = math.tan(math.radians(lat_pto))
-        arc_merid_pto = alfa*(lat_pto+beta*(math.sin(2*math.radians(lat_pto)))+gamma*(math.sin(4*math.radians(lat_pto)))+delta*(math.sin(6*math.radians(lat_pto)))+epsilon*(math.sin(8*math.radians(lat_pto))))
-        arc_merid_or = alfa*(lat_or+beta*(math.sin(2*math.radians(lat_or)))+gamma*(math.sin(4*math.radians(lat_or)))+delta*(math.sin(6*math.radians(lat_or)))+epsilon*(math.sin(8*math.radians(lat_or))))
+        arc_merid_pto = alfa*(math.radians(lat_pto)+beta*(math.sin(2*math.radians(lat_pto)))+gamma*(math.sin(4*math.radians(lat_pto)))+delta*(math.sin(6*math.radians(lat_pto)))+epsilon*(math.sin(8*math.radians(lat_pto))))
+        arc_merid_or = alfa*(math.radians(lat_or)+beta*(math.sin(2*math.radians(lat_or)))+gamma*(math.sin(4*math.radians(lat_or)))+delta*(math.sin(6*math.radians(lat_or)))+epsilon*(math.sin(8*math.radians(lat_or))))
         
         #Coordenadas Norte y Este
         norte = (arc_merid_pto-arc_merid_or)+((t/2)*gran_normal*(l**2)*(cos_pto**2))+((t/24)*gran_normal*(cos_pto**4)*(5-(t**2)+(9*(eta_cuad))+(4*(eta_cuad**2)))*(l**4))+((t/720)*gran_normal*(cos_pto**6)*(61-(58*(t**2))+(t**4)+(270*(eta_cuad))-(330*(t**2)*(eta_cuad)))*(l**6))+((t/40320)*gran_normal*(cos_pto**8)*(1385-(3111*(t**2))+(543*(t**4))-(t**6))*(l**8))+1000000.0
