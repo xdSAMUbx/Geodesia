@@ -174,7 +174,7 @@ def calc_DATBOG (a,e_cuadrado,e_prim_cuad,alfa,beta,gamma,delta,epsilon):
         print(f"La coordenada Norte para Este Central - DATUM con origen gauss - Krüeger  es: {norte}")
         print(f"La coordenada Este para Este Central - DATUM con origen gauss - Krüeger  es: {este}")
         
-    elif lon_pto <= -69.58091667 and lon_pto >= -66.58091667:
+    elif lon_pto >= -69.58091667 and lon_pto <= -66.58091667:
         
         #Para Este (E)
         lat_or = 4.599047222222222
