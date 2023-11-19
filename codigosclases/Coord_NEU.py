@@ -45,9 +45,9 @@ class Coord_NEU:
         
         mtrz_delta = mtz_sin_cos @ mtrz_ENU
         
-        self.delta_x = mtrz_delta[1,0]
-        self.delta_y = mtrz_delta[2,0]
-        self.delta_z = mtrz_delta[3,0]
+        self.delta_x = mtrz_delta[0,0]
+        self.delta_y = mtrz_delta[1,0]
+        self.delta_z = mtrz_delta[2,0]
         
     def coords_ENU (self):
         
