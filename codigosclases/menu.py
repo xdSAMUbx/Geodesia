@@ -29,23 +29,31 @@ class Interactuador:
             pass
         elif opcion == 4:
             
-            miCoord_ENU = Coord_NEU() 
+            miCoord_ENU = Coord_NEU()
             miAngulo = Angulos()
+             
             print("¿Qué datos le estan dando?")
             print("1. fi,lambda,h,alfa,i y la distancia")
             print("2. Delta x,y,z")
             opcion2 = int(input("Ingrese la opción: "))
             if opcion2 == 1:
-                miCoord_ENU.fi1 = miAngulo.
-                miCoord_ENU.lambda1 = miAngulo.
+                
+                miAngulo.ang_decimales
+                miCoord_ENU.fi1 = miAngulo.decimal
+                miAngulo.ang_decimales
+                miCoord_ENU.lambda1 = miAngulo.decimal
                 miCoord_ENU.h1 = float(input("Ingrese la Altura del Punto 1: "))
                 miCoord_ENU.c = float(input("Ingrese la distanacia entre los puntos: "))
-                miCoord_ENU.az_12 = miAngulo
-                miCoord_ENU.vert = 0
+                miAngulo.ang_decimales
+                miCoord_ENU.az_12 = miAngulo.decimal
+                miAngulo.ang_decimales
+                miCoord_ENU.vert = miAngulo.decimal
             
             elif opcion2 == 2:
                 
                 miCoord_ENU.delta_x = float(input("Ingrese el delta x entre los puntos: "))
                 miCoord_ENU.delta_y = float(input("Ingrese el delta y entre los puntos: "))
                 miCoord_ENU.delta_z = float(input("Ingrese el delta z entre los puntos: "))
-            
+
+miInteractuador = Interactuador()
+miInteractuador.programa
