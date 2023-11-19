@@ -3,7 +3,7 @@ from Angulos import Angulos
 
 class Interactuador:
     
-    def menu_principal ():
+    def menu_principal (self):
         
         print("Bienvenido a esta Calculadora Geodesica. ")
         print("1. Coordenadas X,Y,Z")
@@ -19,7 +19,7 @@ class Interactuador:
     
     def programa (self):
         
-        opcion = self.menu_principal
+        opcion = self.menu_principal()
         
         if opcion == 1:
             pass
@@ -38,16 +38,27 @@ class Interactuador:
             opcion2 = int(input("Ingrese la opción: "))
             if opcion2 == 1:
                 
-                miAngulo.ang_decimales
+                miAngulo.ang_decimales()
                 miCoord_ENU.fi1 = miAngulo.decimal
-                miAngulo.ang_decimales
+                miAngulo.ang_decimales()
                 miCoord_ENU.lambda1 = miAngulo.decimal
                 miCoord_ENU.h1 = float(input("Ingrese la Altura del Punto 1: "))
                 miCoord_ENU.c = float(input("Ingrese la distanacia entre los puntos: "))
-                miAngulo.ang_decimales
+                miAngulo.ang_decimales()
                 miCoord_ENU.az_12 = miAngulo.decimal
-                miAngulo.ang_decimales
+                miAngulo.ang_decimales()
                 miCoord_ENU.vert = miAngulo.decimal
+                
+                miCoord_ENU.enu()
+                miCoord_ENU.coords_diferenciales()
+                
+                print(f"E = {miCoord_ENU.E}")
+                print(f"N = {miCoord_ENU.N}")
+                print(f"U = {miCoord_ENU.U}")
+                
+                print(f"delta_x = {miCoord_ENU.delta_x}")
+                print(f"delta_y = {miCoord_ENU.delta_y}")
+                print(f"delta_x = {miCoord_ENU.delta_z}")
             
             elif opcion2 == 2:
                 
@@ -55,5 +66,6 @@ class Interactuador:
                 miCoord_ENU.delta_y = float(input("Ingrese el delta y entre los puntos: "))
                 miCoord_ENU.delta_z = float(input("Ingrese el delta z entre los puntos: "))
 
+
 miInteractuador = Interactuador()
-miInteractuador.programa
+miInteractuador.programa()
