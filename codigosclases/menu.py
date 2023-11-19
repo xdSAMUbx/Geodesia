@@ -1,4 +1,5 @@
 from Coord_NEU import Coord_NEU
+from Angulos import Angulos
 
 class Interactuador:
     
@@ -29,16 +30,17 @@ class Interactuador:
         elif opcion == 4:
             
             miCoord_ENU = Coord_NEU() 
+            miAngulo = Angulos()
             print("¿Qué datos le estan dando?")
             print("1. fi,lambda,h,alfa,i y la distancia")
             print("2. Delta x,y,z")
             opcion2 = int(input("Ingrese la opción: "))
             if opcion2 == 1:
-                miCoord_ENU.fi1 = 0
-                miCoord_ENU.lambda1 = 0
+                miCoord_ENU.fi1 = miAngulo.
+                miCoord_ENU.lambda1 = miAngulo.
                 miCoord_ENU.h1 = float(input("Ingrese la Altura del Punto 1: "))
                 miCoord_ENU.c = float(input("Ingrese la distanacia entre los puntos: "))
-                miCoord_ENU.az_12 = 0
+                miCoord_ENU.az_12 = miAngulo
                 miCoord_ENU.vert = 0
             
             elif opcion2 == 2:
