@@ -21,7 +21,6 @@ class Coord_NEU:
         self.U = 0
         self.N = 0
         
-        
     def enu (self):
         
         sin_i = math.sin(math.radians(self.vert))
@@ -43,6 +42,9 @@ class Coord_NEU:
         mtz_sin_cos = np.array([[-sin_fi*cos_lambda,-sin_fi,cos_fi*cos_lambda],[sin_fi*sin_lambda,cos_lambda,cos_fi*sin_lambda],[cos_fi,0,sin_fi]])
         mtrz_ENU = np.array([[self.N],[self.E],[self.U]])
         
+        print(f"La matriz de senos y cosenos es: {mtz_sin_cos}")
+        print(f"La matriz de deltas es: {mtrz_delta}")
+        
         mtrz_delta = mtz_sin_cos @ mtrz_ENU
         
         self.delta_x = mtrz_delta[0,0]
@@ -61,12 +63,10 @@ class Coord_NEU:
         
         mtrz_ENU = mtz_sin_cos @ mtrz_delta
         
-        E = mtrz_ENU[1,0]
-        N = mtrz_ENU[2,0]
-        U = mtrz_ENU[3,0]
+        self.E = mtrz_ENU[0,0]
+        self.N = mtrz_ENU[1,0]
+        self.U = mtrz_ENU[2,0]
         
-        self.az_12 = math.degrees(math.atan(E/N))
-        self.vert = math.degrees(math.atan(U/N))
-        self.c = U/math.sin(math.radians(self.vert))
-        
-        return E,N,U
+        self.az_12 = math.degrees(math.atan(self.E/self.N))
+        self.vert = math.degrees(math.atan(self.U/self.N))
+        self.c = self.U/math.sin(math.radians(self.vert))
