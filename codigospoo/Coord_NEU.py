@@ -64,6 +64,16 @@ class Coord_NEU:
         self.y2 = self.delta_y+self.y
         self.z2 = self.delta_z+self.z
         
+        print(f"E = {self.E}")
+        print(f"N = {self.N}")
+        print(f"U = {self.U}")
+        print(f"delta_x = {self.delta_x}")
+        print(f"delta_y = {self.delta_y}")
+        print(f"delta_x = {self.delta_z}")
+        print(f"La cordenada x del punto 2 es: {self.x2}")
+        print(f"La cordenada y del punto 2 es: {self.y2}")
+        print(f"La cordenada z del punto 2 es: {self.z2}")
+        
     def coords_ENU (self):
         
         sin_fi = math.sin(math.radians(self.fi1))

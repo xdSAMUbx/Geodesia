@@ -98,15 +98,6 @@ class Interactuador:
                 miCoord_ENU.vert = miAngulo.decimal
                 miCoord_ENU.enu()
                 miCoord_ENU.coords_diferenciales()
-                print(f"E = {miCoord_ENU.E}")
-                print(f"N = {miCoord_ENU.N}")
-                print(f"U = {miCoord_ENU.U}")
-                print(f"delta_x = {miCoord_ENU.delta_x}")
-                print(f"delta_y = {miCoord_ENU.delta_y}")
-                print(f"delta_x = {miCoord_ENU.delta_z}")
-                print(f"La cordenada x del punto 2 es: {miCoord_ENU.x2}")
-                print(f"La cordenada y del punto 2 es: {miCoord_ENU.y2}")
-                print(f"La cordenada z del punto 2 es: {miCoord_ENU.z2}")
                 miInversoCoorde.coord_x = miCoord_ENU.x2
                 miInversoCoorde.coord_y = miCoord_ENU.y2
                 miInversoCoorde.coord_z = miCoord_ENU.z2
