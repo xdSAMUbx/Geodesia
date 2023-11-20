@@ -25,3 +25,15 @@ class Radios:
         self.ro_az = (self.ro*self.normal)/((self.R*(cosaz**2))+(self.normal*(sinaz**2)))
         self.rad_med_curv = math.sqrt(self.R*self.normal)
         
+    def elipsoides (self):
+        
+        print("Con que elipsoide desea trabajar: ")
+        print("1) GRS - 80")
+        print("2) Internacional")
+        opcion = int(input("Seleccione el elipsoide"))
+        if opcion == 1:
+            self.a = 6378137
+            self.e_cuad = 0.00669438
+        elif opcion == 2:
+            self.a = 6378388
+            self.e_cuad = 0.00672267
