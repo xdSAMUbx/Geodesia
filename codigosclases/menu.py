@@ -2,11 +2,13 @@ from Coord_NEU import Coord_NEU
 from Angulos import Angulos
 from Calc_radios import Radios
 from Coords_xyz import Coords_xyz
+from Inverso_Coords import Inverso_Coords
 
 miCoord_ENU = Coord_NEU()
 miAngulo = Angulos()
 miRadio = Radios()
 miXYZ = Coords_xyz()
+miInversoCoorde = Inverso_Coords()
 class Interactuador:
 
     def menu_principal (self):
@@ -16,7 +18,6 @@ class Interactuador:
         print("2. Coordenadas Cartesianas")
         print("3. Coordenadas Cartográficas")
         print("4. Coordenadas ENU")
-        print("5. Inverso Coordenadas")
         
         entrada = int(input("Ingrese la opción: "))
         return entrada
@@ -31,8 +32,34 @@ class Interactuador:
         miXYZ.N = miRadio.normal
         
         if opcion == 1:
-            pass
-
+            print("Bienvenido en que espacio desea calcular las coordenadas")
+            print("1) Y,Z")
+            print("2) X,Y,Z")
+            opcion2 = int(input("Seleccione una opción: "))
+            
+            if opcion2 == 1:
+                
+                miAngulo.ang_decimales()
+                miXYZ.fi = miAngulo.decimal
+                miAngulo.ang_decimales()
+                miXYZ.lon = miAngulo.decimal
+                miXYZ.h = float(input("Ingrese la altura del punto: "))
+                miXYZ.calc_2D()
+                print(f"La coordenada Y es: {miXYZ.y}")
+                print(f"La coordenada Z es: {miXYZ.z}")
+                
+            elif opcion2 == 2:
+                
+                miAngulo.ang_decimales()
+                miXYZ.fi = miAngulo.decimal
+                miAngulo.ang_decimales()
+                miXYZ.lon = miAngulo.decimal
+                miXYZ.h = float(input("Ingrese la altura del punto: "))
+                miXYZ.calc_3D()
+                print(f"La coordenada X es: {miXYZ.x}")
+                print(f"La coordenada Y es: {miXYZ.y}")
+                print(f"La coordenada Z es: {miXYZ.z}")
+                
         elif opcion == 2:
             pass
 
@@ -80,18 +107,29 @@ class Interactuador:
                 print(f"La cordenada x del punto 2 es: {miCoord_ENU.x2}")
                 print(f"La cordenada y del punto 2 es: {miCoord_ENU.y2}")
                 print(f"La cordenada z del punto 2 es: {miCoord_ENU.z2}")
+                miInversoCoorde.coord_x = miCoord_ENU.x2
+                miInversoCoorde.coord_y = miCoord_ENU.y2
+                miInversoCoorde.coord_z = miCoord_ENU.z2
+                miInversoCoorde.a = miRadio.a
+                miInversoCoorde.e_cuad = miRadio.e_cuad
+                miInversoCoorde.calc_lambda()
+                miInversoCoorde.calc_fi()
                 
             elif opcion2 == 2:
                 
+                print("Angulo φ")
+                miAngulo.ang_decimales()
+                miCoord_ENU.fi1 = miAngulo.decimal
+                print("Angulo λ")
+                miAngulo.ang_decimales()
+                miCoord_ENU.lambda1 = miAngulo.decimal
                 miCoord_ENU.delta_x = float(input("Ingrese el delta x entre los puntos: "))
                 miCoord_ENU.delta_y = float(input("Ingrese el delta y entre los puntos: "))
                 miCoord_ENU.delta_z = float(input("Ingrese el delta z entre los puntos: "))
+                miCoord_ENU.coords_ENU()
                 print(f"E = {miCoord_ENU.E}")
                 print(f"N = {miCoord_ENU.N}")
                 print(f"U = {miCoord_ENU.U}")
 
-        elif opcion == 5:
-            pass
-        
 miInteractuador = Interactuador()
 miInteractuador.programa()

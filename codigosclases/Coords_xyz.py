@@ -27,7 +27,7 @@ class Coords_xyz:
         cos_fi = math.cos(math.radians(self.fi))
         sin_fi = math.sin(math.radians(self.fi))
         cos_lon = math.cos(math.radians(self.lon))
-        sin_lon = math.sin(math.radians(self.fi))
+        sin_lon = math.sin(math.radians(self.lon))
         
         self.x = (self.N+self.h)*cos_fi*cos_lon
         self.y = (self.N+self.h)*cos_fi*sin_lon

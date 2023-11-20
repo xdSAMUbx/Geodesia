@@ -87,6 +87,6 @@ class Coord_NEU:
         self.N = mtrz_ENU[1,0]
         self.U = mtrz_ENU[2,0]
         
-        self.az_12 = math.degrees(math.atan(self.E/self.N))
-        self.vert = math.degrees(math.atan(self.U/self.N))
+        self.az_12 = math.atan(self.E/self.N)
+        self.vert = math.atan(self.U/self.N)
         self.c = self.U/math.sin(math.radians(self.vert))
