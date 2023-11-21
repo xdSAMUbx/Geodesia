@@ -30,7 +30,7 @@ class Radios:
         print("Con que elipsoide desea trabajar: ")
         print("1) GRS - 80")
         print("2) Internacional")
-        opcion = int(input("Seleccione el elipsoide"))
+        opcion = int(input("Seleccione el elipsoide: "))
         if opcion == 1:
             self.a = 6378137
             self.e_cuad = 0.00669438
