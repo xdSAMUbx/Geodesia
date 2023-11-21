@@ -9,6 +9,7 @@ miAngulo = Angulos()
 miRadio = Radios()
 miXYZ = Coords_xyz()
 miInversoCoorde = Inverso_Coords()
+
 class Interactuador:
 
     def menu_principal (self):
@@ -51,7 +52,10 @@ class Interactuador:
             elif opcion2 == 2:
                 
                 miAngulo.ang_decimales()
+                miRadio.fi = miAngulo.decimal
                 miXYZ.fi = miAngulo.decimal
+                miRadio.calc_radios()
+                miXYZ.N = miRadio.normal
                 miAngulo.ang_decimales()
                 miXYZ.lon = miAngulo.decimal
                 miXYZ.h = float(input("Ingrese la altura del punto: "))
@@ -76,11 +80,15 @@ class Interactuador:
                 print("Angulo φ")
                 miAngulo.ang_decimales()
                 miCoord_ENU.fi1 = miAngulo.decimal
+                miRadio.fi = miAngulo.decimal
+                miRadio.calc_radios()
                 print("Angulo λ")
                 miAngulo.ang_decimales()
                 miCoord_ENU.lambda1 = miAngulo.decimal
+                miRadio.lon = miAngulo.decimal
                 miCoord_ENU.h1 = float(input("Ingrese la Altura del Punto (h): "))
                 miCoord_ENU.c = float(input("Ingrese la distanacia entre los puntos: "))
+                miXYZ.N = miRadio.normal
                 miXYZ.fi = miCoord_ENU.fi1
                 miXYZ.lon = miCoord_ENU.lambda1
                 miXYZ.h = miCoord_ENU.h1

@@ -31,4 +31,6 @@ class Coords_xyz:
         
         self.x = (self.N+self.h)*cos_fi*cos_lon
         self.y = (self.N+self.h)*cos_fi*sin_lon
-        self.z = (self.N*(1-self.e_cuad)+self.h)*sin_fi
+        k = self.N*(1-self.e_cuad)
+        c = self.h
+        self.z = (k+c)*sin_fi
