@@ -94,9 +94,7 @@ class Interactuador:
                 miXYZ.h = miCoord_ENU.h1
                 miXYZ.calc_3D()
                 miCoord_ENU.x = miXYZ.x
-                miXYZ.calc_3D()
                 miCoord_ENU.y = miXYZ.y
-                miXYZ.calc_3D()
                 miCoord_ENU.z = miXYZ.z
                 print("Angulo α")
                 miAngulo.ang_decimales()
