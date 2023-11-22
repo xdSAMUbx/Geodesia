@@ -81,6 +81,7 @@ class Interactuador:
                 miAngulo.ang_decimales()
                 miCoord_ENU.fi1 = miAngulo.decimal
                 miRadio.fi = miAngulo.decimal
+                miXYZ.fi = miCoord_ENU.fi1
                 miRadio.calc_radios()
                 print("Angulo λ")
                 miAngulo.ang_decimales()
@@ -89,7 +90,6 @@ class Interactuador:
                 miCoord_ENU.h1 = float(input("Ingrese la Altura del Punto (h): "))
                 miCoord_ENU.c = float(input("Ingrese la distanacia entre los puntos: "))
                 miXYZ.N = miRadio.normal
-                miXYZ.fi = miCoord_ENU.fi1
                 miXYZ.lon = miCoord_ENU.lambda1
                 miXYZ.h = miCoord_ENU.h1
                 miXYZ.calc_3D()

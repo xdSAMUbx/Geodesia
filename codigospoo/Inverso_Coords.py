@@ -40,31 +40,84 @@ class Inverso_Coords:
         cos_fi = math.cos(math.radians(self.lat1_decimal ))
         self.N = (self.a/math.sqrt((1-(self.e_cuad*((sen_fi)**2)))))    
         self.h = ((math.sqrt(self.coord_x**2+self.coord_y**2))/cos_fi) - self.N
-        k = 0
+
+        #calculo iteraciones (manuales #2)
+        fi_2 = math.atan((self.coord_z+self.e_cuad*self.N*sen_fi)/(math.sqrt(self.coord_x**2+self.coord_y**2)))
+        fi_2 = math.degrees(fi_2)
+        gra_fi_2 = int(fi_2)
+        min_fi_2 = int((fi_2 - gra_fi_2) * 60)
+        seg_fi_2 = (fi_2 - gra_fi_2 - min_fi_2 / 60) * 3600
+        seg_fi_2 = round(seg_fi_2,4)
+            
+        if seg_fi_2 > 60:
+            min_fi_2 += 1
+            seg_fi_2 -= 60
+            if min_fi_2 > 60:
+                gra_fi_2 += 1
+                min_fi_2 -=60
         
-        while self.h != 0 and k < 6:
+        fi_2 = gra_fi_2 + (min_fi_2/60) + (seg_fi_2 /3600)
+        sen_fi_2 = math.sin(math.radians(fi_2))
+        gran_normal_2 = (self.a/math.sqrt((1-(self.e_cuad*((sen_fi_2)**2)))))    
+
+        
+        #calculo iteraciones (manuales #3)
+        fi_3 = math.atan((self.coord_z+self.e_cuad*gran_normal_2*sen_fi_2)/(math.sqrt(self.coord_x**2+self.coord_y**2)))
+        fi_3 = math.degrees(fi_3)
+        gra_fi_3 = int(fi_3)
+        min_fi_3 = int((fi_3 - gra_fi_3) * 60)
+        seg_fi_3 = (fi_3 - gra_fi_3 - min_fi_3 / 60) * 3600
+        seg_fi_3 = round(seg_fi_3,4)
             
-            self.lat1_decimal = math.atan((self.coord_z+self.e_cuad*self.N*sen_fi)/(math.sqrt(self.coord_x**2+self.coord_y**2)))
-            self.lat1_decimal = math.degrees(self.lat1_decimal)
-            self.gra_fi_2 = int(self.lat1_decimal)
-            self.min_fi_2 = int((self.lat1_decimal - self.gra_fi_2) * 60)
-            self.seg_fi_2 = (self.lat1_decimal - self.gra_fi_2 - self.min_fi_2 / 60) * 3600
-            self.seg_fi_2 = round(self.seg_fi_2,4)
-                
-            if self.seg_fi_2 > 60:
-                self.min_fi_2 += 1
-                self.seg_fi_2 -= 60
-                if self.min_fi_2 > 60:
-                    self.gra_fi_2 += 1
-                    self.min_fi_2 -=60
+        if seg_fi_3 > 60:
+            min_fi_3 += 1
+            seg_fi_3 -= 60
+            if min_fi_3 > 60:
+                gra_fi_3 += 1
+                min_fi_3 -=60
+        
+        fi_3 = gra_fi_3 + (min_fi_3/60) + (seg_fi_3/3600)
+        sen_fi_3 = math.sin(math.radians(fi_3))
+        gran_normal_3 = (self.a/math.sqrt((1-(self.e_cuad*((sen_fi_3)**2)))))    
+        
+        #calculo iteraciones (manuales #4)
+        fi_4 = math.atan((self.coord_z+self.e_cuad*gran_normal_3*sen_fi_3)/(math.sqrt(self.coord_x**2+self.coord_y**2)))
+        fi_4 = math.degrees(fi_4)
+        gra_fi_4 = int(fi_4)
+        min_fi_4 = int((fi_4 - gra_fi_4) * 60)
+        seg_fi_4 = (fi_4 - gra_fi_4 - min_fi_4 / 60) * 3600
+        seg_fi_4 = round(seg_fi_4,4)
             
-            self.lat1_decimal = self.gra_fi_2 + (self.min_fi_2/60) + (self.seg_fi_2 /3600)
-            sen_fi_2 = math.sin(math.radians(self.lat1_decimal))
-            cos_fi_2 = math.cos(math.radians(self.lat1_decimal))
-            self.N = (self.a/math.sqrt((1-(self.e_cuad*((sen_fi_2)**2)))))    
-            self.h = ((math.sqrt(self.coord_x**2+self.coord_y**2))/cos_fi_2) - self.N
+        if seg_fi_4 > 60:
+            min_fi_4 += 1
+            seg_fi_4 -= 60
+            if min_fi_4 > 60:
+                gra_fi_4 += 1
+                min_fi_4 -=60
+        
+        fi_4 = gra_fi_4 + (min_fi_4/60) + (seg_fi_4/3600)
+        sen_fi_4 = math.sin(math.radians(fi_4))
+        gran_normal_4 = (self.a/math.sqrt((1-(self.e_cuad*((sen_fi_4)**2)))))    
+        
+        #calculo iteraciones (manuales #5)
+        fi_5 = math.degrees(math.atan((self.coord_z+self.e_cuad*gran_normal_4*sen_fi_4)/(math.sqrt(self.coord_x**2+self.coord_y**2))))
+        self.gra_fi_2 = int(fi_5)
+        self.min_fi_2= int((fi_5 - self.gra_fi_2) * 60)
+        self.seg_fi_2 = (fi_5 - self.gra_fi_2 - self.min_fi_2 / 60) * 3600
+        self.seg_fi_2 = round(self.seg_fi_2,4)
             
-            k+=1
+        if self.seg_fi_2 > 60:
+            self.min_fi_2 += 1
+            self.seg_fi_2 -= 60
+            if self.min_fi_2 > 60:
+                self.gra_fi_2 += 1
+                self.min_fi_2 -=60
+        
+        self.lat1_decimal = self.gra_fi_2 + (self.min_fi_2/60) + (self.seg_fi_2/3600)
+        sen_fi_5 = math.sin(math.radians(self.lat1_decimal))
+        cos_fi_5 = math.cos(math.radians(self.lat1_decimal))
+        gran_normal_5 = (self.a/math.sqrt((1-(self.e_cuad*((sen_fi_5)**2)))))    
+        self.h = ((math.sqrt(self.coord_x**2+self.coord_y**2))/cos_fi_5) - gran_normal_5
     
         print(f"La latitud (φ) del punto es: {self.gra_fi_2}° {self.min_fi_2}' {self.seg_fi_2:.4f}\"  N")
         print(f"La altura final aproximada es de: {self.h} mts")

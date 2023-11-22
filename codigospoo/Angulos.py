@@ -15,6 +15,8 @@ class Angulos:
         seg = float(input("Segundos: "))
         
         self.decimal = grados+(min/60)+(seg/3600)
+        if self.decimal < 1:
+            self.decimal = 360 + self.decimal
     
     def ang_sexagesimales():
         pass
