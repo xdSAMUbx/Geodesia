@@ -9,14 +9,20 @@ class Angulos:
         
     def ang_decimales (self):
         
-        print("Ingrese el angulo en el siguiente orden: ")
+        print("Ingrese el angulo en el siguiente orden(Si es oeste, escribir todos los angulos en negativo): ")
         grados = float(input("Grados: "))
         min = float(input("Minutos: "))
         seg = float(input("Segundos: "))
+        self.decimal = grados + (min/60) + (seg/3600)
+        print("¿ Es Norte/Este O Sur/Oeste ?")
+        print("1) Norte o Este")
+        print("2) Sur u Oeste")
+        opcion = int(input("Seleccione una opción: "))
         
-        self.decimal = grados+(min/60)+(seg/3600)
-        if self.decimal < 1:
-            self.decimal = 360 + self.decimal
+        if opcion == 1:
+            self.decimal = self.decimal
+        elif opcion == 2:
+            self.decimal = 360 - self.decimal
     
     def ang_sexagesimales():
         pass

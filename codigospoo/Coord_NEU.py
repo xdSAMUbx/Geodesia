@@ -44,7 +44,7 @@ class Coord_NEU:
         cos_lambda = math.cos(math.radians(self.lambda1))
         
         mtz_sin_cos = np.array([[-sin_fi*cos_lambda,-sin_fi,cos_fi*cos_lambda],[-sin_fi*sin_lambda,cos_lambda,cos_fi*sin_lambda],[cos_fi,0,sin_fi]])
-        mtrz_ENU = np.array([[self.U],[self.E],[self.N]])
+        mtrz_ENU = np.array([[self.U],[self.N],[self.E]])
         
         print("La matriz de senos y cosenos es: ")
         print(mtz_sin_cos)
