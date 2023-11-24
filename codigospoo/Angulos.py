@@ -10,10 +10,10 @@ class Angulos:
     def ang_decimales (self):
         
         print("Ingrese el angulo en el siguiente orden (Si es oeste, escribir todos los angulos en negativo): ")
-        grados = float(input("Grados: "))
-        min = float(input("Minutos: "))
-        seg = float(input("Segundos: "))
-        self.decimal = grados + (min/60) + (seg/3600)
+        self.grados = float(input("Grados: "))
+        self.min = float(input("Minutos: "))
+        self.seg = float(input("Segundos: "))
+        self.decimal = self.grados + (self.min/60) + (self.seg/3600)
         print("¿ Es Positivo o Negativo ?")
         print("1) Positivo")
         print("2) Negativo")
