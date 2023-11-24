@@ -42,8 +42,6 @@ class Interactuador:
                 
                 miAngulo.ang_decimales()
                 miXYZ.fi = miAngulo.decimal
-                miAngulo.ang_decimales()
-                miXYZ.lon = miAngulo.decimal
                 miXYZ.h = float(input("Ingrese la altura del punto: "))
                 miXYZ.calc_2D()
                 print(f"La coordenada Y es: {miXYZ.y}")
