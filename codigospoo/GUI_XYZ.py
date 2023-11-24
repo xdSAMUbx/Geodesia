@@ -1,8 +1,9 @@
 import sys
-from codigospoo.Coords_xyz import Coords_xyz
 from PyQt6.QtWidgets import QLabel, QVBoxLayout, QPushButton, QDialog, QLineEdit, QHBoxLayout, QComboBox
 from PyQt6.QtGui import QDoubleValidator
-miXYZ = Coords_xyz
+from Coords_xyz import Coords_xyz
+
+
 class SegundaVentana(QDialog):
     
     def __init__(self):
