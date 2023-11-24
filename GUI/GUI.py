@@ -1,8 +1,6 @@
 import sys
 from PyQt6.QtWidgets import QApplication, QWidget, QLabel, QVBoxLayout, QPushButton, QDialog, QLineEdit, QHBoxLayout, QComboBox
-from PyQt6.QtGui import QDoubleValidator
 from GUI_XYZ import SegundaVentana
-
 
 class Menu_Principal(QWidget):
     
