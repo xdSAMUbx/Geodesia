@@ -71,9 +71,9 @@ class Coord_NEU:
         self.delta_y = mtrz_delta[1,0]
         self.delta_z = mtrz_delta[2,0]
         
-        self.x2 = self.delta_x-self.x
-        self.y2 = self.delta_y-self.y
-        self.z2 = self.delta_z-self.z
+        self.x2 = self.delta_x+self.x
+        self.y2 = self.delta_y+self.y
+        self.z2 = self.delta_z+self.z
         
         print(f"E = {self.E}")
         print(f"N = {self.N}")
