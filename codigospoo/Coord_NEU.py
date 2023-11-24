@@ -1,6 +1,8 @@
 import math
 import numpy as np
+from Angulos import Angulos
 
+miAngulo = Angulos()
 class Coord_NEU:
 
     def __init__(self):
@@ -24,6 +26,15 @@ class Coord_NEU:
         self.y2 = 0
         self.z2 = 0
         
+    def pto_inicial (self):
+        
+        print("Ingrese el Angulo ϕ de donde viso ")
+        miAngulo.ang_decimales()
+        self.fi1 = miAngulo.decimal
+        print("Ingrese el Angulo λ de donde viso ")
+        miAngulo.ang_decimales()
+        self.lambda1 = miAngulo.decimal
+        
     def enu (self):
         
         sin_i = math.sin(math.radians(self.vert))
@@ -43,8 +54,8 @@ class Coord_NEU:
         sin_lambda = math.sin(math.radians(self.lambda1))
         cos_lambda = math.cos(math.radians(self.lambda1))
         
-        mtz_sin_cos = np.array([[-sin_fi*cos_lambda,-sin_fi,cos_fi*cos_lambda],[-sin_fi*sin_lambda,cos_lambda,cos_fi*sin_lambda],[cos_fi,0,sin_fi]])
-        mtrz_ENU = np.array([[self.U],[self.N],[self.E]])
+        mtz_sin_cos = np.array([[-sin_lambda,-sin_fi*cos_lambda,cos_fi*cos_lambda],[cos_lambda,-sin_fi*sin_lambda,cos_fi*sin_lambda],[0,cos_fi,sin_fi]])
+        mtrz_ENU = np.array([[self.E],[self.N],[self.U]])
         
         print("La matriz de senos y cosenos es: ")
         print(mtz_sin_cos)
@@ -60,16 +71,16 @@ class Coord_NEU:
         self.delta_y = mtrz_delta[1,0]
         self.delta_z = mtrz_delta[2,0]
         
-        self.x2 = self.delta_x+self.x
-        self.y2 = self.delta_y+self.y
-        self.z2 = self.delta_z+self.z
+        self.x2 = self.delta_x-self.x
+        self.y2 = self.delta_y-self.y
+        self.z2 = self.delta_z-self.z
         
         print(f"E = {self.E}")
         print(f"N = {self.N}")
         print(f"U = {self.U}")
         print(f"delta_x = {self.delta_x}")
         print(f"delta_y = {self.delta_y}")
-        print(f"delta_x = {self.delta_z}")
+        print(f"delta_z = {self.delta_z}")
         print(f"La cordenada x del punto 2 es: {self.x2}")
         print(f"La cordenada y del punto 2 es: {self.y2}")
         print(f"La cordenada z del punto 2 es: {self.z2}")

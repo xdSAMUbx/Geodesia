@@ -77,20 +77,15 @@ class Interactuador:
             print("2. Δx, Δy, Δz")
             opcion2 = int(input("Ingrese la opción: "))
             if opcion2 == 1:
-                print("Angulo φ")
-                miAngulo.ang_decimales()
-                miCoord_ENU.fi1 = miAngulo.decimal
-                miRadio.fi = miAngulo.decimal
+                miCoord_ENU.pto_inicial()
+                miRadio.fi = miCoord_ENU.fi1
                 miXYZ.fi = miCoord_ENU.fi1
-                miRadio.calc_radios()
-                print("Angulo λ")
-                miAngulo.ang_decimales()
-                miCoord_ENU.lambda1 = miAngulo.decimal
-                miRadio.lon = miAngulo.decimal
-                miCoord_ENU.h1 = float(input("Ingrese la Altura del Punto (h): "))
-                miCoord_ENU.c = float(input("Ingrese la distanacia entre los puntos: "))
-                miXYZ.N = miRadio.normal
                 miXYZ.lon = miCoord_ENU.lambda1
+                miRadio.lon = miCoord_ENU.lambda1
+                miRadio.calc_radios()
+                miCoord_ENU.h1 = float(input("Ingrese la Altura del Punto (h): "))
+                miCoord_ENU.c = float(input("Ingrese la distancia entre los puntos: "))
+                miXYZ.N = miRadio.normal
                 miXYZ.h = miCoord_ENU.h1
                 miXYZ.calc_3D()
                 miCoord_ENU.x = miXYZ.x
@@ -104,13 +99,13 @@ class Interactuador:
                 miCoord_ENU.vert = miAngulo.decimal
                 miCoord_ENU.enu()
                 miCoord_ENU.coords_diferenciales()
-                miInversoCoorde.coord_x = miCoord_ENU.x2
-                miInversoCoorde.coord_y = miCoord_ENU.y2
-                miInversoCoorde.coord_z = miCoord_ENU.z2
+                miInversoCoorde.x = miCoord_ENU.x2
+                miInversoCoorde.y = miCoord_ENU.y2
+                miInversoCoorde.z = miCoord_ENU.z2
                 miInversoCoorde.a = miRadio.a
                 miInversoCoorde.e_cuad = miRadio.e_cuad
-                miInversoCoorde.calc_lambda()
                 miInversoCoorde.calc_fi()
+                miInversoCoorde.calc_lambda()
                 
             elif opcion2 == 2:
                 
