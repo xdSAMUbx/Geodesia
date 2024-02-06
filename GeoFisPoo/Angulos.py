@@ -23,9 +23,9 @@ class Angulos:
             print("2) Negativo")
             opcion = int(input("Seleccione una opción: "))
             
-            if opcion == 1:
+            if opcion == 0:
                 self.decimal = self.decimal
-            elif opcion == 2:
+            elif opcion == 1:
                 self.decimal = 360 - self.decimal
         else:
             self.decimal = self.decimal
