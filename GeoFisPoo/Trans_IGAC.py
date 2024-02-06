@@ -38,9 +38,6 @@ class Trans_IGAC:
             self.ysir = self.dy + self.ybog - self.rz*self.xbog + self.rx*self.zbog + self.ybog*self.fac_conver
             self.zsir = self.dz + self.zbog + self.ry*self.xbog - self.rx*self.ybog + self.zbog*self.fac_conver
             
-            print(f"Las coordenadas en el antiguo sistema eran X: {self.xbog}, Y: {self.ybog}, Z: {self.zbog}")
-            print(f"Las coordenadas del nuevo sistema son X: {self.xsir}, Y: {self.ysir}, Z: {self.zsir}")
-
         #region 2
         elif self.lat >= 9.4 and self.lat <= 11.6 and self.lon >= -76.0 and self.lon <= -73.0:
 
@@ -56,9 +53,6 @@ class Trans_IGAC:
             self.ysir = self.dy + self.ybog - self.rz*self.xbog + self.rx*self.zbog + self.ybog*self.fac_conver
             self.zsir = self.dz + self.zbog + self.ry*self.xbog - self.rx*self.ybog + self.zbog*self.fac_conver
             
-            print(f"Las coordenadas en el antiguo sistema eran X: {self.xbog}, Y: {self.ybog}, Z: {self.zbog}")
-            print(f"Las coordenadas del nuevo sistema son X: {self.xsir}, Y: {self.ysir}, Z: {self.zsir}")
-
         #region 3
         elif self.lat >= 8.0 and self.lat <= 9.4 and self.lon >= -77.6 and self.lon <= -74.4:
 
@@ -74,9 +68,6 @@ class Trans_IGAC:
             self.ysir = self.dy + self.ybog - self.rz*self.xbog + self.rx*self.zbog + self.ybog*self.fac_conver
             self.zsir = self.dz + self.zbog + self.ry*self.xbog - self.rx*self.ybog + self.zbog*self.fac_conver
             
-            print(f"Las coordenadas en el antiguo sistema eran X: {self.xbog}, Y: {self.ybog}, Z: {self.zbog}")
-            print(f"Las coordenadas del nuevo sistema son X: {self.xsir}, Y: {self.ysir}, Z: {self.zsir}")
-
         #region 4
         elif self.lat >= 5.0 and self.lat <= 9.4 and self.lon >= -74.4 and self.lon <= -72.0:
 
@@ -92,9 +83,6 @@ class Trans_IGAC:
             self.ysir = self.dy + self.ybog - self.rz*self.xbog + self.rx*self.zbog + self.ybog*self.fac_conver
             self.zsir = self.dz + self.zbog + self.ry*self.xbog - self.rx*self.ybog + self.zbog*self.fac_conver
             
-            print(f"Las coordenadas en el antiguo sistema eran X: {self.xbog}, Y: {self.ybog}, Z: {self.zbog}")
-            print(f"Las coordenadas del nuevo sistema son X: {self.xsir}, Y: {self.ysir}, Z: {self.zsir}")
-
         #region 5
         elif self.lat >= 5.0 and self.lat <= 8.0 and self.lon >= -78.0 and self.lon <= -74.4:
 
@@ -110,9 +98,6 @@ class Trans_IGAC:
             self.ysir = self.dy + self.ybog - self.rz*self.xbog + self.rx*self.zbog + self.ybog*self.fac_conver
             self.zsir = self.dz + self.zbog + self.ry*self.xbog - self.rx*self.ybog + self.zbog*self.fac_conver
             
-            print(f"Las coordenadas en el antiguo sistema eran X: {self.xbog}, Y: {self.ybog}, Z: {self.zbog}")
-            print(f"Las coordenadas del nuevo sistema son X: {self.xsir}, Y: {self.ysir}, Z: {self.zsir}")
-
         #region 6
         elif self.lat >= 3.0 and self.lat <= 5.0 and self.lon >= -78.0 and self.lon <= -74.4:
 
@@ -128,9 +113,6 @@ class Trans_IGAC:
             self.ysir = self.dy + self.ybog - self.rz*self.xbog + self.rx*self.zbog + self.ybog*self.fac_conver
             self.zsir = self.dz + self.zbog + self.ry*self.xbog - self.rx*self.ybog + self.zbog*self.fac_conver
             
-            print(f"Las coordenadas en el antiguo sistema eran X: {self.xbog}, Y: {self.ybog}, Z: {self.zbog}")
-            print(f"Las coordenadas del nuevo sistema son X: {self.xsir}, Y: {self.ysir}, Z: {self.zsir}")
-
         #region 7
         elif self.lat >= -1.0 and self.lat <= 3.0 and self.lon >= -79.0 and self.lon <= -74.0:
 
@@ -146,9 +128,6 @@ class Trans_IGAC:
             self.ysir = self.dy + self.ybog - self.rz*self.xbog + self.rx*self.zbog + self.ybog*self.fac_conver
             self.zsir = self.dz + self.zbog + self.ry*self.xbog - self.rx*self.ybog + self.zbog*self.fac_conver
             
-            print(f"Las coordenadas en el antiguo sistema eran X: {self.xbog}, Y: {self.ybog}, Z: {self.zbog}")
-            print(f"Las coordenadas del nuevo sistema son X: {self.xsir}, Y: {self.ysir}, Z: {self.zsir}")
-
         #region 8
         elif ( self.lat >= -4.5 and self.lat <= 3.0 and self.lon >= -74.0 and self.lon <= 66.5) or (self.lat >= 3.0 and self.lat <= 5.0 and self.lon >= -74.0 and self.lon <= -66.5) or (self.lat >= 5.0 and self.lat <= 7.3 and self.lon >= -72.0 and self.lon <= -66.5):
 
@@ -164,8 +143,5 @@ class Trans_IGAC:
             self.ysir = self.dy + self.ybog - self.rz*self.xbog + self.rx*self.zbog + self.ybog*self.fac_conver
             self.zsir = self.dz + self.zbog + self.ry*self.xbog - self.rx*self.ybog + self.zbog*self.fac_conver
             
-            print(f"Las coordenadas en el antiguo sistema eran X: {self.xbog}, Y: {self.ybog}, Z: {self.zbog}")
-            print(f"Las coordenadas del nuevo sistema son X: {self.xsir}, Y: {self.ysir}, Z: {self.zsir}")
-
     def trans_bog (self):
         pass
