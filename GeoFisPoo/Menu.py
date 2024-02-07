@@ -48,7 +48,6 @@ class Interactuador:
                 miTransformadorLA.xbog = miXYZ.x
                 miTransformadorLA.ybog = miXYZ.y
                 miTransformadorLA.zbog = miXYZ.z
-                miTransformadorLA.h = h
                 miTransformadorLA.ts_LA()
                 miTransformadorLA.mtz_LA_sir()
 
@@ -91,7 +90,6 @@ class Interactuador:
                 miTransformadorMO.xbog = miXYZ.x
                 miTransformadorMO.ybog = miXYZ.y
                 miTransformadorMO.zbog = miXYZ.z
-                miTransformadorMO.h = h
                 miTransformadorMO.ts_MO()
                 miTransformadorMO.mtz_MO_sir()
 

@@ -18,7 +18,6 @@ class Trans_LA:
         self.zsir = 0
         self.lat = 0
         self.lon = 0
-        self.h = 0
 
     def mtz_LA_sir(self):
 

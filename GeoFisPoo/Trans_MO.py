@@ -22,7 +22,6 @@ class Trans_MO:
         self.zsir = 0
         self.lat = 0
         self.lon = 0
-        self.h = 0
 
     def mtz_MO_sir(self):
         
@@ -152,5 +151,3 @@ class Trans_MO:
             self.y0 = -6120500.388
             self.z0 = 491473.3064
 
-    def tb_MO(self):
-        pass
