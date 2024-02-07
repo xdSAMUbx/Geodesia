@@ -24,14 +24,14 @@ class Interactuador:
             if val2 == 1:
                 miRadio.elipsoides()
                 print("Ingrese la Latitud ()")
-                miAngulo.ang_decimales()
+                miAngulo.lat()
                 miRadio.fi = miAngulo.decimal
                 miRadio.calc_radios()
                 miTransformador.lat = miAngulo.decimal
                 print("Ingrese la Longitud (λ)")
-                miAngulo.ang_decimales()
-                miRadio.lon = miAngulo.decimal
-                miTransformador.lon = miAngulo.decimal
+                miAngulo.lon()
+                miRadio.lon = miAngulo.decimallon
+                miTransformador.lon = miAngulo.decimallon
                 h = int(input("Ingrese la Altura: "))
                 miXYZ.N = miRadio.normal
                 miXYZ.a = miRadio.a
@@ -45,6 +45,7 @@ class Interactuador:
                 miTransformador.zbog = miXYZ.z
                 miTransformador.h = h
                 miTransformador.trans_sir()
+                miTransformador.mtz()
 
                 print(f"Las coordenadas en el antiguo sistema eran X: {miTransformador.xbog}, Y: {miTransformador.ybog}, Z: {miTransformador.zbog}")
                 print(f"Las coordenadas del nuevo sistema son X: {miTransformador.xsir}, Y: {miTransformador.ysir}, Z: {miTransformador.zsir}")
