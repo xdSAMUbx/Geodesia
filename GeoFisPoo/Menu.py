@@ -1,13 +1,16 @@
 from Angulos import Angulos
 from Radios import Radios
 from Trans_LA import Trans_LA
-from Trans_MO import 
+from Trans_MO import Trans_MO
+from Trans_HE import Trans_HE
 from Coords_xyz import Coords_xyz
 
 miAngulo = Angulos()
 miRadio =  Radios()
 miXYZ = Coords_xyz()
 miTransformadorLA = Trans_LA()
+miTransformadorMO = Trans_MO()
+miTransformadorHE = Trans_HE()
 
 class Interactuador:
 
@@ -49,7 +52,7 @@ class Interactuador:
                 miTransformadorLA.zbog = miXYZ.z
                 miTransformadorLA.h = h
                 miTransformadorLA.ts_LA()
-                miTransformadorLA.mtz_LA()
+                miTransformadorLA.mtz_LA_sir()
 
                 print(f"Las coordenadas en el antiguo sistema eran X: {miTransformadorLA.xbog}, Y: {miTransformadorLA.ybog}, Z: {miTransformadorLA.zbog}")
                 print(f"Las coordenadas del nuevo sistema son X: {miTransformadorLA.xsir}, Y: {miTransformadorLA.ysir}, Z: {miTransformadorLA.zsir}")

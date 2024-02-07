@@ -20,7 +20,7 @@ class Trans_LA:
         self.lon = 0
         self.h = 0
 
-    def mtz_LA(self):
+    def mtz_LA_sir(self):
 
         self.xsir = self.dx + self.xbog + self.rz*self.ybog - self.ry*self.zbog + self.xbog*self.fac_conver
         self.ysir = self.dy + self.ybog - self.rz*self.xbog + self.rx*self.zbog + self.ybog*self.fac_conver
@@ -115,19 +115,7 @@ class Trans_LA:
             self.rx = 1.361573e-5
             self.ry = -2.174431e-6
             self.rz = -1.362410e-5
-            
+
     def tb_LA (self):
-        pass
-
-    def ts_MO(self):
-        pass
-
-    def tb_MO(self):
-        pass
-
-    def ts_HE(self):
-        pass
-
-    def tb_HE(self):
         pass
     
