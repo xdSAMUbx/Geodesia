@@ -62,50 +62,114 @@ def calc_lambda(x,y):
         
     return lon
 
-import math
+def calc_fi (x,y,z,e_cuadrado,a):
+    #calculo iteraciones (manuales #1)
+    fi = math.atan ((1/1-e_cuadrado)*(z/(math.sqrt(x**2+y**2))))
+    fi = math.degrees(fi)
+    gra_fi = int(fi)
+    min_fi = int((fi - gra_fi) * 60)
+    seg_fi = (fi - gra_fi - min_fi / 60) * 3600
+    seg_fi = round(seg_fi,4)
+        
+    if seg_fi > 60:
+        min_fi += 1
+        seg_fi -= 60
+        if min_fi > 60:
+            gra_fi += 1
+            min_fi -=60
+    
+    fi = gra_fi + (min_fi/60) + (seg_fi /3600)
+    sen_fi = math.sin(math.radians(fi))
+    cos_fi = math.cos(math.radians(fi))
+    gran_normal = (a/math.sqrt((1-(e_cuadrado*((sen_fi)**2)))))    
+    h = ((math.sqrt(x**2+y**2))/cos_fi) - gran_normal
 
-def calcular_latitud_altura(x, y, z, e_cuadrado, a):
-    # Inicializar variables para la primera iteración
-    fi_anterior = None
-    h_anterior = None
+    #calculo iteraciones (manuales #2)
+    fi_2 = math.atan((z+e_cuadrado*gran_normal*sen_fi)/(math.sqrt(x**2+y**2)))
+    fi_2 = math.degrees(fi_2)
+    gra_fi_2 = int(fi_2)
+    min_fi_2 = int((fi_2 - gra_fi_2) * 60)
+    seg_fi_2 = (fi_2 - gra_fi_2 - min_fi_2 / 60) * 3600
+    seg_fi_2 = round(seg_fi_2,4)
+        
+    if seg_fi_2 > 60:
+        min_fi_2 += 1
+        seg_fi_2 -= 60
+        if min_fi_2 > 60:
+            gra_fi_2 += 1
+            min_fi_2 -=60
+    
+    fi_2 = gra_fi_2 + (min_fi_2/60) + (seg_fi_2 /3600)
+    sen_fi_2 = math.sin(math.radians(fi_2))
+    cos_fi_2 = math.cos(math.radians(fi_2))
+    gran_normal_2 = (a/math.sqrt((1-(e_cuadrado*((sen_fi_2)**2)))))    
+    h_2 = ((math.sqrt(x**2+y**2))/cos_fi_2) - gran_normal_2
 
-    # Número de iteraciones
-    num_iteraciones = 5
-
-    for _ in range(num_iteraciones):
-        if fi_anterior is None:
-            fi = math.atan((1 / (1 - e_cuadrado)) * (z / (math.sqrt(x**2 + y**2))))
-        else:
-            fi = math.atan((z + e_cuadrado * gran_normal * sen_fi) / (math.sqrt(x**2 + y**2)))
-
-        # Calcular variables auxiliares
-        fi = math.degrees(fi)
-        gra_fi = int(fi)
-        min_fi = int((fi - gra_fi) * 60)
-        seg_fi = (fi - gra_fi - min_fi / 60) * 3600
-        seg_fi = round(seg_fi, 4)
-
-        # Ajustar valores si es necesario
-        if seg_fi > 60:
-            min_fi += 1
-            seg_fi -= 60
-            if min_fi > 60:
-                gra_fi += 1
-                min_fi -= 60
-
-        fi = gra_fi + (min_fi / 60) + (seg_fi / 3600)
-
-        sen_fi = math.sin(math.radians(fi))
-        cos_fi = math.cos(math.radians(fi))
-        gran_normal = (a / math.sqrt((1 - (e_cuadrado * ((sen_fi)**2)))))
-        h = ((math.sqrt(x**2 + y**2)) / cos_fi) - gran_normal
-
-        # Almacenar valores para la siguiente iteración
-        fi_anterior = fi
-        h_anterior = h
-
-    print(f"La latitud final (φ) aproximada del punto es: {gra_fi}° {min_fi}' {seg_fi:.4f}\" N")
-    print(f"La altura final aproximada es de: {h} mts")
+    
+    #calculo iteraciones (manuales #3)
+    fi_3 = math.atan((z+e_cuadrado*gran_normal_2*sen_fi_2)/(math.sqrt(x**2+y**2)))
+    fi_3 = math.degrees(fi_3)
+    gra_fi_3 = int(fi_3)
+    min_fi_3 = int((fi_3 - gra_fi_3) * 60)
+    seg_fi_3 = (fi_3 - gra_fi_3 - min_fi_3 / 60) * 3600
+    seg_fi_3 = round(seg_fi_3,4)
+        
+    if seg_fi_3 > 60:
+        min_fi_3 += 1
+        seg_fi_3 -= 60
+        if min_fi_3 > 60:
+            gra_fi_3 += 1
+            min_fi_3 -=60
+    
+    fi_3 = gra_fi_3 + (min_fi_3/60) + (seg_fi_3/3600)
+    sen_fi_3 = math.sin(math.radians(fi_3))
+    cos_fi_3 = math.cos(math.radians(fi_3))
+    gran_normal_3 = (a/math.sqrt((1-(e_cuadrado*((sen_fi_3)**2)))))    
+    h_3 = ((math.sqrt(x**2+y**2))/cos_fi_3) - gran_normal_3
+    
+    #calculo iteraciones (manuales #4)
+    fi_4 = math.atan((z+e_cuadrado*gran_normal_3*sen_fi_3)/(math.sqrt(x**2+y**2)))
+    fi_4 = math.degrees(fi_4)
+    gra_fi_4 = int(fi_4)
+    min_fi_4 = int((fi_4 - gra_fi_4) * 60)
+    seg_fi_4 = (fi_4 - gra_fi_4 - min_fi_4 / 60) * 3600
+    seg_fi_4 = round(seg_fi_4,4)
+        
+    if seg_fi_4 > 60:
+        min_fi_4 += 1
+        seg_fi_4 -= 60
+        if min_fi_4 > 60:
+            gra_fi_4 += 1
+            min_fi_4 -=60
+    
+    fi_4 = gra_fi_4 + (min_fi_4/60) + (seg_fi_4/3600)
+    sen_fi_4 = math.sin(math.radians(fi_4))
+    cos_fi_4 = math.cos(math.radians(fi_4))
+    gran_normal_4 = (a/math.sqrt((1-(e_cuadrado*((sen_fi_4)**2)))))    
+    h_4 = ((math.sqrt(x**2+y**2))/cos_fi_4) - gran_normal_4
+    
+    #calculo iteraciones (manuales #5)
+    fi_5 = math.degrees(math.atan((z+e_cuadrado*gran_normal_4*sen_fi_4)/(math.sqrt(x**2+y**2))))
+    gra_fi_5 = int(fi_5)
+    min_fi_5 = int((fi_5 - gra_fi_5) * 60)
+    seg_fi_5 = (fi_5 - gra_fi_5 - min_fi_5 / 60) * 3600
+    seg_fi_5 = round(seg_fi_5,4)
+        
+    if seg_fi_5 > 60:
+        min_fi_5 += 1
+        seg_fi_5 -= 60
+        if min_fi_5 > 60:
+            gra_fi_5 += 1
+            min_fi_5 -=60
+    
+    fi_5 = gra_fi_5 + (min_fi_5/60) + (seg_fi_5/3600)
+    sen_fi_5 = math.sin(math.radians(fi_5))
+    cos_fi_5 = math.cos(math.radians(fi_5))
+    gran_normal_5 = (a/math.sqrt((1-(e_cuadrado*((sen_fi_5)**2)))))    
+    h_5 = ((math.sqrt(x**2+y**2))/cos_fi_5) - gran_normal_5
+    
+    print(f"La latitud final (φ) aproximada del punto es: {gra_fi_5}° {min_fi_5}' {seg_fi_5:.4f}\" E ")
+    print(f"La altura final aproximada es de: {h_5} mts")
 a,e_cuadrado,x,y,z = valores_iniciales()
 calc_lambda (x,y)
-calcular_latitud_altura(x,y,z,e_cuadrado,a)
+calc_fi(x,y,z,e_cuadrado,a)
