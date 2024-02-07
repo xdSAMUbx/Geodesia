@@ -1,6 +1,5 @@
-import numpy as np
 
-class Trans_IGAC:
+class Trans_LA:
 
     def __init__(self):
 
@@ -21,13 +20,13 @@ class Trans_IGAC:
         self.lon = 0
         self.h = 0
 
-    def mtz(self):
-        
+    def mtz_LA(self):
+
         self.xsir = self.dx + self.xbog + self.rz*self.ybog - self.ry*self.zbog + self.xbog*self.fac_conver
         self.ysir = self.dy + self.ybog - self.rz*self.xbog + self.rx*self.zbog + self.ybog*self.fac_conver
         self.zsir = self.dz + self.zbog + self.ry*self.xbog - self.rx*self.ybog + self.zbog*self.fac_conver
 
-    def trans_sir(self):
+    def ts_LA(self):
 
         #region 1
         if self.lat >= 10.0 and self.lat <= 13.0 and self.lon >= -73.0 and self.lon <= -71.0:
@@ -117,5 +116,18 @@ class Trans_IGAC:
             self.ry = -2.174431e-6
             self.rz = -1.362410e-5
             
-    def trans_bog (self):
+    def tb_LA (self):
         pass
+
+    def ts_MO(self):
+        pass
+
+    def tb_MO(self):
+        pass
+
+    def ts_HE(self):
+        pass
+
+    def tb_HE(self):
+        pass
+    
