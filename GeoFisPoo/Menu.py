@@ -63,7 +63,7 @@ class Interactuador:
         elif val == 2: #METODO MOLODENZKY
 
             a = 6378388
-            e = 0.006672
+            e = 0.006672267
             miRadio.a = a
             miRadio.e_cuad = e
             miAngulo.lat()
@@ -94,7 +94,7 @@ class Interactuador:
         elif val == 3: #METODO HELMERT
 
             a = 6378388
-            e = 0.006672
+            e = 0.006672267
             miRadio.a = a
             miRadio.e_cuad = e
             miAngulo.lat()

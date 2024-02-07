@@ -26,7 +26,7 @@ class Angulos:
         self.minlon = float(input("Minutos: "))
         self.seglon = float(input("Segundos: "))
         self.decimallon = self.gradlon + (self.minlon/60) + (self.seglon/3600)
-        opcion2 = int(input("El angulo esta al este u oeste? (1 = E, 2 = W)"))
+        opcion2 = int(input("El angulo esta al este u oeste? (1 = E, 2 = W): "))
         if opcion2 == 1:
                 self.decimallon = self.decimallon
         elif opcion2 == 2:
