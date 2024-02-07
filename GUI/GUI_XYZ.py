@@ -1,8 +1,9 @@
 import sys
+sys.path.append("c:\\Users\\samue\\Documents\\Universidad\\Cuarto Semestre\\Geodesia\\Geodesia\\CodigosPoo")
+import sys
 from PyQt6.QtWidgets import QLabel, QVBoxLayout, QPushButton, QDialog, QLineEdit, QHBoxLayout, QComboBox
 from PyQt6.QtGui import QDoubleValidator
-from Coords_xyz import Coords_xyz
-
+import CodigosPoo.Coords_xyz
 
 class SegundaVentana(QDialog):
     

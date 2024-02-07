@@ -1,3 +1,4 @@
+
 import sys
 from PyQt6.QtWidgets import QApplication, QWidget, QLabel, QVBoxLayout, QPushButton, QDialog, QLineEdit, QHBoxLayout, QComboBox
 from GUI_XYZ import SegundaVentana
