@@ -13,7 +13,7 @@ class Angulos:
         
     def lat (self):
         
-        print("Ingrese la latitud del punto: ")
+        print("Ingrese la latitud (φ) del punto: ")
         self.grados = float(input("Grados: "))
         self.min = float(input("Minutos: "))
         self.seg = float(input("Segundos: "))
@@ -21,7 +21,7 @@ class Angulos:
 
     def lon(self):
 
-        print("Ingrese la longitud del punto: ")
+        print("Ingrese la longitud (λ) del punto: ")
         self.gradlon = float(input("Grados: "))
         self.minlon = float(input("Minutos: "))
         self.seglon = float(input("Segundos: "))

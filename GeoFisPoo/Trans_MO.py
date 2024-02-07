@@ -1,3 +1,5 @@
+import numpy as np
+
 class Trans_MO:
 
     def __init__(self):
@@ -24,10 +26,17 @@ class Trans_MO:
 
     def mtz_MO_sir(self):
         
-        self.xsir = self.x0 + self.dx + ((1 + self.fac_conver) * (1 + self.rz - self.ry) * (self.xbog - self.x0))
-        self.ysir = self.y0 + self.dy + ((1 + self.fac_conver) * ( -self.rz + 1 + self.rx) * (self.ybog - self.y0))
-        self.zsir = self.z0 + self.dz + ((1 + self.fac_conver) * (self.ry - self.rx + 1 ) * (self.zbog-self.z0))
-
+        mtz_0 = np.array([[self.x0],[self.y0],[self.z0]])
+        mtz_delta = np.array([[self.dx],[self.dy],[self.dz]])
+        escalar = np.array([[1 + self.fac_conver]])
+        mtz_rot = np.array([[1,self.rz,-self.ry],[-self.rz,1,self.rx],[self.ry,-self.rx,1]])
+        mtz_in = np.array([[self.xbog - self.x0],[self.ybog - self.y0],[self.zbog - self.z0]])
+        res1 = escalar * mtz_rot
+        res2 = res1 @ mtz_in
+        mtz_fin = mtz_0 + mtz_delta + res2
+        self.xsir = mtz_fin[0,0]
+        self.ysir = mtz_fin[1,0]
+        self.zsir = mtz_fin[2,0]
 
     def ts_MO(self):
 

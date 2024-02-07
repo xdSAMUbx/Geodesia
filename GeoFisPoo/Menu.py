@@ -28,14 +28,12 @@ class Interactuador:
             if val2 == 1:
                 a = 6378388
                 e = 0.006672267
-                print("Ingrese la Latitud (φ)")
                 miRadio.a = a
                 miRadio.e_cuad = e
                 miAngulo.lat()
                 miRadio.fi = miAngulo.decimal
                 miRadio.calc_radios()
                 miTransformadorLA.lat = miAngulo.decimal
-                print("Ingrese la Longitud (λ)")
                 miAngulo.lon()
                 miRadio.lon = miAngulo.decimallon
                 miTransformadorLA.lon = -miAngulo.gradlon
@@ -72,15 +70,13 @@ class Interactuador:
             if val2 == 1:
 
                 a = 6378388
-                e = 0.006672267
-                print("Ingrese la Latitud (φ)")
+                e = 0.006672
                 miRadio.a = a
                 miRadio.e_cuad = e
                 miAngulo.lat()
                 miRadio.fi = miAngulo.decimal
                 miRadio.calc_radios()
-                miTransformadorLA.lat = miAngulo.decimal
-                print("Ingrese la Longitud (λ)")
+                miTransformadorMO.lat = miAngulo.decimal
                 miAngulo.lon()
                 miRadio.lon = miAngulo.decimallon
                 miTransformadorMO.lon = -miAngulo.gradlon
