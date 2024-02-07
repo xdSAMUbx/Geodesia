@@ -62,86 +62,86 @@ class Trans_MO:
         #region 3
         elif self.lat >= 8.0 and self.lat <= 9.4 and self.lon >= -77.6 and self.lon <= -74.4:
 
-            self.dx = 
-            self.dy = 
-            self.dz = 
-            self.fac_conver = -5.771909e-6
-            self.rx = -8.358813e-5
+            self.dx = 311.118
+            self.dy = 289.167
+            self.dz = -310.641
+            self.fac_conver = -5.771882e-6
+            self.rx = -8.358815e-5
             self.ry = -3.057474e-5
-            self.rz = 7.573031e-6
-            self.x0 = 
-            self.y0 = 
-            self.z0 = 
+            self.rz = 7.573043e-6
+            self.x0 = 1555622.801
+            self.y0 = -6105353.313
+            self.z0 = 991255.656
             
         #region 4
         elif self.lat >= 5.0 and self.lat <= 9.4 and self.lon >= -74.4 and self.lon <= -72.0:
 
-            self.dx = 
-            self.dy = 
-            self.dz = 
-            self.fac_conver = -1.389914e-5
-            self.rx = -7.992171e-5
-            self.ry = -8.090696e-6
+            self.dx = 306.666
+            self.dy = 315.063
+            self.dz = -318.837
+            self.fac_conver = -1.389912e-5
+            self.rx = -7.992173e-5
+            self.ry = -8.090698e-6
             self.rz = 1.051699e-4
-            self.x0 = 
-            self.y0 = 
-            self.z0 = 
+            self.x0 = 1845222.398
+            self.y0 = -6058604.495
+            self.z0 = 769132.398
             
         #region 5
         elif self.lat >= 5.0 and self.lat <= 8.0 and self.lon >= -78.0 and self.lon <= -74.4:
 
-            self.dx = 
-            self.dy = 
-            self.dz = 
-            self.fac_conver = 2.181658e-6
-            self.rx = -4.216369e-5
+            self.dx = 307.871
+            self.dy = 305.803
+            self.dz = -311.992
+            self.fac_conver = 2.181655e-6
+            self.rx = -4.216368e-5
             self.ry = -2.030416e-5
-            self.rz = -6.209623e-5
-            self.x0 = 
-            self.y0 = 
-            self.z0 = 
+            self.rz = -6.209624e-5
+            self.x0 = 1594396.206
+            self.y0 = -6143812.398
+            self.z0 = 648855.829
             
         #region 6
         elif self.lat >= 3.0 and self.lat <= 5.0 and self.lon >= -78.0 and self.lon <= -74.4:
 
-            self.dx = 
-            self.dy = 
-            self.dz = 
-            self.fac_conver = 3.746560e-6
+            self.dx = 302.934
+            self.dy = 307.805
+            self.dz = -312.121
+            self.fac_conver = 3.746562e-6
             self.rx = 3.329153e-5
             self.ry = -4.001009e-5
-            self.rz = -4.507206e-5
-            self.x0 = 
-            self.y0 = 
-            self.z0 = 
+            self.rz = -4.507205e-5
+            self.x0 = 1558280.49
+            self.y0 = -6167355.092
+            self.z0 = 491954.2193
             
         #region 7
         elif self.lat >= -1.0 and self.lat <= 3.0 and self.lon >= -79.0 and self.lon <= -74.0:
 
-            self.dx = 
-            self.dy = 
-            self.dz = 
-            self.fac_conver = 6.325747e-6
+            self.dx = 295.282
+            self.dy = 321.293
+            self.dz = -311.001
+            self.fac_conver = 6.325744e-6
             self.rx = -4.698084e-5
-            self.ry = 5.003123e-6
-            self.rz = -9.578655e-5
-            self.x0 = 
-            self.y0 = 
-            self.z0 = 
+            self.ry = 5.003127e-6
+            self.rz = -9.578653e-5
+            self.x0 = 1564000.62
+            self.y0 = -6180004.879
+            self.z0 = 243257.9554
             
         #region 8
         elif ( self.lat >= -4.5 and self.lat <= 3.0 and self.lon >= -74.0 and self.lon <= 66.5) or (self.lat >= 3.0 and self.lat <= 5.0 and self.lon >= -74.0 and self.lon <= -66.5) or (self.lat >= 5.0 and self.lat <= 7.3 and self.lon >= -72.0 and self.lon <= -66.5):
 
-            self.dx = 
-            self.dy = 
-            self.dz = 
-            self.fac_conver = -2.199943e-6
-            self.rx = 1.361573e-5
-            self.ry = -2.174431e-6
-            self.rz = -1.362410e-5
-            self.x0 = 
-            self.y0 = 
-            self.z0 = 
+            self.dx = 302.259
+            self.dy = 317.979
+            self.dz = -319.080
+            self.fac_conver = -2.199976e-6
+            self.rx = 1.361566e-5
+            self.ry = -2.174456e-6
+            self.rz = -1.362418e-5
+            self.x0 = 1738580.767
+            self.y0 = -6120500.388
+            self.z0 = 491473.3064
 
     def tb_MO(self):
         pass
