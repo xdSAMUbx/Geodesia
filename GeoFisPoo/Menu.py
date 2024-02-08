@@ -22,7 +22,10 @@ class Interactuador:
             print("2) Datum Bogota")
             val2 = int(input("Ingrese su respuesta: "))
             if val2 == 1:
-                miRadio.elipsoides()
+                a = 6378388
+                e = 0.006672267
+                miRadio.a = a
+                miRadio.e_cuad = e
                 print("Ingrese la Latitud ()")
                 miAngulo.ang_decimales()
                 miRadio.fi = miAngulo.decimal
