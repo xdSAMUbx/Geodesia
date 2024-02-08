@@ -3,7 +3,7 @@ import math
 def calculo_coords_viejas ():
     
     a = 6378388
-    e_cuadrado = 0.006672
+    e_cuadrado = 0.006672267
     
     print("Ingrese la latitud geodésica en el siguiente orden: ")
     grados = float(input("Ingrese los grados: "))

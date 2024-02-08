@@ -1,12 +1,16 @@
 from Angulos import Angulos
 from Radios import Radios
-from Trans_IGAC import Trans_IGAC
+from Trans_LA import Trans_LA
+from Trans_MO import Trans_MO
+from Trans_HE import Trans_HE
 from Coords_xyz import Coords_xyz
 
 miAngulo = Angulos()
 miRadio =  Radios()
 miXYZ = Coords_xyz()
-miTransformador = Trans_IGAC()
+miTransformadorLA = Trans_LA()
+miTransformadorMO = Trans_MO()
+miTransformadorHE = Trans_HE()
 
 class Interactuador:
 
@@ -16,7 +20,7 @@ class Interactuador:
         print("2) Transformación de Datum Molodeusky para Colombia")
         print("3) Transformación de Datum Helmert para Colombia")
         val = int(input("Seleccione una opción: "))
-        if val == 1:
+        if val == 1: #METODO LAURA SANCHEZ
             print("¿A que datum desea transformar las coordenadas?")
             print("1) Magna Sirgas")
             print("2) Datum Bogota")
@@ -26,15 +30,12 @@ class Interactuador:
                 e = 0.006672267
                 miRadio.a = a
                 miRadio.e_cuad = e
-                print("Ingrese la Latitud ()")
-                miAngulo.ang_decimales()
                 miRadio.fi = miAngulo.decimal
                 miRadio.calc_radios()
-                miTransformador.lat = miAngulo.decimal
-                print("Ingrese la Longitud (λ)")
-                miAngulo.ang_decimales()
-                miRadio.lon = miAngulo.decimal
-                miTransformador.lon = miAngulo.decimal
+                miTransformadorLA.lat = miAngulo.decimal
+                miAngulo.lon()
+                miRadio.lon = miAngulo.decimallon
+                miTransformadorLA.lon = -miAngulo.gradlon
                 h = int(input("Ingrese la Altura: "))
                 miXYZ.N = miRadio.normal
                 miXYZ.a = miRadio.a
@@ -43,14 +44,14 @@ class Interactuador:
                 miXYZ.lon = miRadio.lon
                 miXYZ.h = h
                 miXYZ.calc_3D()
-                miTransformador.xbog = miXYZ.x
-                miTransformador.ybog = miXYZ.y
-                miTransformador.zbog = miXYZ.z
-                miTransformador.h = h
-                miTransformador.trans_sir()
+                miTransformadorLA.xbog = miXYZ.x
+                miTransformadorLA.ybog = miXYZ.y
+                miTransformadorLA.zbog = miXYZ.z
+                miTransformadorLA.ts_LA()
+                miTransformadorLA.mtz_LA_sir()
 
-                print(f"Las coordenadas en el antiguo sistema eran X: {miTransformador.xbog}, Y: {miTransformador.ybog}, Z: {miTransformador.zbog}")
-                print(f"Las coordenadas del nuevo sistema son X: {miTransformador.xsir}, Y: {miTransformador.ysir}, Z: {miTransformador.zsir}")
+                print(f"Las coordenadas en el antiguo sistema eran X: {miTransformadorLA.xbog}, Y: {miTransformadorLA.ybog}, Z: {miTransformadorLA.zbog}")
+                print(f"Las coordenadas del nuevo sistema son X: {miTransformadorLA.xsir}, Y: {miTransformadorLA.ysir}, Z: {miTransformadorLA.zsir}")
 
             elif val2 == 2:
                 pass
@@ -58,13 +59,69 @@ class Interactuador:
             else:
                 print("Error")
 
-        elif val == 2:
-            pass
+        elif val == 2: #METODO MOLODENZKY
 
-        elif val == 3:
-            pass
+            a = 6378388
+            e = 0.006672267
+            miRadio.a = a
+            miRadio.e_cuad = e
+            miAngulo.lat()
+            miRadio.fi = miAngulo.decimal
+            miRadio.calc_radios()
+            miTransformadorMO.lat = miAngulo.decimal
+            miAngulo.lon()
+            miRadio.lon = miAngulo.decimallon
+            miTransformadorMO.lon = -miAngulo.gradlon
+            h = int(input("Ingrese la Altura: "))
+            miXYZ.N = miRadio.normal
+            miXYZ.a = miRadio.a
+            miXYZ.e_cuad = miRadio.e_cuad
+            miXYZ.fi = miRadio.fi
+            miXYZ.lon = miRadio.lon
+            miXYZ.h = h
+            miXYZ.calc_3D()
+            miTransformadorMO.xbog = miXYZ.x
+            miTransformadorMO.ybog = miXYZ.y
+            miTransformadorMO.zbog = miXYZ.z
+            miTransformadorMO.ts_MO()
+            miTransformadorMO.mtz_MO_sir()
+
+            print(f"Las coordenadas en el antiguo sistema eran X: {miTransformadorMO.xbog}, Y: {miTransformadorMO.ybog}, Z: {miTransformadorMO.zbog}")
+            print(f"Las coordenadas del nuevo sistema son X: {miTransformadorMO.xsir}, Y: {miTransformadorMO.ysir}, Z: {miTransformadorMO.zsir}")
+
+
+        elif val == 3: #METODO HELMERT
+
+            a = 6378388
+            e = 0.006672267
+            miRadio.a = a
+            miRadio.e_cuad = e
+            miAngulo.lat()
+            miRadio.fi = miAngulo.decimal
+            miRadio.calc_radios()
+            miTransformadorHE.lat = miAngulo.decimal
+            miAngulo.lon()
+            miRadio.lon = miAngulo.decimallon
+            miTransformadorHE.lon = -miAngulo.gradlon
+            h = int(input("Ingrese la Altura: "))
+            miXYZ.N = miRadio.normal
+            miXYZ.a = miRadio.a
+            miXYZ.e_cuad = miRadio.e_cuad
+            miXYZ.fi = miRadio.fi
+            miXYZ.lon = miRadio.lon
+            miXYZ.h = h
+            miXYZ.calc_3D()
+            miTransformadorHE.xbog = miXYZ.x
+            miTransformadorHE.ybog = miXYZ.y
+            miTransformadorHE.zbog = miXYZ.z
+            miTransformadorHE.ts_HE()
+            miTransformadorHE.mtz_HE_sir()
+
+            print(f"Las coordenadas en el antiguo sistema eran X: {miTransformadorHE.xbog}, Y: {miTransformadorHE.ybog}, Z: {miTransformadorHE.zbog}")
+            print(f"Las coordenadas del nuevo sistema son X: {miTransformadorHE.xsir}, Y: {miTransformadorHE.ysir}, Z: {miTransformadorHE.zsir}")
         
         else:
+
             print("Error, no es una opcion")
             miInteractuador = Interactuador()
             miInteractuador.menu()

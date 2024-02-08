@@ -6,29 +6,33 @@ class Angulos:
         self.grados = 0
         self.min = 0
         self.seg = 0
+        self.decimallon = 0
+        self.gradlon = 0
+        self.minlon = 0
+        self.seglon = 0
         
-    def ang_decimales (self):
+    def lat (self):
         
-        print("Ingrese el angulo en el siguiente orden (Si es oeste, escribir todos los angulos en negativo): ")
+        print("Ingrese la latitud (φ) del punto: ")
         self.grados = float(input("Grados: "))
         self.min = float(input("Minutos: "))
         self.seg = float(input("Segundos: "))
         self.decimal = self.grados + (self.min/60) + (self.seg/3600)
-        print("¿El angulo es referente a la longitud?")
-        print("Si la respuesta es si, ingrese 1, si no, 0.")
-        val = int(input("Ingrese su respuesta: "))
-        if val == 1:
-            print("¿ Es Positivo o Negativo ?")
-            print("1) Positivo")
-            print("2) Negativo")
-            opcion = int(input("Seleccione una opción: "))
-            
-            if opcion == 1:
-                self.decimal = self.decimal
-            elif opcion == 2:
-                self.decimal = 360 - self.decimal
+
+    def lon(self):
+
+        print("Ingrese la longitud (λ) del punto: ")
+        self.gradlon = float(input("Grados: "))
+        self.minlon = float(input("Minutos: "))
+        self.seglon = float(input("Segundos: "))
+        self.decimallon = self.gradlon + (self.minlon/60) + (self.seglon/3600)
+        opcion2 = int(input("El angulo esta al este u oeste? (1 = E, 2 = W): "))
+        if opcion2 == 1:
+                self.decimallon = self.decimallon
+        elif opcion2 == 2:
+                self.decimallon = 360 - self.decimallon
         else:
-            self.decimal = self.decimal
-    
+            self.decimallon = self.decimallon
+
     def ang_sexagesimales():
         pass
