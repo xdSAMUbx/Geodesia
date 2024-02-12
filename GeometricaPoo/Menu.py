@@ -3,12 +3,14 @@ from Angulos import Angulos
 from Calc_radios import Radios
 from Coords_xyz import Coords_xyz
 from Inverso_Coords import Inverso_Coords
+from Latitudes import Latitudes
 
 miCoord_ENU = Coord_NEU()
 miAngulo = Angulos()
 miRadio = Radios()
 miXYZ = Coords_xyz()
 miInversoCoorde = Inverso_Coords()
+miLat = Latitudes()
 
 class Interactuador:
 
@@ -19,6 +21,8 @@ class Interactuador:
         print("2. Coordenadas Cartesianas")
         print("3. Coordenadas Cartográficas")
         print("4. Coordenadas ENU")
+        print("5. Relación de latitudes")
+
         
         entrada = int(input("Ingrese la opción: "))
         return entrada
@@ -40,7 +44,7 @@ class Interactuador:
             
             if opcion2 == 1:
                 
-                miAngulo.ang_decimales()
+                miAngulo.lat()
                 miXYZ.fi = miAngulo.decimal
                 miXYZ.h = float(input("Ingrese la altura del punto: "))
                 miXYZ.calc_2D()
@@ -49,13 +53,13 @@ class Interactuador:
                 
             elif opcion2 == 2:
                 
-                miAngulo.ang_decimales()
+                miAngulo.lat()
                 miRadio.fi = miAngulo.decimal
                 miXYZ.fi = miAngulo.decimal
                 miRadio.calc_radios()
                 miXYZ.N = miRadio.normal
-                miAngulo.ang_decimales()
-                miXYZ.lon = miAngulo.decimal
+                miAngulo.lon()
+                miXYZ.lon = miAngulo.decimallon
                 miXYZ.h = float(input("Ingrese la altura del punto: "))
                 miXYZ.calc_3D()
                 print(f"La coordenada X es: {miXYZ.x}")
@@ -120,6 +124,35 @@ class Interactuador:
                 print(f"E = {miCoord_ENU.E}")
                 print(f"N = {miCoord_ENU.N}")
                 print(f"U = {miCoord_ENU.U}")
+
+        elif opcion == 5:
+
+            miRadio.elipsoides()
+            miAngulo.lat()
+            miRadio.fi = miAngulo.decimal
+            miLat.a = miRadio.a
+            miLat.e = miRadio.e_cuad
+            print("¿Qué latitud es la principal?")
+            print("1) Geodésica")
+            print("2) Geocéntrica")
+            print("3) Reducida")
+            opcion3 = int(input("Seleccione una opción: "))
+            if opcion3 == 1:
+                miLat.geodesica = miAngulo.decimal
+                miLat.geodes()
+            elif opcion3 == 2:
+                miLat.geocentrica = miAngulo.decimal
+                miLat.geocen()
+            elif opcion3 == 3:
+                miLat.reducida = miAngulo.decimal
+                miLat.reduc()
+            else:
+                print("Error, inicie de nuevo")
+                miInteractuador.programa()
+
+        else:
+            print("Error, digito un número mal.")
+            miInteractuador.programa()
 
 miInteractuador = Interactuador()
 miInteractuador.programa()
