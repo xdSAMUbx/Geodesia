@@ -16,54 +16,13 @@ class Interactuador:
 
     def menu(self):
         print("Bienvenido a la Calculadora Básica, por favor seleccione una opción: ")
-        print("1) Transformación de Datum I.G.A.C")
-        print("2) Transformación de Datum Molodeusky para Colombia")
-        print("3) Transformación de Datum Helmert para Colombia")
+        print("1) Transformación de Datum Molodensky para Colombia")
+        print("2) Transformación de Datum Helmert para Colombia")
         val = int(input("Seleccione una opción: "))
-        if val == 1: #METODO LAURA SANCHEZ
-            print("¿A que datum desea transformar las coordenadas?")
-            print("1) Magna Sirgas")
-            print("2) Datum Bogota")
-            val2 = int(input("Ingrese su respuesta: "))
-            if val2 == 1:
-                a = 6378388
-                e = 0.006672267
-                miRadio.a = a
-                miRadio.e_cuad = e
-                miAngulo.lat()
-                miRadio.fi = miAngulo.decimal
-                miRadio.calc_radios()
-                miTransformadorLA.lat = miAngulo.decimal
-                miAngulo.lon()
-                miRadio.lon = miAngulo.decimallon
-                miTransformadorLA.lon = -miAngulo.gradlon
-                h = int(input("Ingrese la Altura: "))
-                miXYZ.N = miRadio.normal
-                miXYZ.a = miRadio.a
-                miXYZ.e_cuad = miRadio.e_cuad
-                miXYZ.fi = miRadio.fi
-                miXYZ.lon = miRadio.lon
-                miXYZ.h = h
-                miXYZ.calc_3D()
-                miTransformadorLA.xbog = miXYZ.x
-                miTransformadorLA.ybog = miXYZ.y
-                miTransformadorLA.zbog = miXYZ.z
-                miTransformadorLA.ts_LA()
-                miTransformadorLA.mtz_LA_sir()
-
-                print(f"Las coordenadas en el antiguo sistema eran X: {miTransformadorLA.xbog}, Y: {miTransformadorLA.ybog}, Z: {miTransformadorLA.zbog}")
-                print(f"Las coordenadas del nuevo sistema son X: {miTransformadorLA.xsir}, Y: {miTransformadorLA.ysir}, Z: {miTransformadorLA.zsir}")
-
-            elif val2 == 2:
-                pass
-
-            else:
-                print("Error")
-
-        elif val == 2: #METODO MOLODENZKY
+        if val == 2: #METODO MOLODENZKY
 
             a = 6378388
-            e = 0.006672267
+            e = 0.006672
             miRadio.a = a
             miRadio.e_cuad = e
             miAngulo.lat()
@@ -87,14 +46,19 @@ class Interactuador:
             miTransformadorMO.ts_MO()
             miTransformadorMO.mtz_MO_sir()
 
-            print(f"Las coordenadas en el antiguo sistema eran X: {miTransformadorMO.xbog}, Y: {miTransformadorMO.ybog}, Z: {miTransformadorMO.zbog}")
-            print(f"Las coordenadas del nuevo sistema son X: {miTransformadorMO.xsir}, Y: {miTransformadorMO.ysir}, Z: {miTransformadorMO.zsir}")
-
+            print(f"Las coordenadas Datum Bogotá eran: ")
+            print(f"X: {miTransformadorMO.xbog}")
+            print(f"Y: {miTransformadorMO.ybog}")
+            print(f"Z: {miTransformadorMO.zbog}")    
+            print(f"Las coordenadas en Magna Sirgas son: ")
+            print(f"X: {miTransformadorMO.xsir}")
+            print(f"Y: {miTransformadorMO.ysir}")
+            print(f"Z: {miTransformadorMO.zsir}") 
 
         elif val == 3: #METODO HELMERT
 
             a = 6378388
-            e = 0.006672267
+            e = 0.006672
             miRadio.a = a
             miRadio.e_cuad = e
             miAngulo.lat()
@@ -118,9 +82,15 @@ class Interactuador:
             miTransformadorHE.ts_HE()
             miTransformadorHE.mtz_HE_sir()
 
-            print(f"Las coordenadas en el antiguo sistema eran X: {miTransformadorHE.xbog}, Y: {miTransformadorHE.ybog}, Z: {miTransformadorHE.zbog}")
-            print(f"Las coordenadas del nuevo sistema son X: {miTransformadorHE.xsir}, Y: {miTransformadorHE.ysir}, Z: {miTransformadorHE.zsir}")
-        
+            print(f"Las coordenadas Datum Bogotá eran: ")
+            print(f"X: {miTransformadorHE.xbog}")
+            print(f"Y: {miTransformadorHE.ybog}")
+            print(f"Z: {miTransformadorHE.zbog}")    
+            print(f"Las coordenadas en Magna Sirgas son: ")
+            print(f"X: {miTransformadorHE.xsir}")
+            print(f"Y: {miTransformadorHE.ysir}")
+            print(f"Z: {miTransformadorHE.zsir}")    
+                 
         else:
 
             print("Error, no es una opcion")
