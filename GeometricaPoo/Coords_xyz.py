@@ -10,7 +10,6 @@ class Coords_xyz:
         self.x = 0
         self.y = 0
         self.z = 0
-        self.a = 0
         self.N = 0
         self.e_cuad = 0 
         
