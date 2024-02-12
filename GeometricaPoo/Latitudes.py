@@ -8,6 +8,7 @@ class Latitudes:
         self.geocentrica = 0
         self.reducida = 0
         self.e = 0
+        self.a = 0
 
 
     def geodes(self):
@@ -18,7 +19,17 @@ class Latitudes:
         print(f"La latitud reducida es: {self.reducida}")
 
     def geocen(self):
-        pass
+
+        b = self.a*mh.sqrt(1-self.e)
+        self.geodesica = mh.degrees(mh.atan((mh.tan(mh.radians(self.geocentrica)))/1-self.e))
+        self.reducida = mh.degrees((self.a/b)*(mh.tan(self.geocentrica)))
+        print(f"La latitud geodesica es: {self.geodesica}")
+        print(f"La latitud reducida es: {self.reducida}")
 
     def reduc(self):
-        pass
+        
+        b = self.a*mh.sqrt(1-self.e)
+        self.geodesica = mh.degrees(mh.atan((mh.tan(mh.radians(self.reducida)))/mh.sqrt(1-self.e)))
+        self.geocentrica = mh.degrees(mh.atan((b/self.a)*(mh.tan(mh.radians(self.reducida)))))
+        print(f"La latitud geodesica es: {self.geodesica}")
+        print(f"La latitud geocentrica es: {self.geocentrica}")

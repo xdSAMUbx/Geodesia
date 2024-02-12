@@ -130,6 +130,7 @@ class Interactuador:
             miRadio.elipsoides()
             miAngulo.lat()
             miRadio.fi = miAngulo.decimal
+            miLat.a = miRadio.a
             miLat.e = miRadio.e_cuad
             print("¿Qué latitud es la principal?")
             print("1) Geodésica")
