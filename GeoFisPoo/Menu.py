@@ -19,47 +19,8 @@ class Interactuador:
         print("1) Transformación de Datum Molodensky para Colombia")
         print("2) Transformación de Datum Helmert para Colombia")
         val = int(input("Seleccione una opción: "))
-        if val == 1: #METODO LAURA SANCHEZ
-            print("¿A que datum desea transformar las coordenadas?")
-            print("1) Magna Sirgas")
-            print("2) Datum Bogota")
-            val2 = int(input("Ingrese su respuesta: "))
-            if val2 == 1:
-                a = 6378388
-                e = 0.006672267
-                miRadio.a = a
-                miRadio.e_cuad = e
-                miAngulo.lat()
-                miRadio.fi = miAngulo.decimal
-                miRadio.calc_radios()
-                miTransformadorLA.lat = miAngulo.decimal
-                miAngulo.lon()
-                miRadio.lon = miAngulo.decimallon
-                miTransformadorLA.lon = -miAngulo.gradlon
-                h = int(input("Ingrese la Altura: "))
-                miXYZ.N = miRadio.normal
-                miXYZ.a = miRadio.a
-                miXYZ.e_cuad = miRadio.e_cuad
-                miXYZ.fi = miRadio.fi
-                miXYZ.lon = miRadio.lon
-                miXYZ.h = h
-                miXYZ.calc_3D()
-                miTransformadorLA.xbog = miXYZ.x
-                miTransformadorLA.ybog = miXYZ.y
-                miTransformadorLA.zbog = miXYZ.z
-                miTransformadorLA.ts_LA()
-                miTransformadorLA.mtz_LA_sir()
 
-                print(f"Las coordenadas en el antiguo sistema eran X: {miTransformadorLA.xbog}, Y: {miTransformadorLA.ybog}, Z: {miTransformadorLA.zbog}")
-                print(f"Las coordenadas del nuevo sistema son X: {miTransformadorLA.xsir}, Y: {miTransformadorLA.ysir}, Z: {miTransformadorLA.zsir}")
-
-            elif val2 == 2:
-                pass
-
-            else:
-                print("Error")
-
-        elif val == 2: #METODO MOLODENZKY
+        if val == 2: #METODO MOLODENZKY
 
             a = 6378388
             e = 0.006672
