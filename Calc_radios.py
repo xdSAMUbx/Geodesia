@@ -9,7 +9,6 @@ class Radios:
         self.az = 0
         self.normal = 0
         self.R = 0
-        self.ro = 0
         self.ro_az = 0
         self.rad_med_curv = 0
         self.a = 0
