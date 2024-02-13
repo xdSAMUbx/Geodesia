@@ -1,9 +1,9 @@
 from Coord_NEU import Coord_NEU
-from Angulos import Angulos
-from Calc_radios import Radios
-from Coords_xyz import Coords_xyz
+from Basicos.Angulos import Angulos
+from Basicos.Calc_radios import Radios
+from Geodesia_General.Coords_xyz import Coords_xyz
 from Inverso_Coords import Inverso_Coords
-from Latitudes import Latitudes
+from Geodesia_General.Latitudes import Latitudes
 
 miCoord_ENU = Coord_NEU()
 miAngulo = Angulos()
