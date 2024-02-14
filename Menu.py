@@ -1,7 +1,7 @@
 from Coord_NEU import Coord_NEU
 from Basicos.Angulos import Angulos
 from Basicos.Calc_radios import Radios
-from Geodesia_General.Coords_xyz import Coords_xyz
+from Geodesia_General.cod_geometrica.Coords_xyz import Coords_xyz
 from Inverso_Coords import Inverso_Coords
 from Geodesia_General.Latitudes import Latitudes
 

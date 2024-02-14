@@ -1,6 +1,7 @@
 import sys
 from PyQt6.QtWidgets import QApplication, QWidget, QPushButton, QVBoxLayout, QLabel
 from PyQt6.QtCore import Qt
+from xyz import XYZ
 
 class VentanaGeometrica(QWidget):
 
@@ -84,7 +85,9 @@ class VentanaGeometrica(QWidget):
         self.show()
 
     def coordxyz(self):
-        pass
+        self.XYZ = XYZ()
+        self.XYZ.show()
+        self.close()
 
     def coordgauss(self):
         pass
