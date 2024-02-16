@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Geodesia</title>
+    <link rel="stylesheet" href="../static/style.css">
+</head>
+<body>
+    <div class="menu">
+        <ion-icon name="menu-outline"></ion-icon>
+        <ion-icon name="close-outline"></ion-icon>
+    </div>
+    <div class="barra-lateral">
+        <div>
+            <div class="nombre-pagina">
+                <ion-icon id="mundo" name="earth-outline"></ion-icon>
+                <span> Geodesia </span>
+            </div>
+        </div>
+        <nav class="navegacion">
+            <ul>
+                <li>
+                    <a href="../templates/historiageo.html">
+                        <ion-icon name="book-outline"></ion-icon>
+                        <span>Historia Geodesia</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="../templates/pre.html">
+                        <ion-icon name="prism-outline"></ion-icon>
+                        <span>Pre Geométrica</span>
+                    </a>
+                </li>
+                <li>
+                    <a id="geometrica" href="#">
+                        <ion-icon name="shapes-outline"></ion-icon>
+                        <span>Geo. Geométrica</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <ion-icon name="move-outline"></ion-icon>
+                        <span> Pre Física</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <ion-icon name="rocket-outline"></ion-icon>
+                        <span> Geo. Física</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <ion-icon name="planet-outline"></ion-icon>
+                        <span> Pre Satelital</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <ion-icon name="telescope-outline"></ion-icon>
+                        <span> Geo.Satelital</span>
+                    </a>
+                </li>
+            </ul>
+        </nav>
+        <div>
+            <div class="linea"></div>
+            <div class="modo-oscuro">
+                <div class="info">
+                    <ion-icon name="moon-outline"></ion-icon>
+                    <span>Modo Noche</span>
+                </div>
+                <div class="switch">
+                    <div class="base">
+                    <div class="circulo"></div>
+                </div>
+            </div>
+        </div>
+        </div>
+    </div>
+    <main>
+        <div class="texto-inicial">
+            <div class="titulo">
+                <h1>Geodesia Geométrica</h1>
+            </div>
+                <span>
+                    Una vez visto los conceptos necesarios para tomar el curso de Geodesia Geométrica, es importante recalcar que esta geodesia es muy antigua, pues se uso principalmente hacia el inicio del siglo pasado y a lo largo de este
+                    hasta que se empezaron a usar los satelites para tomar datos. Hoy en dia se ve esta materia con el fin de generar en el estudiante un razonamiento geométrico frente a los problemas que pueden existir al momento de imaginar 
+                    un elipsoide u otro elemento que sea participe durante los eventos que pueden suceder al momento de hacer geodesia. Si bien la materia de geodesia en su generalidad puede causar terror al estudiante, tranquilo, todos pasamos
+                    por ese sentimiento, sin embargo, la finalidad de esta página es mostrar lo fácil que llega a ser la geodesia con el mínimo entendimiento de las matemáticas.
+                </span>
+                <span>
+                    Ahora bien, al momento de hacer geodesia geométrica, se va a brindar al estudiante los siguientes códigos en Python para que faciliten sus calculos, ya que estos pueden llegar a ser extensos y tedioso. Sin embargo,
+                    se invita al estudiante a que antes de hacer uso de los códigos, repase muy bien lo enseñado en clase, pues el entendimiento de los calculos dependera totalmente de la base conceptual que tenga el estudiante. Recuerde
+                    que no se le garantiza un éxito a lo largo del curso si no procura entender la base del mismo, recuerde que sin bases no se puede construir un edificio.
+                </span>
+            </div>
+        </div>
+        <div class="nav">
+            <nav class="coordenadas">
+                <h2 class="titulo-navegacion">Códigos de Coordenadas: </h2>
+                <ul>
+                    <li>
+                        <a href="#">
+                            <span>Coordenadas XYZ</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <span>Coordenadas Gaüs - Krueger</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <span>Coordenadas Cartográficas</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <span>Coordenadas E.N.U</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <span>Coordenadas Inversas</span>
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+            <nav class="puissant">
+                <h2 class="titulo-navegacion">Códigos de Puissant: </h2>
+                <ul>
+                    <li>
+                        <a href="#">
+                            <span>Puissant Directo</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <span>Puissant Inverso</span>
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+            <nav class="anexos">
+                <h2 class="titulo-navegacion">Otros Códigos: </h2>
+                <ul>
+                    <li>
+                        <a href="#">
+                            <span>Relación Latitudes</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <span>Radios Sobre El Elipsoide</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <span>Reducción de Distancias</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <span>Altimetria Directa</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <span>Altimetria Inversa</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <span>Transformación de Datum</span>
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </main>
+
+    <script src="../static/script.js"></script>
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+</body>
+</html>

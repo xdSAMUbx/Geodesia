@@ -1,4 +1,3 @@
-
 const mundo = document.getElementById("mundo");
 const barraLateral = document.querySelector(".barra-lateral");
 const spans = document.querySelectorAll("span");
@@ -31,7 +30,21 @@ palanca.addEventListener("click",()=>{
     let body = document.body;
     body.classList.toggle("dark-mode");
     circulo.classList.toggle("prendido");
+
+    // Guardando el modo en el local storage
+    if(document.body.classList.contains('dark-mode')){
+        localStorage.setItem('dark-mode','true');
+    } else {
+        localStorage.setItem('dark-mode','false');
+    }
 });
+
+//Obtenemos el modod actual.
+if(localStorage.getItem('dark-mode') === 'true'){
+    document.body.classList.add("dark-mode");
+} else {
+    document.body.classList.remove("dark-mode");
+}
 
 mundo.addEventListener("click",()=>{
     barraLateral.classList.toggle("mini-barra-lateral");
