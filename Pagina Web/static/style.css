@@ -243,7 +243,13 @@ main.min-main{
 .nav{
     border: 2px solid green;
     display: grid;
-    grid-template-columns: repeat(3,1fr);
+    grid-template-columns: repeat(5,1fr);
+}
+.nav .linea-vert{
+    width: 5px;
+    height: 100%;
+    margin: auto;
+    background-color: red;
 }
 .nav a{
     width: 100%;
@@ -257,10 +263,8 @@ main.min-main{
 .nav li{
     list-style: none;
     display: flex;
-    margin-bottom: 5px;
 }
 .nav .titulo-navegacion{
-    height: 20px;
     margin: 10px;
 }
 /*------------ responsive*/
