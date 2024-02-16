@@ -7,15 +7,21 @@
     <link rel="stylesheet" href="../static/style.css">
 </head>
 <body>
+    <div class="menu">
+        <ion-icon name="menu-outline"></ion-icon>
+        <ion-icon name="close-outline"></ion-icon>
+    </div>
     <div class="barra-lateral">
-        <div class="nombre-pagina">
-            <ion-icon id="mundo" name="earth-outline"></ion-icon>
-            <span> Geodesia </span>
+        <div>
+            <div class="nombre-pagina">
+                <ion-icon id="mundo" name="earth-outline"></ion-icon>
+                <span> Geodesia </span>
+            </div>
         </div>
         <nav class="navegacion">
             <ul>
                 <li>
-                    <a href="#">
+                    <a id="historia" href="#">
                         <ion-icon name="book-outline"></ion-icon>
                         <span>Historia Geodesia</span>
                     </a>
@@ -58,21 +64,24 @@
                 </li>
             </ul>
         </nav>
-        <div class="linea"></div>
-        <div class="modo-oscuro">
-            <div class="info">
-                <ion-icon name="moon-outline"></ion-icon>
-                <span>Modo Noche</span>
-            </div>
-            <div class="switch">
-                <div class="base">
-                    <div class="circulo">
-
-                    </div>
+        <div>
+            <div class="linea"></div>
+            <div class="modo-oscuro">
+                <div class="info">
+                    <ion-icon name="moon-outline"></ion-icon>
+                    <span>Modo Noche</span>
+                </div>
+                <div class="switch">
+                    <div class="base">
+                        <div class="circulo"></div>
                 </div>
             </div>
         </div>
+        </div>
     </div>
+    <main>
+        <h1>Contenido</h1>
+    </main>
 
     <script src="../static/script.js"></script>
     <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
