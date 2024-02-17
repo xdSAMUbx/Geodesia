@@ -34,5 +34,9 @@ class Angulos:
         else:
             self.decimallon = self.decimallon
 
-    def ang_sexagesimales():
-        pass
+    def ang_sexagesimales(self):
+        
+        self.grados = int(self.decimal)
+        minutos_decimales = (self.decimal - self.grados) * 60
+        self.minutos = int(minutos_decimales)
+        self.segundos = (minutos_decimales - self.minutos) * 60
