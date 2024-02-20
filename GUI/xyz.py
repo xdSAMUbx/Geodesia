@@ -1,6 +1,6 @@
 import sys
 sys.path.append("../Geodesia/Geodesia/Geodesia_General")
-from Geodesia_General.Coords_xyz import * 
+from Geodesia_General.xyz import * 
 from PyQt6.QtWidgets import (QApplication,QWidget,QPushButton,QVBoxLayout,QLabel)
 from PyQt6.QtCore import Qt
 

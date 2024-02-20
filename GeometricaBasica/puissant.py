@@ -139,7 +139,7 @@ def problema_inverso (a,e_cuadrado):
     print("2) Oeste")
     longitud_2 = int(input("Ingrese la dirección de la longitud: "))
     if longitud_2 == 2:
-       longeo2 = 360-longeo2
+        longeo2 = 360-longeo2
     
     #Definicion de senos, cosenos y ro1
     coseno_angulo1 = math.cos(math.radians(latgeo1))
