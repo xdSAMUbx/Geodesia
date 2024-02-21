@@ -1,13 +1,17 @@
+from sympy import *
 import numpy as np
-import sympy as sp
-import math as mh   
 
-#Solicitando la función escalar ó vectorial
-f = sp.sympify(input("Ingrese la función escalar o vectorial segun corresponda en terminos de r,teta,lambda: "))
+"""
+Factores de escala
+h_r = 1
+h_θ = r
+h_λ = rsen(θ)
+"""
 
-r, teta, lamda = sp.symbols('r,θ,λ')
-factores = [1,r,r*mh.sin(mh.radians(teta))]
+#Creando clase para funciones Vectoriales
+class Vectoriales:
 
-grad = [sp.diff(f,var) for var in (r,teta,lamda)]
-
-print(f'El Gradiente de {f} es: {grad}')
+    def __init__(self):
+        
+        self.escalar = 0
+        
