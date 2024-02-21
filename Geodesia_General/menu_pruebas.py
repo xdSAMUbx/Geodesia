@@ -16,7 +16,6 @@ class MenuPruebas:
         miEscalar.lon = miAngulo.decimallon
         miEscalar.dist()
         miEscalar.escalar()
-        miEscalar.gradiente()
 
 miInteractuador = MenuPruebas()
 miInteractuador.menu()

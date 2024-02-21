@@ -75,8 +75,10 @@ class Escalares:
         else:
             self.gradi = np.reshape(vector1,(3,1))
 
-        df_grad = pd.DataFrame({'Derivada':gradiente, 'Evaluada':self.gradi})
-        print(df_grad)
+        print("La función vectorial sin evaluar:")
+        print(gradiente)
+        print("La función vectorial evaluada:")
+        print(self.gradi)
         
     def laplaciano(self):
         pass
