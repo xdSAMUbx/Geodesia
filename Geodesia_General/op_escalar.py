@@ -1,9 +1,9 @@
 #Calculadora de operaciones vectoriales para coordenadas esféricas
 
-from sympy import symbols, sin, cos, tan,sympify,diff, evalf
+from sympy import symbols, sin, cos, tan, cot, csc, sec, sympify, diff, evalf
 import numpy as np
-import pandas as pd
 import math as mh
+import pandas as pd
 
 """
 Factores de escala
@@ -12,7 +12,7 @@ h_θ = r
 h_λ = rsen(θ)
 """
 
-#Creando clase para funciones Vectoriales
+#Creando clase para funciones Escalar
 class Escalares:
 
     def __init__(self):
@@ -75,10 +75,8 @@ class Escalares:
         else:
             self.gradi = np.reshape(vector1,(3,1))
 
-        print("La función vectorial sin evaluar:")
-        print(gradiente)
-        print("La función vectorial evaluada:")
-        print(self.gradi)
+        df = pd.DataFrame({'Sin evaluar':gradiente[:,0], 'Evaluado':self.gradi[:,0]})
+        print(df)
         
     def laplaciano(self):
         pass

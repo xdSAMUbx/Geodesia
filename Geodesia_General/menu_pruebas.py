@@ -1,8 +1,9 @@
-from gradiente import Escalares
+from op_vectorial import Vectorial
 from angulos import Angulos
 
 miAngulo = Angulos()
-miEscalar = Escalares()
+miVectorial= Vectorial()
+
 class MenuPruebas:
 
     def menu(self):
@@ -11,11 +12,11 @@ class MenuPruebas:
         print("Definiendo r,theta,lon")
         print("En este caso, fi se refiere a theta")
         miAngulo.lat()
-        miEscalar.teta = miAngulo.decimal
+        miVectorial.teta = miAngulo.decimal
         miAngulo.lon()
-        miEscalar.lon = miAngulo.decimallon
-        miEscalar.dist()
-        miEscalar.escalar()
+        miVectorial.lon = miAngulo.decimallon
+        miVectorial.dist()
+        miVectorial.vectorial()
 
 miInteractuador = MenuPruebas()
 miInteractuador.menu()
