@@ -1,7 +1,7 @@
 import sys
 from PyQt6.QtWidgets import QApplication, QWidget, QLabel, QLineEdit, QHBoxLayout, QVBoxLayout, QPushButton
 
-class VentanaAngulos(QWidget):
+class VentanaXYZ(QWidget):
     def __init__(self):
         super().__init__()
 
@@ -116,6 +116,6 @@ class VentanaAngulos(QWidget):
 
 if __name__ == '__main__':
     app = QApplication(sys.argv)
-    ventana = VentanaAngulos()
+    ventana = VentanaXYZ()
     ventana.show()
     sys.exit(app.exec())
