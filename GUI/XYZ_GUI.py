@@ -1,8 +1,18 @@
+import os
 import sys
-sys.path.append("../Geodesia/Geodesia/Geodesia_General")
-from Geodesia_General.xyz import * 
+
+actual = os.path.dirname(os.path.abspath(__file__))
+general = os.path.join(actual,'..','CODIGOS_GEODESIA')
+geodesia_general_path = os.path.join(general,'Geodesia_General')
+sys.path.append(geodesia_general_path)
+
+from Geodesia_General.xyz import Coords_xyz
 from PyQt6.QtWidgets import (QApplication,QWidget,QPushButton,QVBoxLayout,QLabel)
 from PyQt6.QtCore import Qt
+
+ruta_geodesia = os.path.join('CODIGOS_GEODESIA', 'Geodesia_General', 'xyz.py')
+
+from Geodesia_General.xyz import Coords_xyz
 
 class XYZ(QWidget):
 

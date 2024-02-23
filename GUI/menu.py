@@ -1,7 +1,7 @@
 import sys
 from PyQt6.QtWidgets import (QApplication,QWidget,QPushButton,QVBoxLayout,QLabel)
 from PyQt6.QtCore import Qt
-from geometrica import VentanaGeometrica
+from GEOMETRICA_GUI import VentanaGeometrica
 
 class menu(QWidget):
 
