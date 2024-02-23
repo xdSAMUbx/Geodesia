@@ -119,3 +119,4 @@ if __name__ == '__main__':
     ventana = VentanaAngulos()
     ventana.show()
     sys.exit(app.exec())
+
