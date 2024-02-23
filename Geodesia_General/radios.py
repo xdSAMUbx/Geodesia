@@ -21,7 +21,7 @@ class Radios:
         cosaz = math.cos(math.radians(self.az))
         self.normal = (self.a/math.sqrt((1-(self.e_cuad*((sinfi)**2)))))
         self.R= (self.a*(1-self.e_cuad))/(1-(self.e_cuad*((sinfi)**2)))**(3/2)
-        self.ro_az = (self.ro*self.normal)/((self.R*(cosaz**2))+(self.normal*(sinaz**2)))
+        self.ro_az = (self.R*self.normal)/((self.R*(cosaz**2))+(self.normal*(sinaz**2)))
         self.rad_med_curv = math.sqrt(self.R*self.normal)
         
     def elipsoides (self):

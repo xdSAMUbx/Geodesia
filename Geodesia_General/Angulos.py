@@ -7,9 +7,6 @@ class Angulos:
         self.min = 0
         self.seg = 0
         self.decimallon = 0
-        self.gradlon = 0
-        self.minlon = 0
-        self.seglon = 0
         
     def lat (self):
         
@@ -38,5 +35,5 @@ class Angulos:
         
         self.grados = int(self.decimal)
         minutos_decimales = (self.decimal - self.grados) * 60
-        self.minutos = int(minutos_decimales)
-        self.segundos = (minutos_decimales - self.minutos) * 60
+        self.min = int(minutos_decimales)
+        self.seg = (minutos_decimales - self.min) * 60

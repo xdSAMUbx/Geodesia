@@ -50,10 +50,10 @@ class Directo:
         senaz12 = mh.sin(mh.radians(self.az12))
         cosaz12 = mh.cos(mh.radians(self.az12))
 
-        delfi = (B * self.s * cosaz12) - (C * (self.s**2) * (senaz12**2)) - (B * E (self.s**2) * cosaz12 * (senaz12 ** 2)) 
+        delfi = (B * self.s * cosaz12) - (C * (self.s**2) * (senaz12**2)) - (B * E * (self.s**2) * cosaz12 * (senaz12 ** 2)) 
         cor = D * (delfi ** 2)
 
-        diffi = (B * self.s * cosaz12) - (C * (self.s**2) * (senaz12**2)) - (B * E (self.s**2) * cosaz12 * (senaz12 ** 2)) - cor
+        diffi = (B * self.s * cosaz12) - (C * (self.s**2) * (senaz12**2)) - (B * E * (self.s**2) * cosaz12 * (senaz12 ** 2)) - cor
         diffi = diffi / 3600
         self.lat2 = self.lat1 + diffi
         if self.lat2 < 0:
@@ -94,7 +94,9 @@ class Directo:
         delaz = (della * senmed * (cosmed_2**-1)) + ((della**3 / 12) * (senmed * (cosmed**2) * (arco**2)))
         self.az21 = self.az12 + delaz + 180
 
-        if self.az21 > 360:
+        if self.az21 >= 0 and self.az21 <= 360:
+            self.az21
+        elif self.az21 > 360:
             self.az21 -= 360
         elif self.az21 < 0 and self.az21 > -360:
             self.az21 += 360
