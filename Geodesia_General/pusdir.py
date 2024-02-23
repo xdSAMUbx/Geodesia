@@ -19,13 +19,6 @@ class Directo:
         self.N1 = 0
         self.N2 = 0
         self.e = 0
-        self.gl2 = 0
-        self.ml2 = 0
-        self.sl2 = 0
-        self.glo2 = 0
-        self.mlo2 = 0
-        self.slo2 = 0
-
         
     def const(self):
 
