@@ -86,7 +86,7 @@ def problema_directo(a,e_cuadrado):
     fi_medio = ((fi_2 + latgeo1)/2)
     seno_angulo_medio = math.sin(math.radians(fi_medio))
     coseno_angulo_medio = math.cos(math.radians(fi_medio))
-    cos_ang_medsobre2 = math.cos(math.radians(diferencia_fi/2))
+    cos_ang_medsobre2 = math.cos(math.radians(fi_medio/2))
     delta_alfa = (delta_lambda*seno_angulo_medio/cos_ang_medsobre2)+((delta_lambda**3)/12)*(seno_angulo_medio*(coseno_angulo_medio**2)*(arco_seg**2))
     az_21 = az_12 + 180 + delta_alfa
     
