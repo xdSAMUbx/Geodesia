@@ -1,3 +1,5 @@
+import math as mh
+
 class Directo:
 
     def __init__(self):
@@ -9,3 +11,10 @@ class Directo:
         self.az12 = 0
         self.az21 = 0
         self.h = 0
+        self.ro1 = 0
+        self.N1 = 0
+        
+    def const(self):
+        
+        arco = mh.sin(mh.radians())
+        B = 1/(self.ro1 * arco)
