@@ -1,11 +1,9 @@
 from pusinv import Inverso
-from pusdir import Directo
 from Angulos import Angulos
 from radios import Radios
 
 miAngulo = Angulos()
 miInverso = Inverso()
-miDirecto = Directo()
 miRadio = Radios()
 
 class MenuPruebas:

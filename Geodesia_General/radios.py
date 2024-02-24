@@ -19,8 +19,8 @@ class Radios:
         sinfi = math.sin(math.radians(self.fi))
         sinaz = math.sin(math.radians(self.az))
         cosaz = math.cos(math.radians(self.az))
-        self.normal = (self.a/math.sqrt((1-(self.e_cuad*((sinfi)**2)))))
-        self.R= (self.a*(1-self.e_cuad))/(1-(self.e_cuad*((sinfi)**2)))**(3/2)
+        self.normal = (self.a/math.sqrt((1-(self.e_cuad*(sinfi**2)))))
+        self.R= (self.a*(1-self.e_cuad))/(1-(self.e_cuad*(sinfi**2)))**(3/2)
         self.ro_az = (self.R*self.normal)/((self.R*(cosaz**2))+(self.normal*(sinaz**2)))
         self.rad_med_curv = math.sqrt(self.R*self.normal)
         
@@ -35,4 +35,4 @@ class Radios:
             self.e_cuad = 0.00669438
         elif opcion == 2:
             self.a = 6378388
-            self.e_cuad = 0.00672267
+            self.e_cuad = 0.006672267

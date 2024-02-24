@@ -40,14 +40,14 @@ class Inverso:
 
         #Calculos para hallar el azimut 1 - 2
         B,C,D,E,arco = self.const()
-        dellam = (self.lon2 - self.lon1)
-        delfi = (self.lat2 - self.lat1) 
+        delfi = (self.lat2 - self.lat1) * 3600
+        dellam = (self.lon2 - self.lon1) 
         sendiflon = mh.sin(mh.radians(dellam))
         cos2 = mh.cos(mh.radians(self.lat2))
 
         x = self.N2 * sendiflon * cos2
-        y = (delfi + (C* (x**2)) + D * (delfi**2)) / (B * (1 - E * (x**2)))
-        self.az12 = mh.degrees(mh.atan( x / y))
+        y = (delfi + (C * (x**2)) + (D * (delfi**2))) / (B * (1 - E * (x**2)))
+        self.az12 = mh.degrees(mh.atan(x / y))
 
         if dellam > 0 and delfi > 0:
             self.az12 = self.az12 
