@@ -1,5 +1,5 @@
 from pusdir import Directo
-from angulos import Angulos
+from Angulos import Angulos
 from radios import Radios
 
 miAngulo = Angulos()
