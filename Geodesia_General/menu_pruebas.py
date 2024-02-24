@@ -1,8 +1,10 @@
+from pusinv import Inverso
 from pusdir import Directo
 from Angulos import Angulos
 from radios import Radios
 
 miAngulo = Angulos()
+miInverso = Inverso()
 miDirecto = Directo()
 miRadio = Radios()
 
@@ -11,42 +13,30 @@ class MenuPruebas:
     def menu(self):
 
         miRadio.elipsoides()
-        miDirecto.e = miRadio.e_cuad
-        print("Ingrese la latitud 1")
+        #Ingresando datos del punto 1
         miAngulo.lat()
-        miDirecto.lat1 = miAngulo.decimal
-        miRadio.fi = miAngulo.decimal
-        print("Ingrese la longitud 1")
+        miRadio.fi = miInverso.lat1 = miAngulo.decimal
         miAngulo.lon()
-        miDirecto.lon1 = miAngulo.decimallon
-        miRadio.lon = miAngulo.decimallon
-        print("Ingrese el azimut de ida")
+        miRadio.lon = miInverso.lon1 = miAngulo.decimallon
+        miRadio.calc_radios()
+        miInverso.N1 = miRadio.normal
+        #Ingresando datos del punto 2
         miAngulo.lat()
-        miDirecto.az12 = miAngulo.decimal
-        miRadio.az = miAngulo.decimal
-        miDirecto.h = float(input("Ingrerse la Altura: "))
-        miDirecto.s = float(input("Ingrerse la distancia entre los dos puntos: "))
+        miRadio.fi = miInverso.lat2 = miAngulo.decimal
+        miAngulo.lon()
+        miRadio.lon = miInverso.lon2 = miAngulo.decimallon
         miRadio.calc_radios()
-        miDirecto.N1 = miRadio.normal
-        miDirecto.ro1 = miRadio.R
-        miDirecto.const()
-        miDirecto.fnd_lat()
-        miAngulo.decimal = miDirecto.lat2
-        miRadio.fi = miDirecto.lat2
-        miRadio.calc_radios()
-        miDirecto.N2 = miRadio.normal
+        miInverso.N2 = miRadio.normal
+        miInverso.ro1 = miRadio.R
+        miInverso.e = miRadio.e_cuad
+        miInverso.fnd_azs()
+        miAngulo.decimal = miInverso.az12
         miAngulo.ang_sexagesimales()
-        print(f"La latitud del punto 2 es: {miAngulo.grados}° {miAngulo.min}' {miAngulo.seg:.4f}''")
-        miDirecto.fnd_lon()
-        miAngulo.decimallon = miDirecto.lon2
-        miAngulo.decimal= miAngulo.decimallon
+        print(f"El azimut de 1 - 2 es: {miAngulo.grados}° {miAngulo.min}' {miAngulo.seg:.4f}''")
+        miAngulo.decimal = miInverso.az21
         miAngulo.ang_sexagesimales()
-        print(f"La longitud del punto 2 es: {miAngulo.grados}° {miAngulo.min}' {miAngulo.seg:.4f}''")
-        miDirecto.fnd_az()
-        miAngulo.decimal = miDirecto.az21
-        miAngulo.ang_sexagesimales()
-        print(f"El azimut de vuelta es: {miAngulo.grados}° {miAngulo.min}' {miAngulo.seg:.4f}''")
-        
+        print(f"El azimut de 2 - 1 es: {miAngulo.grados}° {miAngulo.min}' {miAngulo.seg:.4f}''")
+        print(f"La distancia entre los dos puntos es: {miInverso.s:.4f}")
 
 miInteractuador = MenuPruebas()
 miInteractuador.menu()

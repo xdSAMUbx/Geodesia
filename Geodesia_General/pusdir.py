@@ -29,7 +29,7 @@ class Directo:
 
         B = 1/(self.ro1 * arco)
         C = ((sen1 / cos1))/ (2 * (self.ro1 * self.N1 * arco))
-        D = (3 * self.e * sen1 * cos1 * arco) / (2*(1-(self.e*(sen1)**2)))
+        D = (3 * self.e * sen1 * cos1 * arco) / (2 * (1 - (self.e * (sen1) ** 2)))
         E = (1 + (3 * (sen1 / cos1)**2)) / (6 * (self.N1**2))
 
         return B,C,D,E,arco
