@@ -1,2 +1,8 @@
-import math as mh
-print((6378137**2)*(1-0.00669438)*(mh.pi/180)*(90))
+from sympy import symbols, sqrt, series
+
+x = symbols('x')
+expr = sqrt(1 - x**2)
+
+taylor_series = series(expr, x, n=5).removeO()
+
+print(taylor_series)
