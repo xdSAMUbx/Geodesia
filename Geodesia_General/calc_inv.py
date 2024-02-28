@@ -32,7 +32,6 @@ class Inversas:
         miRadio.e_cuad =self.e
         miRadio.calc_radios()
         self.N = miRadio.normal
-        self.h = ((mh.sqrt(self.x ** 2 + self.y ** 2)) / (mh.cos(mh.radians(self.lat)))) - self.N
 
         #Haciendo el calculo con las iteraciones 
         for i in range(0,10):

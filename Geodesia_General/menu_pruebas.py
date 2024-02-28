@@ -33,7 +33,7 @@ class MenuPruebas:
         print(f"La latitud es: {miAngulo.grados}º {miAngulo.min}' {miAngulo.seg:.4f}''")
         miAngulo.decimal = miInversa.lon
         miAngulo.ang_sexagesimales()
-        print(f"La latitud es: {miAngulo.grados}º {miAngulo.min}' {miAngulo.seg:.4f}''")
+        print(f"La Longitud es: {miAngulo.grados}º {miAngulo.min}' {miAngulo.seg:.4f}''")
         print(f"La altura es: {miInversa.h:.4f}")
 
 miInteractuador = MenuPruebas()
