@@ -15,19 +15,26 @@ class MenuPruebas:
         miRadio.elipsoides()
         miInversa.e = miRadio.e_cuad
         miInversa.a = miRadio.a
+        miRadio.calc_radios()
         miAngulo.lat()
         miAngulo.lon()
         miXYZ.fi= miAngulo.decimal
         miXYZ.lon = miAngulo.decimallon
+        miXYZ.N = miRadio.normal
+        miXYZ.e_cuad = miRadio.e_cuad
         miXYZ.h = float(input("Ingrese la altura prueba: "))
         miXYZ.calc_3D()
         miInversa.x = miXYZ.x
         miInversa.y = miXYZ.y
         miInversa.z = miXYZ.z
         miInversa.latitud()
-        print(f"La longitud es: {miInversa.lon}")
-        print(f"La latitud es: {miInversa.lat}")
-        print(f"La altura es: {miInversa.h}")
+        miAngulo.decimal = miInversa.lat
+        miAngulo.ang_sexagesimales()
+        print(f"La latitud es: {miAngulo.grados}º {miAngulo.min}' {miAngulo.seg:.4f}''")
+        miAngulo.decimal = miInversa.lon
+        miAngulo.ang_sexagesimales()
+        print(f"La latitud es: {miAngulo.grados}º {miAngulo.min}' {miAngulo.seg:.4f}''")
+        print(f"La altura es: {miInversa.h:.4f}")
 
 miInteractuador = MenuPruebas()
 miInteractuador.menu()
