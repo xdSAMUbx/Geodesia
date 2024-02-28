@@ -1,5 +1,5 @@
 from pusinv import Inverso
-from Angulos import Angulos
+from angulos import Angulos
 from radios import Radios
 
 miAngulo = Angulos()
