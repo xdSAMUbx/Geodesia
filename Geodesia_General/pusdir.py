@@ -2,7 +2,7 @@ import math as mh
 
 
 #Código puissant directo
-class Directo:
+class Puiss_dir:
 
     def __init__(self):
 

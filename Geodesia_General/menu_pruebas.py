@@ -1,9 +1,11 @@
-from area_elipsoide import Area
+from calc_inv import Inversas
+from calc_xyz import Coords_xyz
 from angulos import Angulos
 from radios import Radios
 
 miAngulo = Angulos()
-miArea = Area()
+miInversa = Inversas()
+miXYZ = Coords_xyz()
 miRadio = Radios()
 
 class MenuPruebas:
@@ -11,25 +13,21 @@ class MenuPruebas:
     def menu(self):
 
         miRadio.elipsoides()
-        #Ingresando datos del punto 1
+        miInversa.e = miRadio.e_cuad
+        miInversa.a = miRadio.a
         miAngulo.lat()
-        miArea.lat1 = miAngulo.decimal
         miAngulo.lon()
-        miArea.lon1 = miAngulo.decimallon
-        #Ingresando datos del punto 2
-        miAngulo.lat()
-        miArea.lat2 = miAngulo.decimal
-        miAngulo.lon()
-        miArea.lon2 = miAngulo.decimallon
-
-        #Ingresando los valores para el calculo
-        miArea.e = miRadio.e_cuad
-        miArea.a = miRadio.a
-        miArea.integral()
-        print(f"EL area dentro del elipsoide es: {miArea.area} m²")
-
-
-
+        miXYZ.fi= miAngulo.decimal
+        miXYZ.lon = miAngulo.decimallon
+        miXYZ.h = float(input("Ingrese la altura prueba: "))
+        miXYZ.calc_3D()
+        miInversa.x = miXYZ.x
+        miInversa.y = miXYZ.y
+        miInversa.z = miXYZ.z
+        miInversa.latitud()
+        print(f"La longitud es: {miInversa.lon}")
+        print(f"La latitud es: {miInversa.lat}")
+        print(f"La altura es: {miInversa.h}")
 
 miInteractuador = MenuPruebas()
 miInteractuador.menu()

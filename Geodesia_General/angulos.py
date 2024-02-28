@@ -37,3 +37,17 @@ class Angulos:
         minutos_decimales = (self.decimal - self.grados) * 60
         self.min = int(minutos_decimales)
         self.seg = (minutos_decimales - self.min) * 60
+
+        # Verificación y ajuste de segundos
+        if self.seg >= 60:
+            self.min += 1
+            self.seg -= 60
+
+        # Verificación y ajuste de minutos
+        if self.min >= 60:
+            self.grados += 1
+            self.min -= 60
+
+        # Verificación y ajuste de grados
+        if self.grados >= 360:
+            self.grados -= 360

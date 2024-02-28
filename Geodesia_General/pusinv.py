@@ -4,7 +4,7 @@ from pusdir import Directo
 miDirecto = Directo()
 
 #Codigo puissant Inverso
-class Inverso:
+class Puiss_Inv:
     
     def __init__(self) :
     
