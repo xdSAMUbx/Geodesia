@@ -34,7 +34,7 @@ class Inversas:
         self.N = miRadio.normal
 
         #Haciendo el calculo con las iteraciones 
-        for i in range(0,10):
+        for i in range(0,5):
 
             self.lat = mh.degrees(mh.atan((self.z + self.e * self.N * mh.sin(mh.radians(self.lat))) / (mh.sqrt(self.x ** 2 + self.y ** 2))))
             miRadio.fi = self.lat
