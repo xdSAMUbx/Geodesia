@@ -28,8 +28,5 @@ class MenuPruebas:
         miArea.integral()
         print(f"EL area dentro del elipsoide es: {miArea.area} m²")
 
-
-
-
 miInteractuador = MenuPruebas()
 miInteractuador.menu()

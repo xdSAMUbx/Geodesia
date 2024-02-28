@@ -1,8 +1,13 @@
-from sympy import symbols, sqrt, series
+from sympy import symbols, expand, binomial
 
-x = symbols('x')
-expr = sqrt(1 - x**2)
+# Define las variables
+a, b, n = symbols('a b n')
 
-taylor_series = series(expr, x, n=5).removeO()
+# Define el binomio (a + b)^n
+binomial_expression = binomial(a + b, n)
 
-print(taylor_series)
+# Expande el binomio
+expanded_expression = expand(binomial_expression)
+
+# Imprime el resultado
+print(expanded_expression)

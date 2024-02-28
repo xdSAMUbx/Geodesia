@@ -23,15 +23,6 @@ class Area:
         z = (mh.pi / 180) * (self.lat2 - self.lat1)
         const = x * y * z
 
-        # Definir la variable
-        lat = symbols("lat")
-
-        # Definir la función a integrar
-        func = sqrt(1 - (self.e * (sin(lat)) ** 2))
-
-        # Serie de Taylor hasta 4 términos
-        serie =  cos(lat) * (series(func, lat, 0, n=4).removeO())
-
         # Definir los límites
         limsup = self.lat2
         liminf = self.lat1
