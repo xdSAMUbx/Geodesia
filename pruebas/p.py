@@ -1,35 +1,61 @@
-import matplotlib.pyplot as plt
+import pygame as pg
+import numpy as np
+from math import pi, sin, cos
 
-# Datos proporcionados
-precio = [4, 5, 6, 7, 8, 9]
-cantidad_demandada = [135, 104, 81, 68, 53, 39]
-cantidad_ofrecida = [26, 53, 81, 98, 110, 121]
+clock = pg.time.Clock()
+FPS = 30
 
-# Crear el gráfico de dispersión
-plt.scatter(cantidad_demandada, precio, label='Cantidad Demandada', color='blue')
-plt.scatter(cantidad_ofrecida, precio, label='Cantidad Ofrecida', color='red')
+width = 800
+height = 800
 
-# Unir los puntos con líneas
-plt.plot(cantidad_demandada, precio, linestyle='-', marker='o', color='blue')
-plt.plot(cantidad_ofrecida, precio, linestyle='-', marker='o', color='red')
+black = (0,0,0)
 
-# Encontrar el índice del punto de equilibrio (donde se cruzan las curvas)
-indice_equilibrio = next(i for i, (x, y) in enumerate(zip(cantidad_demandada, cantidad_ofrecida)) if x == y)
+pg.init()
 
-# Unir los puntos con líneas hasta el punto de equilibrio
-plt.plot(cantidad_demandada[:indice_equilibrio+1], precio[:indice_equilibrio+1], linestyle='-', marker='o', color='blue')
-plt.plot(cantidad_ofrecida[:indice_equilibrio+1], precio[:indice_equilibrio+1], linestyle='-', marker='o', color='red')
 
-# Mostrar el punto de equilibrio con una etiqueta
-plt.scatter(cantidad_demandada[indice_equilibrio], precio[indice_equilibrio], color='green', marker='X', s=100, label='Punto de Equilibrio')
-plt.text(cantidad_demandada[indice_equilibrio] + 5, precio[indice_equilibrio] - 0.5, f'({cantidad_demandada[indice_equilibrio]}, {precio[indice_equilibrio]})', color='green')
+class Projection:
+    def __init__(self, width, height):
+        
+        self.width = width
+        self.height = height
+        self.screen = pg.display.set_mode((width,height))
+        self.background = (black)
+        pg.display.set_caption('ASCII 3D EARTH')
+        self.surfaces = {}
 
-# Configurar el gráfico
-plt.title('Mercado De Pizzas')
-plt.xlabel('Cantidad de Pizzas')
-plt.ylabel('Precio de Pizzas')
-plt.legend()
-plt.grid(True)
+    def addSurface (self, name, surface):
+        self.surfaces[name] = surface
 
-# Mostrar el gráfico
-plt.show()
+    def display(self):
+        self.screen.fill(self.background)
+
+        for surface in self.surfaces.values():
+            for node in surface.nodes:
+                pg.draw.circle(self.screen, (255,255,255), (int(node[0]), int(node[1])), 4, 0)
+
+class Object:
+    def __init__(self):
+        self.nodes = np.zeros((0,4))
+
+    def addNodes(self,node_array):
+        ones_column = np.ones((len(node_array),1))
+        ones_added = np.hstack((node_array, ones_column))
+        self.nodes = np.vstack((self.nodes,ones_added))
+
+
+running = True
+
+while running:
+    clock.tick(FPS)
+    pv = Projection(width, height)
+    cube = Object()
+    cubes_nodes = [(x, y, z) for x in (200, 600) for y in (200, 600) for z in (200, 600)]
+    cube.addNodes(np.array(cubes_nodes))
+    pv.addSurface('cube', cube)
+    pv.display()
+
+    for event in pg.event.get():
+        if event.type == pg.QUIT:
+            running = False  # Cambiamos running a False para salir del bucle
+
+    pg.display.update()
