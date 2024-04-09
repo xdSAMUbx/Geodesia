@@ -31,7 +31,22 @@ class Projection:
 
         for surface in self.surfaces.values():
             for node in surface.nodes:
-                pg.draw.circle(self.screen, (255,255,255), (int(node[0]), int(node[1])), 4, 0)
+                pg.draw.circle(self.screen, (255,255,255), (int(node[1]), int(node[2])), 4, 0)
+
+    def rotateAll(self,theta):
+        
+        for surface in self.surfaces.values():
+            center = surface.findCentre()
+
+            c = np.cos(theta)
+            s = np.sin(theta)
+
+            matrix = np.array([[c,-s,0,0],
+                               [s,c,0,0],
+                               [0,0,1,0],
+                               [0,0,0,1]])
+
+            surface.rotate(center, matrix)
 
 class Object:
     def __init__(self):
@@ -42,7 +57,15 @@ class Object:
         ones_added = np.hstack((node_array, ones_column))
         self.nodes = np.vstack((self.nodes,ones_added))
 
+    def findCentre(self):
+            mean = self.nodes.mean(axis = 0)
+            return mean
+    
+    def rotate(self, center, matrix):
+        for i, node in enumerate(self.nodes):
+            self.nodes[i] = center + np.matmul(matrix, node - center)
 
+spin = 0
 running = True
 
 while running:
@@ -52,6 +75,7 @@ while running:
     cubes_nodes = [(x, y, z) for x in (200, 600) for y in (200, 600) for z in (200, 600)]
     cube.addNodes(np.array(cubes_nodes))
     pv.addSurface('cube', cube)
+    pv.rotateAll(spin)
     pv.display()
 
     for event in pg.event.get():
@@ -59,3 +83,4 @@ while running:
             running = False  # Cambiamos running a False para salir del bucle
 
     pg.display.update()
+    spin += 0.05
