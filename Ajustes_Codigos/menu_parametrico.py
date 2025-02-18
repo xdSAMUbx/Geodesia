@@ -10,6 +10,7 @@ class Parametrico:
         self.k = 0
         self.r = 0
         self.tk = []
+        self.tk0 = []
 
     def menu (self):
         
@@ -19,7 +20,11 @@ class Parametrico:
         self.r = self.n - self.k
         misEcuaciones.val_aprox_parametros()
         self.tk = misEcuaciones.tk
-        print(f"parametros aproximados = {self.tk}")
+        self.tk0 = misEcuaciones.tk0
+        print(f"parametros aproximados = {self.tk0}")
+        misEcuaciones.matrices()
+        misEcuaciones.lb
+        pass
 
 miInteractuador = Parametrico()
 miInteractuador.menu()
