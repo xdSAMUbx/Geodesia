@@ -81,7 +81,7 @@ class Ecuaciones:
          else:
             print("¿Los valores aproximados son distancias o angulos?")
             print("""1. Distancias
- 2. Angulos""")
+2. Angulos""")
             op = int(input("Ingrese una opcion: "))
             if op == 1:
                 self.tk0 = np.array([float(input(f"Ingrese el valor aproximado inicial de t{i}: ")) for i in range(1,self.k+1)])

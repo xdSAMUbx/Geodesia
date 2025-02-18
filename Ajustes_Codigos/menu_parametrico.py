@@ -23,7 +23,8 @@ class Parametrico:
         self.tk0 = misEcuaciones.tk0
         print(f"parametros aproximados = {self.tk0}")
         misEcuaciones.matrices()
-        misEcuaciones.lb
+        print(f"""La matriz de las mediciones es: 
+{misEcuaciones.lb}""")
         pass
 
 miInteractuador = Parametrico()
