@@ -35,15 +35,15 @@ class Ecuaciones:
 2. Angulos""")
         op = int(input("Ingrese una opcion: "))
         if op == 1:
-            for i in range(0,self.n):
-                self.lb[i] = float(input(f"Ingrese el valor de la X{i}: "))
+            for i in range(self.n):
+                self.lb[i-1] = float(input(f"Ingrese el valor de la X{i+1}: "))
         elif op == 2:
-            for i in range(0,self.n):
+            for i in range(self.n):
                 print(f'Ingrese el valor del X{i+1}')
                 miAngulo.grad()
-                self.lb[i] = miAngulo.decimal
+                self.lb[i-1] = miAngulo.decimal
 
-        elif op == 3:
+        """elif op == 3:
             for i in range(self.n):
                 expr = input(f"Ingrese la expresión simbólica para X{i} en términos de t1, t2, ..., t{self.k}: ")
                 try:
@@ -51,7 +51,7 @@ class Ecuaciones:
                     expr_simb = sympify(expr)
                     self.l0.append(expr_simb)
                 except Exception as e:
-                    print(f"Error al interpretar la expresión: {e}")
+                    print(f"Error al interpretar la expresión: {e}")"""
     
     def evaluar_funciones(self):
         valores_reales = {self.tk[i]: float(self.tk[i]) for i in range(self.k)}
