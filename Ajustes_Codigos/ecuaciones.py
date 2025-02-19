@@ -36,12 +36,12 @@ class Ecuaciones:
         op = int(input("Ingrese una opcion: "))
         if op == 1:
             for i in range(self.n):
-                self.lb[i-1] = float(input(f"Ingrese el valor de la X{i+1}: "))
+                self.lb[i] = float(input(f"Ingrese el valor de la X{i+1}: "))
         elif op == 2:
             for i in range(self.n):
                 print(f'Ingrese el valor del X{i+1}')
                 miAngulo.grad()
-                self.lb[i-1] = miAngulo.decimal
+                self.lb[i] = miAngulo.decimal
 
         """elif op == 3:
             for i in range(self.n):
