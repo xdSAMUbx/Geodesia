@@ -1,5 +1,6 @@
 from angulos import Angulos
-import mpmath as mph
+import sympy as sp
+import math as mh
 
 miAngulo = Angulos()
 
@@ -20,13 +21,13 @@ class MetYoung:
         yb = float(input("Ingrese el valor de yb (Norte b): "))
         print("Ingrese el valor de α")
         miAngulo.grad()
-        alfa = miAngulo.decimal
+        alfa = miAngulo.decimal*(mh.pi/180)
         print("Ingrese el valor de β (Angulo a corregir)")
         miAngulo.grad()
-        beta = miAngulo.decimal
+        beta = miAngulo.decimal*(mh.pi/180)
 
-        cota = (mph.cot(alfa))
-        cotb = (mph.cot(beta))
+        cota = (sp.cot(alfa))
+        cotb = (sp.cot(beta))
 
         #calculando coordenadas del punto desconocido
         a = (xa*cotb) + (xb*cota) + (yb - ya)

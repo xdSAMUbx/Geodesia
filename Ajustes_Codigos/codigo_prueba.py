@@ -1,4 +1,6 @@
 import sympy as sp
+import mpmath as mph
+import math as mh
 
 xa = 4
 ya = 3
@@ -32,8 +34,8 @@ def angulos():
     grados = float(input("Grados: "))
     min = float(input("Minutos: "))
     seg = float(input("Segundos: "))
-    decimal = grados + (min/60) + (seg/3600)
-
+    decimal = (grados + (min/60) + (seg/3600))*(mh.pi/180)
+    
     return decimal 
 
 young(xa,ya,xb,yb)

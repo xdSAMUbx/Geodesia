@@ -77,7 +77,7 @@ class Ecuaciones:
 
          if op == 1:
             miYoung.young()
-            self.tk = np.array([miYoung.yp,miYoung.xp])
+            self.tk0 = np.array([miYoung.yp,miYoung.xp])
          else:
             print("¿Los valores aproximados son distancias o angulos?")
             print("""1. Distancias
