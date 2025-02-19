@@ -1,6 +1,7 @@
 from angulos import Angulos
 from young import MetYoung
 
+import sympy as sp
 from sympy import symbols, sympify
 import numpy as np
 
@@ -17,6 +18,7 @@ class Ecuaciones:
         self.tk0 = []
         self.lb = []
         self.l0 = []
+        self.med = []
         self.A = []
         self.dx = []
         self.v = []
@@ -27,60 +29,18 @@ class Ecuaciones:
         self.k = int(input("Ingrese el valor de k: "))
         self.tk = symbols(f't1:{self.k+1}')
 
-    def matrices (self):
-
-        self.lb = np.zeros((self.n,1))
-        print("¿Las mediciones son distancias o angulos?")
-        print("""1. Distancias
-2. Angulos""")
-        op = int(input("Ingrese una opcion: "))
-        if op == 1:
-            for i in range(self.n):
-                self.lb[i] = float(input(f"Ingrese el valor de la X{i+1}: "))
-        elif op == 2:
-            for i in range(self.n):
-                print(f'Ingrese el valor del X{i+1}')
-                miAngulo.grad()
-                self.lb[i] = miAngulo.decimal
-
-        """elif op == 3:
-            for i in range(self.n):
-                expr = input(f"Ingrese la expresión simbólica para X{i} en términos de t1, t2, ..., t{self.k}: ")
-                try:
-                    # Convertir la cadena de texto a expresión simbólica
-                    expr_simb = sympify(expr)
-                    self.l0.append(expr_simb)
-                except Exception as e:
-                    print(f"Error al interpretar la expresión: {e}")"""
-    
-    def evaluar_funciones(self):
-        valores_reales = {self.tk[i]: float(self.tk[i]) for i in range(self.k)}
-
-        resultados = []
-        for i in range(self.n):
-            if isinstance(self.l0[i], (int, float)):  # Si es numérico, lo dejas igual
-                resultados.append(self.l0[i])
-            else:  # Si es simbólico, lo evalúas
-                resultado_eval = self.l0[i].evalf(subs=valores_reales)
-                resultados.append(resultado_eval)
-
-        print("Resultados evaluados:", resultados)
-        return resultados
-
-        
     def val_aprox_parametros (self):
         
-         print("¿Desea hallar los valores aproximados mediante el metodo de Young?(Usar solo en caso de querer hallar coordenadas de 2 puntos en específico)")
+         print("¿Desea hallar los valores aproximados mediante el metodo de Young?")
          print("""1. Si
 2. No""")
          op = int(input("Ingrese una opcion: "))
-
          if op == 1:
             miYoung.young()
             self.tk0 = np.array([miYoung.yp,miYoung.xp])
          else:
-            print("¿Los valores aproximados son distancias o angulos?")
-            print("""1. Distancias
+            print("¿Los valores aproximados son angulares o longitudinales?")
+            print("""1. Longitudes
 2. Angulos""")
             op = int(input("Ingrese una opcion: "))
             if op == 1:
@@ -92,3 +52,73 @@ class Ecuaciones:
                     self.tk0.append(miAngulo.decimal)
             else:
                 print("Opción no válida")
+
+    def mediciones(self):
+        mediciones_lista = []
+        print("¿Las mediciones son angulares o longitudes?")
+        print("""1. Angulares
+    2. Longitudes""")
+        opcion = int(input("Seleccione una opción: "))
+        if opcion == 1:
+            for i in range(self.n):
+                print(f"Ingrese el valor de la medición x{i+1}: ")
+                miAngulo.grad()
+                valor = miAngulo.decimal
+                mediciones_lista.append([valor]) 
+        elif opcion == 2:
+            for i in range(self.n):
+                valor = float(input(f"Ingrese el valor de la medición x{i+1}: "))
+                mediciones_lista.append([valor]) 
+        else:
+            print("Opción no válida")
+            return
+        
+        self.med = sp.Matrix(mediciones_lista)
+        
+    def enlace(self):
+        for i in range(self.n):
+            expr = input(f"Ingrese la expresión simbólica para x{i+1} en términos de Tk: ")
+            try:
+                expr_simb = sympify(expr)
+                self.l0.append([expr_simb])
+            except Exception as e:
+                print(f"Error al interpretar la expresión: {e}")
+                break
+
+    def linealizacion(self):
+
+        tk0_valores = [v[0] for v in self.tk0]
+
+        # Evaluar l0 en los valores iniciales tk0
+        l0 = self.l0.subs(dict(zip(self.tk, tk0_valores)))
+
+        # Función que define la diferencia simbólica sin evaluar
+        L_simbolico = l0 - self.med  # Esta es la función simbólica completa
+
+        # Evaluar L en t0 (solo para referencia)
+        L_evaluado = l0 - self.med
+
+        # Matriz Jacobiana
+        self.A = self.l0.jacobian(self.tk)
+        self.R = self.A.T * self.A
+        self.dx = -(self.R.inv() * self.A.T * L_evaluado)
+        self.V = self.A*self.dx + L_evaluado
+
+        print("\n L (No evaluada):")
+        sp.pprint(L_simbolico)
+
+        print("\nEvaluación de L en valores aproximados de los parametros:")
+        sp.pprint(L_evaluado)
+
+        print("\nMatriz de las derivadas (A):")
+        sp.pprint(self.A)
+
+        print("\nMatriz R:")
+        sp.pprint(self.R)
+
+        print("\nMatriz delta x:")
+        sp.pprint(self.dx)
+
+        print("\nMatriz de las correciones:")
+        sp.pprint(self.V)
+

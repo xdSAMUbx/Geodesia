@@ -1,5 +1,7 @@
 from ecuaciones import Ecuaciones
 
+import sympy as sp
+
 misEcuaciones = Ecuaciones()
 
 class Parametrico:
@@ -22,9 +24,17 @@ class Parametrico:
         self.tk = misEcuaciones.tk
         self.tk0 = misEcuaciones.tk0
         print(f"parametros aproximados = {self.tk0}")
-        misEcuaciones.matrices()
-        print(f"""La matriz de las mediciones es: 
-{misEcuaciones.lb}""")
+        misEcuaciones.mediciones()
+        print(f"""\nLa matriz de las mediciones es: 
+{sp.pprint(sp.Matrix(misEcuaciones.lb))}\n
+Digite las Ecuaciones de Enlace:\n
+{misEcuaciones.enlace()}\n
+Las ecuaciones de enlace son:\n
+{sp.pprint(sp.Matrix(misEcuaciones.l0))}\n 
+El ajuste por metodo paramterico es:\n
+{misEcuaciones.linealizacion()}\n""")
+
+
         pass
 
 miInteractuador = Parametrico()
