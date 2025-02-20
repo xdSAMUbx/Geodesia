@@ -1,8 +1,9 @@
 from ecuaciones import Ecuaciones
+from ajuste_nivelacion import Adjust_Niv
 
-import sympy as sp
 
 misEcuaciones = Ecuaciones()
+miRed = Adjust_Niv()
 
 class Parametrico:
 
@@ -12,28 +13,35 @@ class Parametrico:
         self.k = 0
         self.r = 0
         self.tk = []
-        self.tk0 = []
 
     def menu (self):
         
-        misEcuaciones.parametros()
-        self.n = misEcuaciones.n
-        self.k = misEcuaciones.k
-        self.r = self.n - self.k
-        misEcuaciones.val_aprox_parametros()
-        self.tk = misEcuaciones.tk
-        self.tk0 = misEcuaciones.tk0
-        print(f"parametros aproximados = {self.tk0}")
-        misEcuaciones.mediciones()
-        print(f"""\nLa matriz de las mediciones es: 
-{sp.pprint(sp.Matrix(misEcuaciones.lb))}\n
-Digite las Ecuaciones de Enlace:\n
-{misEcuaciones.enlace()}\n
-Las ecuaciones de enlace son:\n
-{sp.pprint(sp.Matrix(misEcuaciones.l0))}\n 
-El ajuste por metodo paramterico es:\n
-{misEcuaciones.linealizacion()}\n""")
+        print("Bienvenido al programa de ajuste paramétrico")
+        print("\nIngrese los valores de n y k:")
+        self.n = int(input("n: "))
+        self.k = int(input("k: "))
+        print(f'r: {self.n-self.k}')
+        print("\nIngrese con respecto a que parametro va a ajustar: ")
+        print("1. Angulos\n2. Longitudes\n3. Coordenadas\n4. Red de Nivelación")
+        opcion = int(input("Seleccione una opción: "))
+        if opcion == 1:
+            self.angulos()
+        elif opcion == 2:
+            self.longitudes()
+        elif opcion == 3:
+            self.coordenadas()
+        elif opcion == 4:
+            miRed.n = self.n
+            miRed.k = self.k
+            miRed.mediciones()
+            miRed.enlace()
+            miRed.val_prox()
+            miRed.ajuste()
 
+        else:
+            print("Opción no válida")
+            return
+ 
 
         pass
 

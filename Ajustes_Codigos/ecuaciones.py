@@ -32,22 +32,20 @@ class Ecuaciones:
     def val_aprox_parametros (self):
         
          print("¿Desea hallar los valores aproximados mediante el metodo de Young?")
-         print("""1. Si
-2. No""")
-         op = int(input("Ingrese una opcion: "))
+         print("1. Si\n2. No")
+         op = int(input("\nIngrese una opcion: "))
          if op == 1:
             miYoung.young()
             self.tk0 = np.array([miYoung.yp,miYoung.xp])
          else:
-            print("¿Los valores aproximados son angulares o longitudinales?")
-            print("""1. Longitudes
-2. Angulos""")
-            op = int(input("Ingrese una opcion: "))
+            print("\n¿Los valores aproximados son angulares o longitudinales?")
+            print("1. Longitudes\n2. Angulos")
+            op = int(input("\nIngrese una opcion: "))
             if op == 1:
-                self.tk0 = np.array([float(input(f"Ingrese el valor aproximado inicial de t{i}: ")) for i in range(1,self.k+1)])
+                self.tk0 = np.array([float(input(f"\nIngrese el valor aproximado inicial de t{i}: ")) for i in range(1,self.k+1)])
             elif op == 2:
                 for i in range(1,(self.k+1)):
-                    print(f'Ingrese el valor aproximado inicial de t{i}')
+                    print(f'\nIngrese el valor aproximado inicial de t{i}')
                     miAngulo.grad()
                     self.tk0.append(miAngulo.decimal)
             else:
@@ -55,34 +53,34 @@ class Ecuaciones:
 
     def mediciones(self):
         mediciones_lista = []
-        print("¿Las mediciones son angulares o longitudes?")
-        print("""1. Angulares
-    2. Longitudes""")
-        opcion = int(input("Seleccione una opción: "))
+        print("\n¿Las mediciones son angulares o longitudes?")
+        print("1. Angulares\n2. Longitudes")
+        opcion = int(input("\nSeleccione una opción: "))
         if opcion == 1:
             for i in range(self.n):
-                print(f"Ingrese el valor de la medición x{i+1}: ")
+                print(f"\nIngrese el valor de la medición x{i+1}: ")
                 miAngulo.grad()
                 valor = miAngulo.decimal
                 mediciones_lista.append([valor]) 
         elif opcion == 2:
             for i in range(self.n):
-                valor = float(input(f"Ingrese el valor de la medición x{i+1}: "))
+                valor = float(input(f"\nIngrese el valor de la medición x{i+1}: "))
                 mediciones_lista.append([valor]) 
         else:
             print("Opción no válida")
             return
         
         self.med = sp.Matrix(mediciones_lista)
+        self.lb = self.med
         
     def enlace(self):
         for i in range(self.n):
-            expr = input(f"Ingrese la expresión simbólica para x{i+1} en términos de Tk: ")
+            expr = input(f"\nIngrese la expresión simbólica para x{i+1} en términos de Tk: ")
             try:
                 expr_simb = sympify(expr)
                 self.l0.append([expr_simb])
             except Exception as e:
-                print(f"Error al interpretar la expresión: {e}")
+                print(f"\nError al interpretar la expresión: {e}")
                 break
 
     def linealizacion(self):
