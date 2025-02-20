@@ -1,9 +1,11 @@
 from ecuaciones import Ecuaciones
 from ajuste_nivelacion import Adjust_Niv
+from ajuste_angulos import Adjust_Deg
 
 
 misEcuaciones = Ecuaciones()
 miRed = Adjust_Niv()
+miDeg = Adjust_Deg()
 
 class Parametrico:
 
@@ -14,23 +16,36 @@ class Parametrico:
         self.r = 0
         self.tk = []
 
-    def menu (self):
-        
-        print("Bienvenido al programa de ajuste paramétrico")
+    def parametros (self):
+
         print("\nIngrese los valores de n y k:")
         self.n = int(input("n: "))
         self.k = int(input("k: "))
         print(f'r: {self.n-self.k}')
+
+    def menu (self):
+        
+        print("Bienvenido al programa de ajuste paramétrico")
         print("\nIngrese con respecto a que parametro va a ajustar: ")
         print("1. Angulos\n2. Longitudes\n3. Coordenadas\n4. Red de Nivelación")
         opcion = int(input("Seleccione una opción: "))
         if opcion == 1:
-            self.angulos()
+            self.parametros()
+            miDeg.n = self.n
+            miDeg.k = self.k
+            miDeg.mediciones()
+            miDeg.enlace()
+            miDeg.val_prox()
+            miDeg.ajuste()
+
         elif opcion == 2:
             self.longitudes()
+
         elif opcion == 3:
             self.coordenadas()
+
         elif opcion == 4:
+            self.parametros
             miRed.n = self.n
             miRed.k = self.k
             miRed.mediciones()
@@ -42,7 +57,6 @@ class Parametrico:
             print("Opción no válida")
             return
  
-
         pass
 
 miInteractuador = Parametrico()
