@@ -1,11 +1,13 @@
+
 from ecuaciones import Ecuaciones
 from ajuste_nivelacion import Adjust_Niv
 from ajuste_angulos import Adjust_Deg
-
+from ajuste_longitud import Adjust_Lenght
 
 misEcuaciones = Ecuaciones()
 miRed = Adjust_Niv()
 miDeg = Adjust_Deg()
+miLon = Adjust_Lenght()
 
 class Parametrico:
 
@@ -39,13 +41,19 @@ class Parametrico:
             miDeg.ajuste()
 
         elif opcion == 2:
-            self.longitudes()
+            self.parametros()
+            miLon.n = self.n
+            miLon.k = self.k
+            miLon.mediciones()
+            miLon.enlace()
+            miLon.val_prox()
+            miLon.ajuste()
 
         elif opcion == 3:
             self.coordenadas()
 
         elif opcion == 4:
-            self.parametros
+            self.parametros()
             miRed.n = self.n
             miRed.k = self.k
             miRed.mediciones()
