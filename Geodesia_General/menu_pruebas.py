@@ -36,5 +36,6 @@ class MenuPruebas:
         print(f"La Longitud es: {miAngulo.grados}º {miAngulo.min}' {miAngulo.seg:.4f}''")
         print(f"La altura es: {miInversa.h:.4f}")
 
-miInteractuador = MenuPruebas()
-miInteractuador.menu()
+if  __name__ == "__main__":
+    miInteractuador = MenuPruebas()
+    miInteractuador.menu()
