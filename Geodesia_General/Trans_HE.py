@@ -1,5 +1,6 @@
 import numpy as np
-
+"""Este código permite calcular la transformación a fin de helmert enseñada en la clase de goedesia 
+física"""
 class Trans_HE:
     def __init__(self):
 

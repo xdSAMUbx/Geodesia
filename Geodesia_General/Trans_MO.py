@@ -1,8 +1,18 @@
+"""Este código permite calcular la transformación a fin de molodensky enseñada en la clase de goedesia
+física"""
+
 import numpy as np
+from radios import Radios
+from calc_xyz import Coords_xyz
+from angulos import Angulos
+
+miradio = Radios()
+miXYZ = Coords_xyz()
+miAngulo = Angulos()
 
 class Trans_MO:
 
-    def __init__(self):
+    def __init__(self) -> None:
 
         self.dx = 0
         self.dy = 0
@@ -22,8 +32,9 @@ class Trans_MO:
         self.zsir = 0
         self.lat = 0
         self.lon = 0
+        self.region:int = 0
 
-    def mtz_MO_sir(self):
+    def mtz_MO_sir(self) -> None:
         
         mtz_0 = np.array([[self.x0],[self.y0],[self.z0]])
         mtz_delta = np.array([[self.dx],[self.dy],[self.dz]])
@@ -37,11 +48,12 @@ class Trans_MO:
         self.ysir = mtz_fin[1,0]
         self.zsir = mtz_fin[2,0]
 
-    def ts_MO(self):
+    def para_MO(self) -> None:
 
         #region 1
         if self.lat >= 10.0 and self.lat <= 13.0 and self.lon >= -73.0 and self.lon <= -71.0:
 
+            self.region = 1
             self.dx = 300.449
             self.dy = 293.757
             self.dz = -317.306
@@ -54,8 +66,9 @@ class Trans_MO:
             self.z0 = 1248403.057
             
         #region 2
-        elif self.lat >= 9.4 and self.lat <= 11.6 and self.lon >= -76.0 and self.lon <= -73.0:
+        elif self.lat >= 9.4 and self.lat <= 11.6 and self.lon >= 284 and self.lon <= 287:
 
+            self.region = 2
             self.dx = 308.833
             self.dy = 282.519
             self.dz = -314.571
@@ -68,8 +81,9 @@ class Trans_MO:
             self.z0 = 1172969.151
             
         #region 3
-        elif self.lat >= 8.0 and self.lat <= 9.4 and self.lon >= -77.6 and self.lon <= -74.4:
+        elif self.lat >= 8.0 and self.lat <= 9.4 and self.lon >= 282.4 and self.lon <= 285.6:
 
+            self.region = 3
             self.dx = 311.118
             self.dy = 289.167
             self.dz = -310.641
@@ -82,8 +96,9 @@ class Trans_MO:
             self.z0 = 991255.656
             
         #region 4
-        elif self.lat >= 5.0 and self.lat <= 9.4 and self.lon >= -74.4 and self.lon <= -72.0:
+        elif self.lat >= 5.0 and self.lat <= 9.4 and self.lon >= 285.6 and self.lon <= 288:
 
+            self.region = 4
             self.dx = 306.666
             self.dy = 315.063
             self.dz = -318.837
@@ -96,8 +111,9 @@ class Trans_MO:
             self.z0 = 769132.398
             
         #region 5
-        elif self.lat >= 5.0 and self.lat <= 8.0 and self.lon >= -78.0 and self.lon <= -74.4:
+        elif self.lat >= 5.0 and self.lat <= 8.0 and self.lon >= 282 and self.lon <= 285.6:
 
+            self.region = 5
             self.dx = 307.871
             self.dy = 305.803
             self.dz = -311.992
@@ -110,8 +126,9 @@ class Trans_MO:
             self.z0 = 648855.829
             
         #region 6
-        elif self.lat >= 3.0 and self.lat <= 5.0 and self.lon >= -78.0 and self.lon <= -74.4:
+        elif self.lat >= 3.0 and self.lat <= 5.0 and self.lon >= 282 and self.lon <= 285.6:
 
+            self.region = 6
             self.dx = 302.934
             self.dy = 307.805
             self.dz = -312.121
@@ -124,8 +141,9 @@ class Trans_MO:
             self.z0 = 491954.2193
             
         #region 7
-        elif self.lat >= -1.0 and self.lat <= 3.0 and self.lon >= -79.0 and self.lon <= -74.0:
+        elif self.lat >= -1.0 and self.lat <= 3.0 and self.lon >= 281 and self.lon <= 286:
 
+            self.region = 7
             self.dx = 295.282
             self.dy = 321.293
             self.dz = -311.001
@@ -138,8 +156,9 @@ class Trans_MO:
             self.z0 = 243257.9554
             
         #region 8
-        elif ( self.lat >= -4.5 and self.lat <= 3.0 and self.lon >= -74.0 and self.lon <= 66.5) or (self.lat >= 3.0 and self.lat <= 5.0 and self.lon >= -74.0 and self.lon <= -66.5) or (self.lat >= 5.0 and self.lat <= 7.3 and self.lon >= -72.0 and self.lon <= -66.5):
+        elif ( self.lat >= -4.5 and self.lat <= 3.0 and self.lon >= 286 and self.lon <= 293.5) or (self.lat >= 3.0 and self.lat <= 5.0 and self.lon >= 286 and self.lon <= 293.5) or (self.lat >= 5.0 and self.lat <= 7.3 and self.lon >= 288 and self.lon <= 293.5):
 
+            self.region = 8
             self.dx = 302.259
             self.dy = 317.979
             self.dz = -319.080
@@ -151,3 +170,41 @@ class Trans_MO:
             self.y0 = -6120500.388
             self.z0 = 491473.3064
 
+    def transformacion_final(self) -> None:
+
+        # Se asume la opción 2 ya que siempre se debe de ir de Internacional a GRS - 80
+        opcion = 2
+        miradio.elipsoides(opcion)
+        # Se pide la latitud del punto
+        miAngulo.lat()
+        miXYZ.fi = miAngulo.decimal
+        miradio.fi = miAngulo.decimal
+        self.lat = miAngulo.decimal
+        # Se pide la longitud del punto
+        miAngulo.lon()
+        miXYZ.lon = miAngulo.decimallon
+        miradio.lon = miAngulo.decimallon
+        self.lon = miAngulo.decimallon
+        # Se hallan los parametros y la zona del punto donde se encuentra
+        self.para_MO()
+        print(f"El punto se encuentra ubicado en la región: {self.region}")
+        # Se calculan los radios con la función en el programa radios
+        miradio.calc_radios()
+        miXYZ.N = miradio.normal # Se pasa la gran normal al calculo de coordenadas XYZ
+        miXYZ.e_cuad = miradio.e_cuad # Se pasan los valores geométricos de la elipse de referencia al calculo de coordenadas
+        miXYZ.h = float(input("Ingrese la altura del punto el cual desea transformar: "))
+        # Se calculan las coordenadas XYZ
+        miXYZ.calc_3D()
+        self.xbog = miXYZ.x
+        self.ybog = miXYZ.y
+        self.zbog = miXYZ.z
+        print("\nLas coordenadas geocentricas iniciales son: ")
+        print(f"X_bog = {self.xbog}")
+        print(f"Y_bog = {self.ybog}")
+        print(f"Z_bog = {self.zbog}")
+        # Se calculan las coordenadas de la transformación
+        self.mtz_MO_sir()
+        print("\nLas coordenadas geocentricas transformadas son: ")
+        print(f"X_M = {self.xsir}")
+        print(f"Y_M = {self.ysir}")
+        print(f"Z_M = {self.zsir}")
