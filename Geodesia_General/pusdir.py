@@ -1,5 +1,5 @@
 import math as mh
-
+"""Este codigo permite calcular el problema directo geodésico"""
 
 #Código puissant directo
 class Puiss_dir:

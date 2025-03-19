@@ -2,11 +2,11 @@ class Angulos:
     
     def __init__(self):
         
-        self.decimal = 0
-        self.grados = 0
-        self.min = 0
-        self.seg = 0
-        self.decimallon = 0
+        self.decimal:float = round(0,4)
+        self.grados:float = round(0,4)
+        self.min:float = round(0,4)
+        self.seg:float = round(0,4)
+        self.decimallon:float = round(0,4)
         
     def lat (self):
         

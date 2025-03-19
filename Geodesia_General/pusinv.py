@@ -1,7 +1,8 @@
 import math as mh
-from pusdir import Directo
+from pusdir import Puiss_dir
+"""Este codigo permite calcular el problema inverso geodésico"""
 
-miDirecto = Directo()
+miDirecto = Puiss_dir()
 
 #Codigo puissant Inverso
 class Puiss_Inv:

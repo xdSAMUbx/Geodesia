@@ -5,6 +5,8 @@ miRadio = Radios()
 
 
 # Calculando las coordenadas inversas
+"""Este codigo se usa para hallar las coordenadas de latitud y longitud con a partir de unas coordenadas geocentricas
+X,Y,Z"""
 class Inversas:
 
     def __init__(self):

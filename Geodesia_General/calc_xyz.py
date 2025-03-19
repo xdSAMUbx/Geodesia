@@ -18,8 +18,8 @@ class Coords_xyz:
         cos_fi = math.cos(math.radians(self.fi))
         sin_fi = math.sin(math.radians(self.fi))
         
-        self.y = (self.N+self.h)*cos_fi
-        self.z = (self.N*(1-self.e_cuad)+self.h)*sin_fi
+        self.y = round((self.N+self.h)*cos_fi,4)
+        self.z = round((self.N*(1-self.e_cuad)+self.h)*sin_fi,4)
         
     def calc_3D(self):
         
@@ -28,8 +28,8 @@ class Coords_xyz:
         cos_lon = math.cos(math.radians(self.lon))
         sin_lon = math.sin(math.radians(self.lon))
         
-        self.x = (self.N+self.h)*cos_fi*cos_lon
-        self.y = (self.N+self.h)*cos_fi*sin_lon
+        self.x = round((self.N+self.h)*cos_fi*cos_lon,4)
+        self.y = round((self.N+self.h)*cos_fi*sin_lon,4)
         k = self.N*(1-self.e_cuad)
         c = self.h
-        self.z = (k+c)*sin_fi
+        self.z = round((k+c)*sin_fi,4)
