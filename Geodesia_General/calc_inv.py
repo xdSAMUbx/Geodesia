@@ -1,8 +1,9 @@
 import math as mh
 from radios import Radios
+from angulos import Angulos
 
+miAngulo = Angulos()
 miRadio = Radios()
-
 
 # Calculando las coordenadas inversas
 """Este codigo se usa para hallar las coordenadas de latitud y longitud con a partir de unas coordenadas geocentricas
@@ -23,15 +24,19 @@ class Inversas:
 
     def latitud(self):
 
-        self.lon = mh.degrees(mh.atan( self.y / self.x))
+        self.lon = mh.degrees(mh.atan(self.y / self.x))
+        miAngulo.decimal = self.lon
+        miAngulo.ang_sexagesimales()
+        print(f"La longitud transformada es: {miAngulo.grados}° {miAngulo.min}'' {miAngulo.seg}")
 
         # Primera aproximación con h = 0
         self.lat = mh.degrees(mh.atan((1 / (1 - self.e)) * (self.z / mh.sqrt(self.x ** 2 + self.y ** 2))))
-        
+        miAngulo.decimal = self.lat
+        miAngulo.ang_sexagesimales()
+        print(f"La latitud aproximada inicial transformada es: {miAngulo.grados}° {miAngulo.min}'' {miAngulo.seg}")
+
         #Calculando con la primera aproximación de la latitud
         miRadio.fi = self.lat
-        miRadio.a = self.a
-        miRadio.e_cuad =self.e
         miRadio.calc_radios()
         self.N = miRadio.normal
 
@@ -42,4 +47,9 @@ class Inversas:
             miRadio.fi = self.lat
             miRadio.calc_radios()
             self.N = miRadio.normal
-            self.h = ((mh.sqrt(self.x ** 2 + self.y ** 2)) / (mh.cos(mh.radians(self.lat))) - self.N)
+            self.h = round(((mh.sqrt(self.x ** 2 + self.y ** 2)) / (mh.cos(mh.radians(self.lat))) - self.N),4)
+
+        miAngulo.decimal = self.lat
+        miAngulo.ang_sexagesimales()
+        print(f"La latitud transformada es: {miAngulo.grados}° {miAngulo.min}'' {miAngulo.seg}")
+        print(f"La altura es: {self.h}")

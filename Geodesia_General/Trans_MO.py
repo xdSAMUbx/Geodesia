@@ -5,10 +5,12 @@ import numpy as np
 from radios import Radios
 from calc_xyz import Coords_xyz
 from angulos import Angulos
+from calc_inv import Inversas
 
 miradio = Radios()
 miXYZ = Coords_xyz()
 miAngulo = Angulos()
+miInverso = Inversas()
 
 class Trans_MO:
 
@@ -66,7 +68,7 @@ class Trans_MO:
             self.z0 = 1248403.057
             
         #region 2
-        elif self.lat >= 9.4 and self.lat <= 11.6 and self.lon >= 284 and self.lon <= 287:
+        elif self.lat >= 9.4 and self.lat <= 11.6 and self.lon >= -76.0 and self.lon <= -73.0:
 
             self.region = 2
             self.dx = 308.833
@@ -81,7 +83,7 @@ class Trans_MO:
             self.z0 = 1172969.151
             
         #region 3
-        elif self.lat >= 8.0 and self.lat <= 9.4 and self.lon >= 282.4 and self.lon <= 285.6:
+        elif self.lat >= 8.0 and self.lat <= 9.4 and self.lon >= -77.6 and self.lon <= -74.4:
 
             self.region = 3
             self.dx = 311.118
@@ -96,7 +98,7 @@ class Trans_MO:
             self.z0 = 991255.656
             
         #region 4
-        elif self.lat >= 5.0 and self.lat <= 9.4 and self.lon >= 285.6 and self.lon <= 288:
+        elif self.lat >= 5.0 and self.lat <= 9.4 and self.lon >= -74.4 and self.lon <= -72:
 
             self.region = 4
             self.dx = 306.666
@@ -111,7 +113,7 @@ class Trans_MO:
             self.z0 = 769132.398
             
         #region 5
-        elif self.lat >= 5.0 and self.lat <= 8.0 and self.lon >= 282 and self.lon <= 285.6:
+        elif self.lat >= 5.0 and self.lat <= 8.0 and self.lon >= -78.0 and self.lon <= -74.4:
 
             self.region = 5
             self.dx = 307.871
@@ -126,7 +128,7 @@ class Trans_MO:
             self.z0 = 648855.829
             
         #region 6
-        elif self.lat >= 3.0 and self.lat <= 5.0 and self.lon >= 282 and self.lon <= 285.6:
+        elif self.lat >= 3.0 and self.lat <= 5.0 and self.lon >= -78.0 and self.lon <= -74.4:
 
             self.region = 6
             self.dx = 302.934
@@ -141,7 +143,7 @@ class Trans_MO:
             self.z0 = 491954.2193
             
         #region 7
-        elif self.lat >= -1.0 and self.lat <= 3.0 and self.lon >= 281 and self.lon <= 286:
+        elif self.lat >= -1.0 and self.lat <= 3.0 and self.lon >= -79.0 and self.lon <= -74.0:
 
             self.region = 7
             self.dx = 295.282
@@ -156,7 +158,7 @@ class Trans_MO:
             self.z0 = 243257.9554
             
         #region 8
-        elif ( self.lat >= -4.5 and self.lat <= 3.0 and self.lon >= 286 and self.lon <= 293.5) or (self.lat >= 3.0 and self.lat <= 5.0 and self.lon >= 286 and self.lon <= 293.5) or (self.lat >= 5.0 and self.lat <= 7.3 and self.lon >= 288 and self.lon <= 293.5):
+        elif ( self.lat >= -4.5 and self.lat <= 3.0 and self.lon >= -74.0 and self.lon <= -66.5) or (self.lat >= 3.0 and self.lat <= 5.0 and self.lon >= -74.4 and self.lon <= -66.5) or (self.lat >= 5.0 and self.lat <= 7.3 and self.lon >= -72 and self.lon <= -66.5):
 
             self.region = 8
             self.dx = 302.259
@@ -181,10 +183,10 @@ class Trans_MO:
         miradio.fi = miAngulo.decimal
         self.lat = miAngulo.decimal
         # Se pide la longitud del punto
-        miAngulo.lon()
-        miXYZ.lon = miAngulo.decimallon
-        miradio.lon = miAngulo.decimallon
-        self.lon = miAngulo.decimallon
+        miAngulo.lat()
+        miXYZ.lon = -miAngulo.decimal
+        miradio.lon = -miAngulo.decimal
+        self.lon = -miAngulo.decimal
         # Se hallan los parametros y la zona del punto donde se encuentra
         self.para_MO()
         print(f"El punto se encuentra ubicado en la región: {self.region}")
@@ -208,3 +210,13 @@ class Trans_MO:
         print(f"X_M = {self.xsir}")
         print(f"Y_M = {self.ysir}")
         print(f"Z_M = {self.zsir}")
+        #Se le envian las coordenadas transformadas al codigo de inversas
+        miInverso.x = self.xsir
+        miInverso.y = self.ysir
+        miInverso.z = self.zsir
+        # Se selecciona automaticamente el elipsoide donde en teoria deben estar esas coordenadas
+        #opcion = 1
+        #miradio.elipsoides(opcion)
+        #miInverso.a = miradio.a
+        #miInverso.e = miradio.e_cuad
+        #miInverso.latitud()
