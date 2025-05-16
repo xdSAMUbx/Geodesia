@@ -1,45 +1,56 @@
 import sys
 from PyQt5.QtWidgets import (
-    QMainWindow, QApplication, QLabel, QAction, QMessageBox, QMenu
+    QApplication, QMainWindow, QAction, QMenu, QMessageBox,
+    QLabel, QWidget, QVBoxLayout, QStackedWidget
 )
 from PyQt5.QtCore import Qt
+
+class PaginaParametrico1(QWidget):
+    def __init__(self):
+        super().__init__()
+        layout = QVBoxLayout()
+        label = QLabel("Interfaz: Ajuste Paramétrico - Opción 1")
+        label.setAlignment(Qt.AlignCenter)
+        layout.addWidget(label)
+        self.setLayout(layout)
 
 class MainWindow(QMainWindow):
     def __init__(self):
         super().__init__()
-
-        #----------------Titulo del Programa-----------
         self.setWindowTitle("Ajustadora Geodésica")
         self.setGeometry(300, 300, 800, 600)
 
-        self.label = QLabel("Bienvenido a la Ajustadora Geodésica", self)
-        self.label.setAlignment(Qt.AlignCenter)
-        self.setCentralWidget(self.label)
+        # Central widget con QStackedWidget
+        self.stack = QStackedWidget()
+        self.setCentralWidget(self.stack)
+
+        # Página inicial
+        self.pagina_inicio = QLabel("Bienvenido a la Ajustadora Geodésica")
+        self.pagina_inicio.setAlignment(Qt.AlignCenter)
+        self.stack.addWidget(self.pagina_inicio)  # index 0
+
+        # Otras páginas (solo una por ahora, puedes seguir agregando)
+        self.pagina_param_op1 = PaginaParametrico1()
+        self.stack.addWidget(self.pagina_param_op1)  # index 1
 
         self.crear_menu()
 
     def crear_menu(self):
         menubar = self.menuBar()
-
-        # Menú principal
         ajuste_menu = menubar.addMenu("Ajuste")
 
-        # Crear submenús con "Opción 1" y "Opción 2"
-        modelos = ["Paramétrico", "Correlativo", "Colocación", "GMM", "GHM"]
+        # Submenú "Paramétrico"
+        param_menu = QMenu("Paramétrico", self)
+        opcion1 = QAction("Opción 1", self)
+        opcion1.triggered.connect(self.mostrar_parametrico_op1)
 
-        for nombre_modelo in modelos:
-            submenu = QMenu(nombre_modelo, self)
+        opcion2 = QAction("Opción 2", self)
+        opcion2.triggered.connect(lambda: self.mostrar_mensaje("Paramétrico", "Opción 2"))
 
-            opcion1 = QAction("Nivelación", self)
-            opcion1.triggered.connect(lambda _, n=nombre_modelo: self.opcion_seleccionada(n, "Nivelación"))
+        param_menu.addAction(opcion1)
+        param_menu.addAction(opcion2)
 
-            opcion2 = QAction("Poligonal", self)
-            opcion2.triggered.connect(lambda _, n=nombre_modelo: self.opcion_seleccionada(n, "Poligonal"))
-
-            submenu.addAction(opcion1)
-            submenu.addAction(opcion2)
-
-            ajuste_menu.addMenu(submenu)
+        ajuste_menu.addMenu(param_menu)
 
         # Menú Ayuda
         ayuda_menu = menubar.addMenu("Ayuda")
@@ -47,14 +58,17 @@ class MainWindow(QMainWindow):
         acerca_accion.triggered.connect(self.mostrar_acerca)
         ayuda_menu.addAction(acerca_accion)
 
-    def mostrar_acerca(self):
-        QMessageBox.information(self, "Acerca de", "Este menú es modular.")
+    def mostrar_parametrico_op1(self):
+        self.stack.setCurrentWidget(self.pagina_param_op1)
 
-    def opcion_seleccionada(self, modelo, opcion):
+    def mostrar_mensaje(self, modelo, opcion):
         QMessageBox.information(self, "Selección", f"Seleccionaste '{opcion}' en '{modelo}'")
+
+    def mostrar_acerca(self):
+        QMessageBox.information(self, "Acerca de", "Este es un ejemplo modular con vistas internas.")
 
 if __name__ == "__main__":
     app = QApplication(sys.argv)
-    window = MainWindow()
-    window.show()
+    ventana = MainWindow()
+    ventana.show()
     sys.exit(app.exec_())
